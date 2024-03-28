@@ -5,6 +5,7 @@ void main() {
   runApp(const MyApp());
 }
 
+// fake push
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
