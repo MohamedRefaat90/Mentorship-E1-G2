@@ -38,7 +38,9 @@ dependencies:
 
   # Networking 
   dio: ^5.4.2
-  retrofit_flutter: ^1.0.6
+  retrofit: ^4.1.0 
+  retrofit_generator: ^8.1.0
+  build_runner: ^2.4.9
 
   # State management
   flutter_bloc: ^8.1.5
@@ -56,6 +58,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+
+  # help to make Data model faster 
+  json_serializable: ^6.7.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
