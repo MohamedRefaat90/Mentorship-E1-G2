@@ -21,36 +21,32 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider<LoginCubit>(
-        create: (context) => LoginCubit(),
-        child: SafeArea(
-            child: Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 120),
-          child: SingleChildScrollView(
-            child: Column(children: [
-              const LogoBanar(),
-              const LoginFields(),
-              const ForgetPasswordBTN(),
-              CustomBTN(
-                press: () {},
-                widget: const Text(
-                  "Login",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17),
-                ),
-                width: double.infinity,
-                color: Colors.white,
+      body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 120),
+        child: SingleChildScrollView(
+          child: Column(children: [
+            const LogoBanar(),
+            const LoginFields(),
+            const ForgetPasswordBTN(),
+            CustomBTN(
+              press: () {},
+              widget: const Text(
+                "Login",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17),
               ),
-              const LoginWithText(),
-              const SocialLogin(),
-              const RegisterTextBtn()
-            ]),
-          ),
-        )),
-      ),
+              width: double.infinity,
+              color: Colors.white,
+            ),
+            const LoginWithText(),
+            const SocialLogin(),
+            const RegisterTextBtn()
+          ]),
+        ),
+      )),
     );
   }
 }
