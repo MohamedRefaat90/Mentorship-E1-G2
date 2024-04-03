@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/features/home/view/home_screen.dart';
+
+import 'features/Auth/login/presentation/pages/login_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MentorshipE1G2());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MentorshipE1G2 extends StatelessWidget {
+  const MentorshipE1G2({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: Colors.black,
+        brightness: Brightness.dark,
         useMaterial3: true,
       ),
-      debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }
