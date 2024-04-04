@@ -41,13 +41,18 @@ dependencies:
   retrofit: ^4.1.0 
   retrofit_generator: ^8.1.0
   build_runner: ^2.4.9
+  freezed: ^2.4.7
+  freezed_annotation: ^2.4.1
+
 
   # State management
   flutter_bloc: ^8.1.5
 
   # Dependency Injection
   get_it: ^7.6.7
+
   flutter_svg: ^2.0.10+1
+  google_fonts: ^6.2.0
 
 dev_dependencies:
   flutter_test:
