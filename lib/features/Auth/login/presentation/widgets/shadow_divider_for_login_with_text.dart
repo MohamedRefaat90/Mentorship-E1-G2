@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 
 class ShadowDividerForLoginWithText extends StatelessWidget {
   final double horizontalOffest;
@@ -15,9 +16,12 @@ class ShadowDividerForLoginWithText extends StatelessWidget {
           height: 30,
           decoration: BoxDecoration(
               boxShadow: const [
-                BoxShadow(color: Colors.black, spreadRadius: 30, blurRadius: 40)
+                BoxShadow(
+                    color: AppPallete.backgroundColor,
+                    spreadRadius: 40,
+                    blurRadius: 40)
               ],
-              color: Colors.black.withOpacity(0.5),
+              color: AppPallete.backgroundColor.withOpacity(1),
               borderRadius: const BorderRadius.all(Radius.circular(50)))),
     );
   }
