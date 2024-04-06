@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../pages/launches_screen.dart';
-import '../../pages/rockets_screen.dart';
-import '../../pages/upcoming_screen.dart';
+import '../../../../launches/presentation/pages/launches_screen.dart';
+import '../../../../rockets/presentation/pages/rockets_screen.dart';
+import '../../../../upcoming/presentation/pages/upcoming_screen.dart';
 
 part 'home_state.dart';
 

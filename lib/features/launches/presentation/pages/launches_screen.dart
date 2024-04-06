@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/features/home/presentation/widgets/launch_item.dart';
+import 'package:mentorship_e1_g3/core/widgets/launch_item.dart';
 
 import '../widgets/custom_launch_app_bar.dart';
 
