@@ -1,34 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:mentorship_e1_g3/features/home/presentation/cubit/cubit/home_cubit.dart';
+import 'package:mentorship_e1_g3/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-      child: Scaffold(
-        backgroundColor: AppPallete.homeBG,
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor:AppPallete.kPurple ,
-          unselectedItemColor: AppPallete.greyColor,
-          elevation: 11,
-          backgroundColor:AppPallete.homeBG,
-          items: const [
-              BottomNavigationBarItem(
-                icon:Icon(Icons.home_filled),
-                label:'Upcoming' ,
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: BlocBuilder<HomeCubit, HomeState>(
+        builder: (context, state) {
+          var cubit = HomeCubit.get(context);
+          return SafeArea(
+            child: Scaffold(
+              backgroundColor: AppPallete.homeBG,
+              bottomNavigationBar: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                selectedItemColor: AppPallete.kPurple,
+                unselectedItemColor: AppPallete.greyColor,
+                backgroundColor: AppPallete.homeBG,
+                items: items,
+                currentIndex: cubit.currentIndex,
+                onTap: (index) {
+                  cubit.changeBottomNavBar(index);
+                },
               ),
-             BottomNavigationBarItem(
-                icon:Icon(Icons.history),
-                label:'Launches' ,
-              ),
-             BottomNavigationBarItem(
-                icon:Icon(Icons.rocket_launch),
-                label:'Rockets' ,
-              ),
-        ],)
+              body:cubit.homeScreens[cubit.currentIndex]
+            ),
+          );
+        },
       ),
     );
   }
