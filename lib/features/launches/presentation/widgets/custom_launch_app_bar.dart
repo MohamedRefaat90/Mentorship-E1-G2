@@ -11,7 +11,7 @@ class CustomLaunchAppBar extends StatelessWidget {
       child: Row(
         children: [
           Text('Launches',
-             style:AppStyles.bold24(context)
+             style:AppStyles.font24BoldWhite(context)
           ),
           const Spacer(),
           IconButton(

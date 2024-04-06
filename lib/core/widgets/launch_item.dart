@@ -20,7 +20,7 @@ class LaunchItem extends StatelessWidget {
           child: Row(
             children: [
               const Image(
-                image:AssetImage(Assets.crs),
+                image:AssetImage(Assets.rocket),
                 width:100,
                 height:100,
               ),
@@ -31,22 +31,22 @@ class LaunchItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('LAUNCH',
-                  style:AppStyles.semiBold10(context)),
+                  style:AppStyles.font10SemiBoldPurple(context)),
                    SizedBox(
                     height: 8.h,
                   ),
                    Text('Starlink 2',
-                  style:AppStyles.semiBold16(context)),
+                  style:AppStyles.font16SemiBoldWhite(context)),
                     SizedBox(
                     height: 5.h,
                   ),
                    Text('CCAES SLC 40',
-                  style:AppStyles.medium12(context)),
+                  style:AppStyles.font12MediumWhite(context)),
                     SizedBox(
                     height: 5.h,
                   ),
                    Text('16-10-2020',
-                  style:AppStyles.medium12(context)),
+                  style:AppStyles.font12MediumWhite(context)),
                 
                 ],
               ),

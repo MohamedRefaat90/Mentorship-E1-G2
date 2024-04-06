@@ -1,7 +1,7 @@
 class Assets {
   Assets._();
 
-  static const crs = 'assets/images/home/rocket.png';
+  static const rocket = 'assets/images/home/rocket.png';
 
 
 }

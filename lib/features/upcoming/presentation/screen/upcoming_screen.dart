@@ -17,7 +17,7 @@ class UpcomingScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Upcoming',
-          style:AppStyles.bold24(context)),
+          style:AppStyles.font24BoldWhite(context)),
            SizedBox(height: 23.h,),
         const LaunchItem(),
          SizedBox(height: 20.h,),

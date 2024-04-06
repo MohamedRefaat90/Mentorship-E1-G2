@@ -14,10 +14,10 @@ class UpcomingCountDown extends StatelessWidget {
         children: [
           const CountDownCard(time:'01',),
           Text(':',
-          style:AppStyles.bold24(context)),
+          style:AppStyles.font24BoldWhite(context)),
           const CountDownCard(time:'30'),
            Text(':',
-           style:AppStyles.bold24(context)),
+           style:AppStyles.font24BoldWhite(context)),
           const CountDownCard(time:'00')
         ],
       ),
