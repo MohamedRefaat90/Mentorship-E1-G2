@@ -12,7 +12,7 @@ class AppStyles{
   }
  static TextStyle font10SemiBoldPurple(BuildContext context) {
     return TextStyle(
-      color: AppPallete.kPurple,
+      color: AppPallete.purple,
       fontSize: 10.sp,
       fontWeight: FontWeight.w600,
     );

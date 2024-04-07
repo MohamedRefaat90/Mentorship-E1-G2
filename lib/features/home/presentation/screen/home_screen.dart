@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
               backgroundColor: AppPallete.homeBG,
               bottomNavigationBar: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
-                selectedItemColor: AppPallete.kPurple,
+                selectedItemColor: AppPallete.purple,
                 unselectedItemColor: AppPallete.greyColor,
                 backgroundColor: AppPallete.homeBG,
                 items: items,
