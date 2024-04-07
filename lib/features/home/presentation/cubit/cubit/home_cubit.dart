@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../launches/presentation/pages/launches_screen.dart';
 import '../../../../rockets/presentation/pages/rockets_screen.dart';
 import '../../../../upcoming/presentation/pages/upcoming_screen.dart';
+import '../../profile/presentation/pages/profile_screen.dart';
 
 part 'home_state.dart';
 
@@ -26,6 +27,8 @@ class HomeCubit extends Cubit<HomeState> {
     UpcomingScreen(),
     LaunchesScreen(),
     RocketScreen(),
+    ProfileScreen(),
+    
    ];
 
 

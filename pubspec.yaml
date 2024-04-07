@@ -66,6 +66,7 @@ flutter:
     - assets/images/login_screen/social_icons/
     - assets/images/home/
     - assets/images/home/rocket.png
+    - assets/images/home/profile.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

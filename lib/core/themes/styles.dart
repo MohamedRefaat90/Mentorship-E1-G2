@@ -10,6 +10,7 @@ class AppStyles{
       fontWeight: FontWeight.w700,
     );
   }
+  
  static TextStyle semiBold10(BuildContext context) {
     return TextStyle(
       color: AppPallete.kPurple,

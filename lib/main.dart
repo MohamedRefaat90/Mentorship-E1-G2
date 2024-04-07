@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/app_theme.dart';
+import 'package:mentorship_e1_g3/features/home/presentation/pages/home_screen.dart';
 
-import 'features/Auth/login/presentation/pages/login_screen.dart';
 
 void main() {
   runApp(const MentorshipE1G2());
@@ -17,7 +17,7 @@ class MentorshipE1G2 extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTthemeMode,
       navigatorKey: navigator,
-      home: const LoginScreen(),
+      home: const HomeScreen(),
     );
   }
 }
