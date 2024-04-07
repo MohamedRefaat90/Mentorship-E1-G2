@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:mentorship_e1_g3/core/resources/assets.dart';
 
 import '../../core/routing/app_routing.dart';
 import '../Auth/login/presentation/pages/login_screen.dart';
@@ -18,33 +19,11 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation _animation;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              AnimatedBuilder(
-                animation: _animation,
-                builder: (context, child) =>
-                    Transform.rotate(angle: _animation.value, child: child),
-                child: Center(
-                  child: Image.asset("assets/images/splash/galaxy.png"),
-                ),
-              ),
-              Center(
-                  child: Image.asset(
-                "assets/images/splash/spaceman.png",
-                width: 190,
-              )),
-            ],
-          ),
-          Image.asset("assets/images/splash/space_text.png")
-        ],
-      ),
-    );
+  void initState() {
+    initAnimationController();
+    setRotaionDegree(360);
+
+    super.initState();
   }
 
   initAnimationController() {
@@ -59,17 +38,39 @@ class _SplashScreenState extends State<SplashScreen>
     });
   }
 
-  @override
-  void initState() {
-    initAnimationController();
-    setRotaionDegree(360);
-
-    super.initState();
-  }
-
   setRotaionDegree(int degree) {
     final angle = degree * pi / 180;
     _animation =
         Tween<double>(begin: 0, end: angle).animate(_animationController);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              AnimatedBuilder(
+                animation: _animation,
+                builder: (context, child) =>
+                    Transform.rotate(angle: _animation.value, child: child),
+                child: Center(
+                  child: Image.asset(Assets.splashGalaxy),
+                ),
+              ),
+              Center(
+                  child: Image.asset(
+                Assets.splashSpaceman,
+                width: 190,
+              )),
+            ],
+          ),
+          Image.asset(Assets.splashSpaceText)
+        ],
+      ),
+    );
   }
 }
