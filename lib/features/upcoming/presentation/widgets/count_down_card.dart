@@ -15,7 +15,7 @@ class CountDownCard extends StatelessWidget {
         color: AppPallete.homeBG,
         child:Center(
           child: Text(time,
-          style:AppStyles.bold24(context)),
+          style:AppStyles.font24BoldWhite(context)),
         )
       )
     );

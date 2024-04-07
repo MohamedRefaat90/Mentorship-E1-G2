@@ -1,7 +1,8 @@
 class Assets {
   Assets._();
 
-  static const crs = 'assets/images/home/rocket.png';
- static const pro ="assets/images/home/profile.png";
+  static const rocket = 'assets/images/home/rocket.png';
+ static const profile ="assets/images/home/profile.png";
+
 
 }
