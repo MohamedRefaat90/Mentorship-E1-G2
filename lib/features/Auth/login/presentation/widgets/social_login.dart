@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'social_login_btn.dart';
+import 'package:mentorship_e1_g3/core/resources/assets.dart';
 
 class SocialLogin extends StatelessWidget {
   const SocialLogin({
@@ -13,12 +14,12 @@ class SocialLogin extends StatelessWidget {
       children: [
         SocialLoginBtn(
           lable: "Google",
-          svgIcon: "assets/images/login_screen/social_icons/google.svg",
+          svgIcon: Assets.loginGoogleIcon,
         ),
         SizedBox(width: 20),
         SocialLoginBtn(
           lable: "Phone",
-          svgIcon: "assets/images/login_screen/social_icons/phone.svg",
+          svgIcon: Assets.loginPhoneIcon,
         ),
       ],
     );
