@@ -13,25 +13,27 @@ class CustomTextField extends StatefulWidget {
   final String placeholderText;
   final IconData icon;
   final bool isPassword;
-
+  final void Function(String)? onChange;
   const CustomTextField(
       {required this.textEditingController,
       super.key,
       required this.placeholderText,
       required this.icon,
-      required this.isPassword});
+      required this.isPassword,
+      this.onChange});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  bool passwordVisiabilty = false;
+  bool passwordVisiabilty = true;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: passwordVisiabilty,
+      onChanged: widget.onChange,
       decoration: InputDecoration(
           enabled: true,
           contentPadding:
