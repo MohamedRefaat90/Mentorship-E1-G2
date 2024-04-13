@@ -1,6 +1,8 @@
 part of 'signup_cubit.dart';
 
-@freezed
-class SignupState with _$SignupState {
-  const factory SignupState.initial() = _Initial;
-}
+final class SignupInitial extends SignupState {}
+
+@immutable
+sealed class SignupState {}
+
+final class SignupValidFields extends SignupState {}
