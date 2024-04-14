@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/widgets/custom_text_field.dart';
+import 'custom_text_field.dart';
 
 class LoginFields extends StatelessWidget {
   const LoginFields({
@@ -13,16 +13,14 @@ class LoginFields extends StatelessWidget {
       children: [
         CustomTextField(
             textEditingController: TextEditingController(),
-            passwordVisibiltyIcon: false,
-            isobscure: false,
+            isPassword: false,
             placeholderText: "Email",
             icon: Icons.person_3_outlined),
         const SizedBox(height: 20),
         CustomTextField(
           textEditingController: TextEditingController(),
           placeholderText: "Password",
-          passwordVisibiltyIcon: true,
-          isobscure: true,
+          isPassword: true,
           icon: Icons.password,
         ),
       ],
