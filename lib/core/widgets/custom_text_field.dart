@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 
-IconData togglePasswordVisiabiltyIcon(bool passwordVisiabilty) {
-  if (passwordVisiabilty) {
-    return Icons.visibility_outlined;
-  } else {
-    return Icons.visibility_off_outlined;
-  }
-}
-
 class CustomTextField extends StatefulWidget {
-  final TextEditingController textEditingController;
+  final TextEditingController? textEditingController;
   final String placeholderText;
   final IconData icon;
-  final bool isPassword;
+  final bool passwordVisibiltyIcon;
   final void Function(String)? onChange;
-  const CustomTextField(
-      {required this.textEditingController,
+  final String? Function(String?)? validator;
+  bool isobscure;
+  CustomTextField(
+      {this.textEditingController,
       super.key,
       required this.placeholderText,
       required this.icon,
-      required this.isPassword,
-      this.onChange});
+      required this.passwordVisibiltyIcon,
+      required this.isobscure,
+      this.onChange,
+      this.validator});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -32,7 +28,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: passwordVisiabilty,
+      controller: widget.textEditingController,
+      obscureText: widget.isobscure,
+      validator: widget.validator,
       onChanged: widget.onChange,
       decoration: InputDecoration(
           enabled: true,
@@ -60,16 +58,25 @@ class _CustomTextFieldState extends State<CustomTextField> {
               )
             ],
           ),
-          suffixIcon: widget.isPassword
+          suffixIcon: widget.passwordVisibiltyIcon
               ? IconButton(
                   onPressed: () {
-                    setState(() => passwordVisiabilty = !passwordVisiabilty);
+                    passwordVisiabilty = !passwordVisiabilty;
+                    setState(() => widget.isobscure = !widget.isobscure);
                   },
-                  icon: Icon(togglePasswordVisiabiltyIcon(passwordVisiabilty)))
+                  icon: Icon(togglePasswordVisiabiltyIcon(widget.isobscure)))
               : null,
           border: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white, width: 10),
               borderRadius: BorderRadius.all(Radius.circular(15)))),
     );
+  }
+}
+
+IconData togglePasswordVisiabiltyIcon(bool passwordVisiabilty) {
+  if (passwordVisiabilty) {
+    return Icons.visibility_outlined;
+  } else {
+    return Icons.visibility_off_outlined;
   }
 }
