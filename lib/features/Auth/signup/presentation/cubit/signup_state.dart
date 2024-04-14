@@ -6,3 +6,13 @@ final class SignupInitial extends SignupState {}
 sealed class SignupState {}
 
 final class SignupValidFields extends SignupState {}
+
+final class SignupLoading extends SignupState {}
+
+final class SignupSuccess extends SignupState {}
+
+final class SignupFailure extends SignupState {
+  final String errorMSG;
+
+  SignupFailure({required this.errorMSG});
+}
