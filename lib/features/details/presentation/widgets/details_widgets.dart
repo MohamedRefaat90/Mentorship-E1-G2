@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 
 class SpaceXDetailsWidgets {
@@ -20,7 +21,7 @@ class SpaceXDetailsWidgets {
           text,
           style: style,
         ),
-        SizedBox(height: 20), // SizedBox with height 20
+        const SizedBox(height: 20),
       ],
     );
   }
@@ -29,7 +30,7 @@ class SpaceXDetailsWidgets {
     return Row(
       children: [
         leftWidget,
-        SizedBox(width: 150), // SizedBox with width 150
+        const SizedBox(width: 150),
         rightWidget,
       ],
     );
@@ -37,5 +38,55 @@ class SpaceXDetailsWidgets {
 
   static Widget bottomImage(String imageUrl) {
     return Image.network(imageUrl);
+  }
+
+  static Widget iconButton(String label, AssetImage iconImage,
+      {VoidCallback? onPressed}) {
+    return TextButton.icon(
+      onPressed: onPressed,
+      icon: Image(image: iconImage, height: 24.0, width: 24.0),
+      label: Text(label),
+      style: TextButton.styleFrom(
+        backgroundColor: Colors.black, // Adjust color as needed
+      ),
+    );
+  }
+
+  static Widget youtubeIcon(BuildContext context, Function onPressed) {
+    return Column(
+      children: [
+        Text(
+          'Youtube',
+          style: AppStyles.fontSmallRed(context),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            'assets/images/details_screen/social_details_icons/youtube.svg',
+            height: 35,
+            width: 35,
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget redditIcon(BuildContext context, Function onPressed) {
+    return Column(
+      children: [
+        Text(
+          'Reddit',
+          style: AppStyles.fontSmallRed(context),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            'assets/images/details_screen/social_details_icons/reddit.svg', // Corrected file path
+            height: 40,
+            width: 40,
+          ),
+        ),
+      ],
+    );
   }
 }

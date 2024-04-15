@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // Import Flutter SVG package
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/features/details/presentation/widgets/details_widgets.dart';
@@ -38,7 +39,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Falcon 1',
-                AppStyles.font12MediumWhite(context),
+                AppStyles.font16SemiBoldWhite(context), // Updated font style
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'LAUNCH DATE',
@@ -78,7 +79,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Falcon 9',
-                AppStyles.font12MediumWhite(context),
+                AppStyles.font16SemiBoldWhite(context), // Updated font style
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'TYPE',
@@ -86,7 +87,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'v1.0',
-                AppStyles.font12MediumWhite(context),
+                AppStyles.font16SemiBoldWhite(context),
               ),
               SpaceXDetailsWidgets.rowWithSpacing(
                 Text(
@@ -101,22 +102,23 @@ class SpaceXDetailsScreen extends StatelessWidget {
               SpaceXDetailsWidgets.rowWithSpacing(
                 Text(
                   'Cores: 4',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font16SemiBoldWhite(context),
                 ),
                 Text(
                   'Payloads: 150kg',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font16SemiBoldWhite(context),
                 ),
               ),
+              const SizedBox(
+                height: 15,
+              ),
               SpaceXDetailsWidgets.rowWithSpacing(
-                Text(
-                  'Youtube',
-                  style: AppStyles.fontSmallRed(context),
-                ),
-                Text(
-                  'REDDIT',
-                  style: AppStyles.fontSmallRed(context),
-                ),
+                SpaceXDetailsWidgets.youtubeIcon(context, () {
+                  // Handle onPressed for YouTube
+                }),
+                SpaceXDetailsWidgets.redditIcon(context, () {
+                  // Handle onPressed for Reddit
+                }),
               ),
               SpaceXDetailsWidgets.bottomImage(sneakPeakImageUrl)
             ],
