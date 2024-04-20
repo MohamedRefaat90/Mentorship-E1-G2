@@ -6,8 +6,8 @@ import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/presentation/pages/login_screen.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/presentation/cubit/signup_cubit.dart';
+import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/cubit/signup_cubit.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/validator_text.dart';
 
 import '../../../../../core/widgets/btn_loader.dart';
