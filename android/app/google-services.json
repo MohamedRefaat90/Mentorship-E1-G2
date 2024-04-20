@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "94485504034",
+    "project_id": "space-app-39e2a",
+    "storage_bucket": "space-app-39e2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94485504034:android:81f5c36c9b34eed9fdaa7b",
+        "android_client_info": {
+          "package_name": "com.example.mentorship_e1_g3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTecsk0NRljVat3RjQVDjkMIVVO3TAGm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
