@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
 import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/presentation/pages/login_screen.dart';
@@ -62,7 +63,7 @@ class SignupScreen extends StatelessWidget {
                           onChange: (password) =>
                               cubit.validatePasswordField(password)),
                       // SizedBox(height: 10.h),
-                      PasswordValidationRules(),
+                      const PasswordValidationRules(),
                       SizedBox(height: 20.h),
                       CustomTextField(
                         placeholderText: "Confirm Password",
@@ -95,6 +96,7 @@ class SignupScreen extends StatelessWidget {
                           }
                         },
                         builder: (context, state) => CustomBTN(
+                            color: AppPallete.violet,
                             widget: state is SignupLoading
                                 ? const BtnLoader()
                                 : const Text("Submit"),
