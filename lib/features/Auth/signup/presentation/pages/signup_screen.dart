@@ -32,79 +32,80 @@ class SignupScreen extends StatelessWidget {
             child: Form(
               key: formKey,
               // autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomTextField(
-                      textEditingController: cubit.emailController,
-                      placeholderText: "Email",
-                      icon: Icons.email,
-                      passwordVisibiltyIcon: false,
-                      isobscure: false,
-                      onChange: (email) => cubit.validateEmail(email)),
+              child: BlocBuilder<SignupCubit, SignupState>(
+                builder: (context, state) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomTextField(
+                          textEditingController: cubit.emailController,
+                          placeholderText: "Email",
+                          icon: Icons.email,
+                          passwordVisibiltyIcon: false,
+                          isobscure: false,
+                          onChange: (email) => cubit.validateEmail(email)),
 
-                  BlocBuilder<SignupCubit, SignupState>(
-                    builder: (context, state) {
-                      return ValidatorText(
+                      ValidatorText(
                           displayWhen: cubit.emailController.text.isNotEmpty,
                           title: cubit.isVaildEmail
                               ? "Vaild Email"
                               : "Invaild Email",
-                          rule: cubit.isVaildEmail);
-                    },
-                  ),
-                  SizedBox(height: 20.h),
-                  CustomTextField(
-                      textEditingController: cubit.passwordController,
-                      placeholderText: "Password",
-                      icon: Icons.lock,
-                      passwordVisibiltyIcon: true,
-                      isobscure: cubit.isObsecured,
-                      onChange: (password) =>
-                          cubit.validatePasswordField(password)),
-                  // SizedBox(height: 10.h),
-                  const PasswordValidationRules(),
-                  SizedBox(height: 20.h),
-                  CustomTextField(
-                    placeholderText: "Confirm Password",
-                    textEditingController: cubit.confirmPasswordController,
-                    icon: Icons.lock,
-                    passwordVisibiltyIcon: true,
-                    isobscure: cubit.isObsecured,
-                    onChange: (confirmPassword) =>
-                        cubit.validateConfirmPassword(confirmPassword),
-                  ),
+                          rule: cubit.isVaildEmail),
 
-                  BlocBuilder<SignupCubit, SignupState>(
-                    builder: (context, state) {
-                      return ValidatorText(
-                          displayWhen:
-                              cubit.confirmPasswordController.text.isNotEmpty,
-                          title: cubit.isPassMatchConfirmPass
-                              ? "Password Match"
-                              : "Password Not Match",
-                          rule: cubit.isPassMatchConfirmPass);
-                    },
-                  ),
-                  SizedBox(height: 20.h),
-                  BlocConsumer<SignupCubit, SignupState>(
-                    listener: (context, state) {
-                      if (state is SignupSuccess) {
-                        pushReplacement(const LoginScreen());
-                      } else if (state is SignupFailure) {
-                        showSnackBar(context, state.errorMSG);
-                      }
-                    },
-                    builder: (context, state) => CustomBTN(
-                        widget: state is SignupLoading
-                            ? const BtnLoader()
-                            : const Text("Submit"),
-                        width: double.infinity,
-                        press: () {
-                          cubit.signupUser();
-                        }),
-                  )
-                ],
+                      SizedBox(height: 20.h),
+                      CustomTextField(
+                          textEditingController: cubit.passwordController,
+                          placeholderText: "Password",
+                          icon: Icons.lock,
+                          passwordVisibiltyIcon: true,
+                          isobscure: cubit.isObsecured,
+                          onChange: (password) =>
+                              cubit.validatePasswordField(password)),
+                      // SizedBox(height: 10.h),
+                      PasswordValidationRules(),
+                      SizedBox(height: 20.h),
+                      CustomTextField(
+                        placeholderText: "Confirm Password",
+                        textEditingController: cubit.confirmPasswordController,
+                        icon: Icons.lock,
+                        passwordVisibiltyIcon: true,
+                        isobscure: cubit.isObsecured,
+                        onChange: (confirmPassword) =>
+                            cubit.validateConfirmPassword(confirmPassword),
+                      ),
+
+                      BlocBuilder<SignupCubit, SignupState>(
+                        builder: (context, state) {
+                          return ValidatorText(
+                              displayWhen: cubit
+                                  .confirmPasswordController.text.isNotEmpty,
+                              title: cubit.isPassMatchConfirmPass
+                                  ? "Password Match"
+                                  : "Password Not Match",
+                              rule: cubit.isPassMatchConfirmPass);
+                        },
+                      ),
+                      SizedBox(height: 20.h),
+                      BlocConsumer<SignupCubit, SignupState>(
+                        listener: (context, state) {
+                          if (state is SignupSuccess) {
+                            pushReplacement(const LoginScreen());
+                          } else if (state is SignupFailure) {
+                            showSnackBar(context, state.errorMSG);
+                          }
+                        },
+                        builder: (context, state) => CustomBTN(
+                            widget: state is SignupLoading
+                                ? const BtnLoader()
+                                : const Text("Submit"),
+                            width: double.infinity,
+                            press: () {
+                              cubit.signupUser();
+                            }),
+                      )
+                    ],
+                  );
+                },
               ),
             ),
           ),

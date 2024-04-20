@@ -40,12 +40,9 @@ dependencies:
   freezed_annotation: ^2.4.1
   get_it: ^7.6.7
   google_fonts: ^6.2.0
-<<<<<<< HEAD
   flutter_native_splash: ^2.4.0
-=======
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
->>>>>>> 65c2f3980478ca5016eb3d56976d4817d1168234
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -69,14 +66,11 @@ flutter:
     - assets/images/
     - assets/images/login_screen/
     - assets/images/login_screen/social_icons/
-<<<<<<< HEAD
     - assets/images/splash/
   #   - images/a_dot_ham.jpeg
 
-=======
     - assets/images/home/
     - assets/images/home/rocket.png
->>>>>>> 65c2f3980478ca5016eb3d56976d4817d1168234
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

@@ -10,24 +10,20 @@ class PasswordValidationRules extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SignupCubit cubit = BlocProvider.of<SignupCubit>(context);
-    return BlocBuilder<SignupCubit, SignupState>(
-      builder: (context, state) {
-        return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          ValidatorText(
-              title: "Must must larger then 8",
-              rule: cubit.isPassLengthLargerThan8),
-          ValidatorText(
-              title: "Must Contain Upper Character",
-              rule: cubit.isContainUpperChar),
-          ValidatorText(
-              title: "Must Contain Lower Character",
-              rule: cubit.isContainLowerChar),
-          ValidatorText(title: "Must Contain Number", rule: cubit.isContainNum),
-          ValidatorText(
-              title: "Must Contain Special Character",
-              rule: cubit.isContainSpecailChar),
-        ]);
-      },
-    );
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      ValidatorText(
+          title: "Must must larger then 8",
+          rule: cubit.isPassLengthLargerThan8),
+      ValidatorText(
+          title: "Must Contain Upper Character",
+          rule: cubit.isContainUpperChar),
+      ValidatorText(
+          title: "Must Contain Lower Character",
+          rule: cubit.isContainLowerChar),
+      ValidatorText(title: "Must Contain Number", rule: cubit.isContainNum),
+      ValidatorText(
+          title: "Must Contain Special Character",
+          rule: cubit.isContainSpecailChar),
+    ]);
   }
 }
