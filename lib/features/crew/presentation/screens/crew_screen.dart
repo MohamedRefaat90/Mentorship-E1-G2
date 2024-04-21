@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/features/crew/data/repo/crew_repository.dart';
+import 'package:mentorship_e1_g3/core/themes/styles.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:mentorship_e1_g3/features/crew/data/repository/crew_repository.dart';
 import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
 import 'package:mentorship_e1_g3/features/crew/data/web_services/crew_web_services.dart';
 import 'package:mentorship_e1_g3/features/crew/presentation/widgets/crew_screen_widgets.dart';
@@ -31,8 +33,13 @@ class _CrewScreenState extends State<CrewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppPallete.homeBG,
       appBar: AppBar(
-        title: const Text('Crew Members'),
+        backgroundColor: AppPallete.homeBG,
+        title: Text(
+          'Crew Members',
+          style: AppStyles.font24BoldWhite(context),
+        ),
       ),
       body: CrewGrid(allCrew: allCrew),
     );

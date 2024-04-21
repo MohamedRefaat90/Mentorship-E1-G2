@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
 
 class CrewGrid extends StatelessWidget {
@@ -42,11 +43,11 @@ class CrewCard extends StatelessWidget {
           const SizedBox(height: 8.0),
           Text(
             crewMember.name ?? 'Unknown', // Handle null name
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: AppStyles.font12MediumWhite(context),
           ),
           Text(
             crewMember.agency ?? 'Unknown', // Handle null agency
-            style: const TextStyle(fontSize: 12.0, color: Colors.grey),
+            style: AppStyles.font12MediumGrey(context),
           ),
         ],
       ),
