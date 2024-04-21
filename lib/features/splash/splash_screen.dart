@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 
 import '../../core/routing/app_routing.dart';
-import '../Auth/login/presentation/pages/login_screen.dart';
+import '../Auth/login/presentation/screen/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
