@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // Import Flutter SVG package
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // Import Flutter SVG package
 import 'package:mentorship_e1_g3/features/details/presentation/widgets/details_widgets.dart';
 
 class SpaceXDetailsScreen extends StatelessWidget {
@@ -16,10 +16,10 @@ class SpaceXDetailsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppPallete.detailsBackgroundColor,
+        backgroundColor: AppPallete.homeBG,
         actions: const [Icon(Icons.share)],
       ),
-      backgroundColor: AppPallete.detailsBackgroundColor,
+      backgroundColor: AppPallete.homeBG,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -35,7 +35,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Rocket',
-                AppStyles.fontSmallRed(context),
+                AppStyles.font10SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Falcon 1',
@@ -43,7 +43,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'LAUNCH DATE',
-                AppStyles.fontSmallRed(context),
+                AppStyles.font10SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 '01-03-2019',
@@ -51,7 +51,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'LAUNCH SITE',
-                AppStyles.fontSmallRed(context),
+                AppStyles.font10SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'CCAFS SLC 40',
@@ -59,7 +59,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'LAUNCH STATUS',
-                AppStyles.fontSmallRed(context),
+                AppStyles.font10SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Success',
@@ -67,7 +67,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'DETAILS',
-                AppStyles.fontSmallRed(context),
+                AppStyles.font10SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Last launch of the original Falcon 9 v1.0 launch vehicle',
@@ -75,7 +75,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'ROCKET SUMMARY',
-                AppStyles.fontSmallRed(context),
+                AppStyles.font10SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Falcon 9',
@@ -83,7 +83,7 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'TYPE',
-                AppStyles.fontSmallRed(context),
+                AppStyles.font10SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'v1.0',
@@ -92,11 +92,11 @@ class SpaceXDetailsScreen extends StatelessWidget {
               SpaceXDetailsWidgets.rowWithSpacing(
                 Text(
                   'FIRST STAGE',
-                  style: AppStyles.fontSmallRed(context),
+                  style: AppStyles.font10SemiBoldPurple(context),
                 ),
                 Text(
                   'SECOND STAGE',
-                  style: AppStyles.fontSmallRed(context),
+                  style: AppStyles.font10SemiBoldPurple(context),
                 ),
               ),
               SpaceXDetailsWidgets.rowWithSpacing(
