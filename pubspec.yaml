@@ -43,6 +43,9 @@ dependencies:
   flutter_native_splash: ^2.4.0
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
+  firebase_core: ^2.30.0
+  firebase_auth: ^4.19.2
+
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -68,6 +71,10 @@ flutter:
     - assets/images/login_screen/social_icons/
     - assets/images/splash/
   #   - images/a_dot_ham.jpeg
+
+
+    - assets/images/home/
+    - assets/images/home/rocket.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

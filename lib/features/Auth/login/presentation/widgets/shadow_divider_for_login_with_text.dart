@@ -17,11 +17,9 @@ class ShadowDividerForLoginWithText extends StatelessWidget {
           decoration: BoxDecoration(
               boxShadow: const [
                 BoxShadow(
-                    color: AppPallete.backgroundColor,
-                    spreadRadius: 40,
-                    blurRadius: 40)
+                    color: AppPallete.homeBG, spreadRadius: 40, blurRadius: 40)
               ],
-              color: AppPallete.backgroundColor.withOpacity(1),
+              color: AppPallete.homeBG.withOpacity(1),
               borderRadius: const BorderRadius.all(Radius.circular(50)))),
     );
   }
