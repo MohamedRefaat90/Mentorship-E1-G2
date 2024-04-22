@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:mentorship_e1_g3/core/themes/styles.dart';
+import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
+import 'package:mentorship_e1_g3/features/crew/presentation/widgets/crew_details_screen_widgets.dart';
 
+class CrewDetailsScreen extends StatelessWidget {
+  final CrewModel crewMember;
 
-class CrewDetailsScreen extends StatefulWidget {
-  const CrewDetailsScreen({super.key});
+  const CrewDetailsScreen({Key? key, required this.crewMember})
+      : super(key: key);
 
-  @override
-  State<CrewDetailsScreen> createState() => _CrewDetailsScreenState();
-}
-
-class _CrewDetailsScreenState extends State<CrewDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          crewMember.name ?? 'Unknown',
+          style: AppStyles.font24BoldWhite(context),
+        ),
+      ),
+      body: CrewDetailsBody(crewMember: crewMember),
+    );
   }
 }

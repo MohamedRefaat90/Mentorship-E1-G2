@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
+import 'package:mentorship_e1_g3/features/crew/presentation/screens/crew_detalis_screen.dart';
 
 class CrewGrid extends StatelessWidget {
   final List<CrewModel> allCrew;
@@ -32,24 +33,33 @@ class CrewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 3.0,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            backgroundImage:
-                NetworkImage(crewMember.image ?? ''), // Handle null image URL
-            radius: 40.0,
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            crewMember.name ?? 'Unknown', // Handle null name
-            style: AppStyles.font12MediumWhite(context),
-          ),
-          Text(
-            crewMember.agency ?? 'Unknown', // Handle null agency
-            style: AppStyles.font12MediumGrey(context),
-          ),
-        ],
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CrewDetailsScreen(crewMember: crewMember),
+            ),
+          );
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundImage: NetworkImage(crewMember.image ?? ''),
+              radius: 40.0,
+            ),
+            const SizedBox(height: 8.0),
+            Text(
+              crewMember.name ?? 'Unknown',
+              style: AppStyles.font12MediumWhite(context),
+            ),
+            Text(
+              crewMember.agency ?? 'Unknown',
+              style: AppStyles.font12MediumGrey(context),
+            ),
+          ],
+        ),
       ),
     );
   }
