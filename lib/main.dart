@@ -20,7 +20,7 @@ class MentorshipE1G2 extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTthemeMode,
       navigatorKey: navigator,
-      home: const CrewScreen(),
+      home: const SplashScreen(),
     );
   }
 }
