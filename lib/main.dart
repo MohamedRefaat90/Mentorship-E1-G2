@@ -5,7 +5,7 @@ import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.d
 
 
 void main()async {
-  setUpGetIt();
+  await setUpGetIt();
   runApp(const MentorshipE1G2());
 }
 

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/features/presentation/widgets/status_container.dart';
+import 'package:mentorship_e1_g3/features/rockets/ui/widgets/status_container.dart';
 
-import '../../../core/themes/styles.dart';
+import '../../../../core/themes/styles.dart';
 
 class RocketCard extends StatelessWidget {
   const RocketCard({

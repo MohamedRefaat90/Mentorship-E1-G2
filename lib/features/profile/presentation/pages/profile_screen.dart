@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
@@ -8,7 +8,12 @@ import 'package:mentorship_e1_g3/features/profile/widgets/custome_text_button.da
 import 'package:mentorship_e1_g3/features/profile/widgets/profile_list_builder.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+
+   const ProfileScreen({
+    super.key,
+  });
+      
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
         centerTitle: false,
         title: Text(
           "Profile",
-          style:AppStyles.font24BoldWhite(context),
+          style: AppStyles.font24BoldWhite(context),
         ),
       ),
       backgroundColor: AppPallete.homeBG,
@@ -45,24 +50,19 @@ class ProfileScreen extends StatelessWidget {
                 "please login to see your profile",
                 style: AppStyles.font16SemiBoldWhite(context),
               ),
-           
             ],
           ),
           SizedBox(
             height: 20.h,
-          ),ProfileListBuilder().buildProfileListItems(),
+          ),
+          ProfileListBuilder().buildProfileListItems(),
           SizedBox(
             height: 40.h,
           ),
-          const CustomTextButton()
+          const CustomTextButton(),
+          
         ],
       ),
     );
   }
-
-  
-  
 }
-
-
-

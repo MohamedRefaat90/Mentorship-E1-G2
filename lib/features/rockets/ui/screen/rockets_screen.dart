@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 
-import '../../../core/themes/styles.dart';
+import '../../../../core/themes/styles.dart';
 import '../widgets/rocket_list_veiw.dart';
 
 class RocketScreen extends StatelessWidget {
