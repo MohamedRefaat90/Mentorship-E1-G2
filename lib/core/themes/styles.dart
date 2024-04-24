@@ -5,7 +5,7 @@ import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 class AppStyles {
   static TextStyle font24BoldWhite(BuildContext context) {
     return TextStyle(
-      color: AppPallete.whiteColor,
+      color: AppPalette.whiteColor,
       fontSize: 24.scaleText,
       fontWeight: FontWeight.w700,
     );
@@ -13,7 +13,7 @@ class AppStyles {
 
   static TextStyle font10SemiBoldPurple(BuildContext context) {
     return TextStyle(
-      color: AppPallete.purple,
+      color: AppPalette.purple,
       fontSize: 10.scaleText,
       fontWeight: FontWeight.w600,
     );
@@ -21,15 +21,15 @@ class AppStyles {
 
   static TextStyle font16SemiBoldWhite(BuildContext context) {
     return TextStyle(
-      color: AppPallete.whiteColor,
-      fontSize: 16.scaleRadius,
+      color: AppPalette.whiteColor,
+      fontSize: 16.scaleText,
       fontWeight: FontWeight.w600,
     );
   }
 
   static TextStyle font12MediumWhite(BuildContext context) {
     return TextStyle(
-      color: AppPallete.whiteColor,
+      color: AppPalette.whiteColor,
       fontSize: 12.scaleText,
       fontWeight: FontWeight.w500,
     );
@@ -37,7 +37,7 @@ class AppStyles {
 
   static TextStyle fontSmallRed(BuildContext context) {
     return TextStyle(
-      color: AppPallete.detailsColor,
+      color: AppPalette.detailsColor,
       fontSize: 12.scaleText,
       fontWeight: FontWeight.w500,
     );
