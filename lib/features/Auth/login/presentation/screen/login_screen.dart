@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
+import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
 
 import '../../../../../core/widgets/custom_btn.dart';
 import '../widgets/forget_password_btn.dart';
@@ -28,7 +30,9 @@ class LoginScreenState extends State<LoginScreen> {
             const LoginFields(),
             const ForgetPasswordBTN(),
             CustomBTN(
-              press: () {},
+              press: () {
+                pushReplacement(HomeScreen());
+              },
               widget: const Text(
                 "Login",
                 style: TextStyle(
