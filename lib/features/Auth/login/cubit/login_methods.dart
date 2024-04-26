@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
+import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_exception.dart';
 import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
 
 abstract interface class LoginBySocial {
@@ -12,12 +13,14 @@ class GoogleLogin implements LoginBySocial {
   login() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    if (googleUser == null) throw NoSocialAccountSelected();
+
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
 
     final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
     );
 
     return await FirebaseAuth.instance

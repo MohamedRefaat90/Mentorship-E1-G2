@@ -1,0 +1,1 @@
+class NoSocialAccountSelected implements Exception {}
