@@ -4,12 +4,14 @@ import 'package:flutter_svg/svg.dart';
 class SocialLoginBtn extends StatelessWidget {
   final String svgIcon;
   final String lable;
-  const SocialLoginBtn({super.key, required this.svgIcon, required this.lable});
+  final void Function()? press;
+  const SocialLoginBtn(
+      {super.key, required this.svgIcon, required this.lable, this.press});
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: press,
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 40),
       shape: const RoundedRectangleBorder(
           side: BorderSide(color: Colors.white),
