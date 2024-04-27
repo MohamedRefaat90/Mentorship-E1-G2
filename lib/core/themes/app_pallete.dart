@@ -15,5 +15,4 @@ class AppPallete {
   static const Color homeBG = Color(0xff27273D);
   static const Color purple = Color(0xffB39FFF);
   static const Color lightGreyColor = Color(0xffBDBDBD);
-  static const Color greenColor  = Color(0xff16BE27);
 }
