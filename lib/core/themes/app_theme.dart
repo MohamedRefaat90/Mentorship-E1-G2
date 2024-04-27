@@ -9,8 +9,8 @@ class AppTheme {
       borderRadius: BorderRadius.circular(10));
 
   static final darkTthemeMode = ThemeData.dark().copyWith(
-    scaffoldBackgroundColor: AppPallete.backgroundColor,
-    appBarTheme: const AppBarTheme(backgroundColor: AppPallete.backgroundColor),
+    scaffoldBackgroundColor: AppPallete.homeBG,
+    appBarTheme: const AppBarTheme(backgroundColor: AppPallete.homeBG),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27),
       enabledBorder: _border(),

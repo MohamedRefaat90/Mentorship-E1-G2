@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mentorship_e1_g3/core/resources/assets.dart';
 
 class LogoBanar extends StatelessWidget {
   const LogoBanar({
@@ -10,7 +11,7 @@ class LogoBanar extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset("assets/images/login_screen/logo.png"),
+        Image.asset(Assets.loginLogo),
         const SizedBox(height: 10),
         const Text(
           "Exploper the Galaxy",

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:mentorship_e1_g3/core/resources/assets.dart';
 
 import 'social_login_btn.dart';
 
@@ -11,14 +13,18 @@ class SocialLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        SocialLoginBtn(
-          lable: "Google",
-          svgIcon: "assets/images/login_screen/social_icons/google.svg",
+        Expanded(
+          child: SocialLoginBtn(
+            lable: "Google",
+            svgIcon: Assets.loginGoogleIcon,
+          ),
         ),
         SizedBox(width: 20),
-        SocialLoginBtn(
-          lable: "Phone",
-          svgIcon: "assets/images/login_screen/social_icons/phone.svg",
+        Expanded(
+          child: SocialLoginBtn(
+            lable: "Phone",
+            svgIcon: Assets.loginPhoneIcon,
+          ),
         ),
       ],
     );
