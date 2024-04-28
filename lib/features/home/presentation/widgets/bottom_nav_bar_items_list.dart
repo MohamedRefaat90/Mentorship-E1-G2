@@ -12,5 +12,10 @@ List<BottomNavigationBarItem> items= const[
              BottomNavigationBarItem(
                 icon:Icon(Icons.rocket_launch),
                 label:'Rockets' ,
-              ),   
+              ),   BottomNavigationBarItem(
+                icon:Icon(Icons.person_outlined),
+                label:'Profile' ,
+              ),  
+               
+               
 ];
