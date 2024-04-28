@@ -63,16 +63,26 @@ class PhoneLogin implements LoginBySocial {
   String? vrifiedPhone;
   @override
   login(BuildContext context) async {
+    debugPrint(vrifiedPhone);
     FirebaseAuth auth = FirebaseAuth.instance;
-    await FirebaseAuth.instance.verifyPhoneNumber(
+    await auth.verifyPhoneNumber(
       phoneNumber: vrifiedPhone,
       verificationCompleted: (PhoneAuthCredential credential) async {
-        await auth.signInWithCredential(credential);
+        // await auth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException error) {
         showSnackBar(context, AuthExceptionHandler.handleException(error));
       },
       codeSent: (String verificationId, int? resendToken) {
+        Navigator.pop(context);
+        showModalBottomSheet(
+            context: context,
+            builder: (context) => Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                  height: 200,
+                  color: Colors.white,
+                ));
         // showOTPDialog(
         //     context: context,
         //     Code: otpCode,

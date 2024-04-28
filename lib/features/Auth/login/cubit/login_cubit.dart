@@ -16,7 +16,9 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   loginByPhone(BuildContext context, String phoneNum) {
-    PhoneLogin().vrifiedPhone = phoneNum;
-    PhoneLogin().login(context);
+    PhoneLogin phoneLogin = PhoneLogin();
+    phoneLogin.vrifiedPhone = phoneNum;
+    // debugPrint(phoneLogin.vrifiedPhone);
+    phoneLogin.login(context);
   }
 }
