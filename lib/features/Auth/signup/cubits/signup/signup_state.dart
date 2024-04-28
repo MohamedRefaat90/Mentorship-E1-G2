@@ -5,8 +5,6 @@ final class SignupInitial extends SignupState {}
 @immutable
 sealed class SignupState {}
 
-final class SignupValidFields extends SignupState {}
-
 final class SignupLoading extends SignupState {}
 
 final class SignupSuccess extends SignupState {}
