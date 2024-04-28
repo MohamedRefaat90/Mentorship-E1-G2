@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:mentorship_e1_g3/core/widgets/btn_loader.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_btn.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 
@@ -68,21 +69,30 @@ class SocialLogin extends StatelessWidget {
                             height: 40,
                             child: TextFormField(
                               controller: phoneController,
+                              decoration: const InputDecoration(
+                                  contentPadding: EdgeInsets.only(left: 10)),
                               style: const TextStyle(color: Colors.black),
                             ))
                       ],
                     ),
                     actions: [
-                      CustomBTN(
-                          widget: const Text("Submit"),
-                          padding: 15,
-                          width: 200.w,
-                          color: AppPallete.violet,
-                          press: () {
-                            String varifiedPhone =
-                                codeCountry + phoneController.text.trim();
-                            cubit.loginByPhone(context, varifiedPhone);
-                          }),
+                      BlocBuilder<LoginCubit, LoginState>(
+                        bloc: cubit,
+                        builder: (context, state) {
+                          return CustomBTN(
+                              widget: state is LoginLoading
+                                  ? const BtnLoader()
+                                  : const Text("Submit"),
+                              padding: 15,
+                              width: 200.w,
+                              color: AppPallete.violet,
+                              press: () {
+                                String varifiedPhone =
+                                    codeCountry + phoneController.text.trim();
+                                cubit.loginByPhone(context, varifiedPhone);
+                              });
+                        },
+                      ),
                     ],
                   );
                 },

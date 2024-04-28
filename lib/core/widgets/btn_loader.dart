@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import '../themes/app_pallete.dart';
 
 class BtnLoader extends StatelessWidget {
-  const BtnLoader({
-    super.key,
-  });
+  const BtnLoader({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
-
+  String otp = "";
   loginByGithub(BuildContext context) {
     GithubLogin().login(context);
   }
@@ -15,10 +15,12 @@ class LoginCubit extends Cubit<LoginState> {
     GoogleLogin().login(context);
   }
 
-  loginByPhone(BuildContext context, String phoneNum) {
+  loginByPhone(BuildContext context, String phoneNum) async {
+    emit(LoginLoading());
     PhoneLogin phoneLogin = PhoneLogin();
     phoneLogin.vrifiedPhone = phoneNum;
-    // debugPrint(phoneLogin.vrifiedPhone);
-    phoneLogin.login(context);
+
+    await phoneLogin.login(context);
+    emit(LoginSuccess());
   }
 }

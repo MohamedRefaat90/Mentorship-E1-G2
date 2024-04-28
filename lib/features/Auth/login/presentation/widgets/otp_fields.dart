@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 
 class OtpFields extends StatefulWidget {
   const OtpFields({super.key});
   @override
-  State<OtpFields> createState() => _OtpScreenState();
+  State<OtpFields> createState() => _OtpFieldsState();
 }
 
-class _OtpScreenState extends State<OtpFields> {
+class _OtpFieldsState extends State<OtpFields> {
   List<TextEditingController> otpController =
       List.generate(6, (index) => TextEditingController());
 
@@ -40,6 +42,7 @@ class _OtpScreenState extends State<OtpFields> {
     );
   }
 
+  String otp = "";
   Widget _textFormField(int index) {
     return Center(
       child: SizedBox(
@@ -73,9 +76,13 @@ class _OtpScreenState extends State<OtpFields> {
           onChanged: (value) {
             if (value.isEmpty) {
               _focusPreviousField(index);
+              context.read<LoginCubit>().otp =
+                  context.read<LoginCubit>().otp.substring(0, otp.length - 1);
             } else {
               _focusNextField(index + 1);
+              context.read<LoginCubit>().otp += value;
             }
+            debugPrint(context.read<LoginCubit>().otp);
           },
         ),
       ),

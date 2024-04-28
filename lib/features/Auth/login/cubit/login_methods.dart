@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
 import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
+import 'package:mentorship_e1_g3/core/widgets/custom_btn.dart';
+import 'package:mentorship_e1_g3/features/Auth/login/presentation/widgets/otp_fields.dart';
 import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
 
 import '../../../../core/helpers/functions/snakbar.dart';
+import '../../../../core/themes/app_pallete.dart';
+import '../presentation/widgets/otp_bottomsheet.dart';
 
 class GithubLogin implements LoginBySocial {
   @override
@@ -71,29 +75,12 @@ class PhoneLogin implements LoginBySocial {
         // await auth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException error) {
+        Navigator.pop(context);
         showSnackBar(context, AuthExceptionHandler.handleException(error));
       },
       codeSent: (String verificationId, int? resendToken) {
         Navigator.pop(context);
-        showModalBottomSheet(
-            context: context,
-            builder: (context) => Container(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                  height: 200,
-                  color: Colors.white,
-                ));
-        // showOTPDialog(
-        //     context: context,
-        //     Code: otpCode,
-        //     press: () async {
-        //       PhoneAuthCredential credential = PhoneAuthProvider.credential(
-        //           verificationId: verificationId,
-        //           smsCode: otpCode.text.trim());
-
-        //       await auth.signInWithCredential(credential);
-        //       Navigator.of(context).pop();
-        //     });
+        showOTPBottomSheet(context);
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
