@@ -1,0 +1,6 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "projectManager.git.baseFolders": [
+        "git"
+    ]
+}
