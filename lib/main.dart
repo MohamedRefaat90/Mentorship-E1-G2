@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
+
 import 'package:mentorship_e1_g3/core/themes/app_theme.dart';
 
-import 'features/Auth/login/presentation/screen/login_screen.dart';
+
 
 import 'core/services/initServices.dart';
 
@@ -11,6 +13,7 @@ import 'features/splash/splash_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AppServices.init();
+
 
   runApp(const MentorshipE1G2());
 }

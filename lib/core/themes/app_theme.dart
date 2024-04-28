@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 
-import 'app_pallete.dart';
+
 
 class AppTheme {
-  static _border([Color color = AppPallete.borderColor]) => OutlineInputBorder(
+  static _border([Color color = AppPallete.homeBG]) => OutlineInputBorder(
       borderSide: BorderSide(color: color, width: 3),
       borderRadius: BorderRadius.circular(10));
 

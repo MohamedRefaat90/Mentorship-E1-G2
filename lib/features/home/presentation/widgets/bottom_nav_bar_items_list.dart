@@ -17,4 +17,8 @@ List<BottomNavigationBarItem> items = const [
     icon: Icon(Icons.people),
     label: 'Crew',
   ),
+   BottomNavigationBarItem(
+                icon:Icon(Icons.person_outlined),
+                label:'Profile' ,
+              ), 
 ];

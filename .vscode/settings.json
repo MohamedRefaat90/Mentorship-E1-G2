@@ -1,3 +1,10 @@
 {
+
     "cmake.sourceDirectory": "C:/Users/elsay/Documents/GitHub/Mentorship-E1-G3/windows/flutter"
+
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "projectManager.git.baseFolders": [
+        "git"
+    ]
+
 }
