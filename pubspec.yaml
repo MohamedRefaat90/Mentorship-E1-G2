@@ -46,6 +46,7 @@ dependencies:
   firebase_core: ^2.30.0
   firebase_auth: ^4.19.2
   google_sign_in: ^6.2.1
+  country_code_picker: ^3.0.0
 
 dev_dependencies:
   flutter_lints: ^3.0.0

@@ -12,14 +12,9 @@ import '../widgets/logo_banar.dart';
 import '../widgets/register_text_btn.dart';
 import '../widgets/social_login.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
-  @override
-  LoginScreenState createState() => LoginScreenState();
-}
-
-class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -36,7 +31,7 @@ class LoginScreenState extends State<LoginScreen> {
               const ForgetPasswordBTN(),
               CustomBTN(
                 press: () {
-                  pushReplacement(HomeScreen());
+                  pushReplacement(const HomeScreen());
                 },
                 widget: const Text(
                   "Login",
