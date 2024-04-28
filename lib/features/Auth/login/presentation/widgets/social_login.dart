@@ -16,9 +16,7 @@ class SocialLogin extends StatelessWidget {
       children: [
         Expanded(
           child: SocialLoginBtn(
-            press: () {
-              cubit.loginByGoogle(context);
-            },
+            press: () => cubit.loginByGoogle(context),
             lable: "Google",
             svgIcon: Assets.loginGoogleIcon,
           ),
@@ -26,9 +24,7 @@ class SocialLogin extends StatelessWidget {
         const SizedBox(width: 10),
         Expanded(
           child: SocialLoginBtn(
-            press: () {
-              cubit.loginByGithub(context);
-            },
+            press: () => cubit.loginByGithub(context),
             lable: "Github",
             svgIcon: Assets.loginGithubIcon,
           ),
@@ -50,6 +46,7 @@ class SocialLogin extends StatelessWidget {
                       CountryCodePicker(
                         onChanged: (value) {
                           // codeCountry = value.dialCode!;
+                          debugPrint(value.toString());
                         },
                         searchStyle: const TextStyle(color: Colors.black),
                         textStyle: const TextStyle(color: Colors.black),

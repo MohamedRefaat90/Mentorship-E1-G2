@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
 import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_exception.dart';
 import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
 
 import '../../../../core/helpers/functions/snakbar.dart';
@@ -13,10 +12,17 @@ class GithubLogin implements LoginBySocial {
   login(BuildContext context) async {
     try {
       final githubAuthProvider = GithubAuthProvider();
-      return await FirebaseAuth.instance.signInWithProvider(githubAuthProvider);
+      return await FirebaseAuth.instance
+          .signInWithProvider(githubAuthProvider)
+          .then((user) {
+        if (user.user != null) {
+          pushReplacement(const HomeScreen());
+        }
+      });
     } on FirebaseAuthException catch (error) {
-      showSnackBar(
-          context, AuthExceptionHandler.handleException(error).toUpperCase());
+      showSnackBar(context, AuthExceptionHandler.handleException(error));
+    } on NoSocialAccountSelected catch (_) {
+      return;
     }
   }
 }
@@ -39,11 +45,48 @@ class GoogleLogin implements LoginBySocial {
 
       return await FirebaseAuth.instance
           .signInWithCredential(credential)
-          .then((user) => push(const HomeScreen()));
+          .then((user) {
+        if (user.user != null) {
+          pushReplacement(const HomeScreen());
+        }
+      });
     } on FirebaseAuthException catch (error) {
-      showSnackBar(
-          context, AuthExceptionHandler.handleException(error).toUpperCase());
+      if (!context.mounted) return;
+      showSnackBar(context, AuthExceptionHandler.handleException(error));
+    } on NoSocialAccountSelected catch (_) {
+      return;
     }
+  }
+}
+
+class PhoneLogin implements LoginBySocial {
+  String? vrifiedPhone;
+  @override
+  login(BuildContext context) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: vrifiedPhone,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await auth.signInWithCredential(credential);
+      },
+      verificationFailed: (FirebaseAuthException error) {
+        showSnackBar(context, AuthExceptionHandler.handleException(error));
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        // showOTPDialog(
+        //     context: context,
+        //     Code: otpCode,
+        //     press: () async {
+        //       PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        //           verificationId: verificationId,
+        //           smsCode: otpCode.text.trim());
+
+        //       await auth.signInWithCredential(credential);
+        //       Navigator.of(context).pop();
+        //     });
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
   }
 }
 
