@@ -4,6 +4,7 @@ import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
 import '../../logic/cubit/home_cubit.dart';
+import '../../logic/cubit/home_state.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
