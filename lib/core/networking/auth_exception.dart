@@ -19,6 +19,8 @@ class AuthExceptionHandler {
         return 'User Not Found';
       case 'account-exists-with-different-credential':
         return "Account Exists With Different Social Network";
+      case 'invalid-verification-code':
+        return "The OTP Code is Invalid. Please Check And Enter The correct OTP Code Again.";
 
       default:
         return "Try Again Later";

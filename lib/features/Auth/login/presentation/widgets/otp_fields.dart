@@ -25,7 +25,7 @@ class _OtpFieldsState extends State<OtpFields> {
   }
 
   void _focusPreviousField(int index) {
-    if (index > 0) {
+    if (index > -1) {
       FocusScope.of(context).previousFocus();
     }
   }
@@ -42,8 +42,8 @@ class _OtpFieldsState extends State<OtpFields> {
     );
   }
 
-  String otp = "";
   Widget _textFormField(int index) {
+    LoginCubit cubit = BlocProvider.of(context);
     return Center(
       child: SizedBox(
         height: 70,
@@ -76,13 +76,12 @@ class _OtpFieldsState extends State<OtpFields> {
           onChanged: (value) {
             if (value.isEmpty) {
               _focusPreviousField(index);
-              context.read<LoginCubit>().otp =
-                  context.read<LoginCubit>().otp.substring(0, otp.length - 1);
+              cubit.otp = cubit.otp.substring(0, cubit.otp.length - 1);
             } else {
               _focusNextField(index + 1);
               context.read<LoginCubit>().otp += value;
             }
-            debugPrint(context.read<LoginCubit>().otp);
+            debugPrint(cubit.otp);
           },
         ),
       ),
