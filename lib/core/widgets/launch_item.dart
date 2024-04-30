@@ -1,12 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/resources/assets.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
+import 'package:mentorship_e1_g3/features/home/data/models/launches/launches_model.dart';
 
 class LaunchItem extends StatelessWidget {
-  const LaunchItem({super.key});
-
+  const LaunchItem({super.key, required this.launchItem});
+final Launches launchItem;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,8 +20,9 @@ class LaunchItem extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Row(
             children: [
-              const Image(
-                image: AssetImage(Assets.rocket),
+               CachedNetworkImage(
+                imageUrl:'${launchItem.links!.patch!.small}' ,
+                errorWidget:((context, url, error) =>const Icon(Icons.error)) ,
                 width: 100,
                 height: 100,
               ),
@@ -35,18 +37,21 @@ class LaunchItem extends StatelessWidget {
                   SizedBox(
                     height: 8.h,
                   ),
-                  Text('Starlink 2',
-                      style: AppStyles.font16SemiBoldWhite(context)),
+                  Text('${launchItem.name}',
+                      style: AppStyles.font16SemiBoldWhite(context),
+                      maxLines:2,
+                      overflow:TextOverflow.ellipsis,
+                      ),
                   SizedBox(
                     height: 5.h,
                   ),
-                  Text('CCAES SLC 40',
+                  Text('${launchItem.id}',
                       style: AppStyles.font12MediumWhite(context)),
                   SizedBox(
                     height: 5.h,
                   ),
-                  Text('16-10-2020',
-                      style: AppStyles.font12MediumWhite(context)),
+                  Text('${launchItem.staticFireDateUtc}',
+                      style: AppStyles.font12MediumWhite(context),),
                 ],
               ),
             ],

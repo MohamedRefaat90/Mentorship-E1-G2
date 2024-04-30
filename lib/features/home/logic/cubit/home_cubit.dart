@@ -16,11 +16,14 @@ import '../../data/repos/home_repo.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
   final HomeRepo _homeRepo;
+  List<Launches> allLaunches = [];
+  List<UpcomingLaunches> allUpcomingLaunches = [];
 
  void emitGetLaunches()async{
     emit(const HomeState.loading());
     final response = await _homeRepo.getLaunches();
-    response.when(success: (List<Launches>launches) {
+    response.when(success: (launches) {
+      allLaunches=launches;
       emit(HomeState.success(launches));
     }, failure: (error) {
       emit(HomeState.error(error: error.apiErrorModel.message ?? ''));
@@ -30,7 +33,8 @@ class HomeCubit extends Cubit<HomeState> {
   void emitGetUpcomingLaunches()async{
     emit(const HomeState.loading());
     final response = await _homeRepo.getUpcomingLaunches();
-    response.when(success: (List<UpcomingLaunches>upcomingLaunches) {
+    response.when(success: (upcomingLaunches) {
+      allUpcomingLaunches=upcomingLaunches;
       emit(HomeState.success(upcomingLaunches));
     }, failure: (error) {
       emit(HomeState.error(error: error.apiErrorModel.message ?? ''));
