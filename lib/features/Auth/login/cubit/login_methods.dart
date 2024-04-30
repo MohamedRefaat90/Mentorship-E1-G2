@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -154,6 +155,23 @@ class PhoneLogin implements LoginMethods {
     } on FirebaseAuthException catch (error) {
       if (!context.mounted) return;
       otpVarificationFailure(context, error);
+    }
+  }
+}
+
+class EmailandPasswordLogin implements LoginMethods {
+  String emailAddress;
+  String password;
+  EmailandPasswordLogin({required this.emailAddress, required this.password});
+
+  @override
+  login(BuildContext context) async {
+    try {
+      final c = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: emailAddress, password: password);
+    } on FirebaseAuthException catch (error) {
+      if (!context.mounted) return;
+      showSnackBar(context, AuthExceptionHandler.handleException(error));
     }
   }
 }

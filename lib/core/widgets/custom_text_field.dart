@@ -34,8 +34,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       onChanged: widget.onChange,
       decoration: InputDecoration(
           enabled: true,
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          contentPadding: const EdgeInsets.symmetric(vertical: 20),
           filled: true,
           hintText: widget.placeholderText,
           fillColor: const Color(0xff322E3C),

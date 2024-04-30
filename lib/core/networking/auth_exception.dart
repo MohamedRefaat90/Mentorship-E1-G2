@@ -21,6 +21,8 @@ class AuthExceptionHandler {
         return "Account Exists With Different Social Network";
       case 'invalid-verification-code':
         return "The OTP Code is Invalid. Please Check And Enter The correct OTP Code Again.";
+      case 'invalid-credential':
+        return "Incorrect Email or Password  , Try Again";
 
       default:
         return "Try Again Later";
