@@ -49,10 +49,7 @@ Future<dynamic> showOTPBottomSheet(
                       ],
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      "Enter OTP That Sent Via sms",
-                      style: TextStyle(),
-                    ),
+                    const Text("Enter OTP That Sent Via sms"),
                     const SizedBox(height: 20),
                     const OtpFields(),
                     const SizedBox(height: 20),
@@ -79,9 +76,9 @@ Future<dynamic> showOTPBottomSheet(
                           isDisabled: cubit.otp.length != 6 ? true : false,
                           width: 200,
                           press: () async {
-                            cubit.resetResentOtp();
                             await PhoneLogin.submitOTPCode(context,
                                 verificationId, resendToken, cubit.otp);
+                            cubit.resetResentOtp();
                           }),
                     )
                   ]),

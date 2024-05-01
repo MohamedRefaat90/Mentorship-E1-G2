@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatefulWidget {
   final TextEditingController? textEditingController;
   final String placeholderText;
-  final IconData icon;
+  final IconData? icon;
   final bool passwordVisibiltyIcon;
   final void Function(String)? onChange;
   final String? Function(String?)? validator;
@@ -12,7 +12,7 @@ class CustomTextField extends StatefulWidget {
       {this.textEditingController,
       super.key,
       required this.placeholderText,
-      required this.icon,
+      this.icon,
       required this.passwordVisibiltyIcon,
       required this.isobscure,
       this.onChange,

@@ -81,7 +81,6 @@ class _OtpFieldsState extends State<OtpFields> {
               _focusNextField(index + 1);
               context.read<LoginCubit>().otp += value;
             }
-            debugPrint(cubit.otp);
           },
         ),
       ),

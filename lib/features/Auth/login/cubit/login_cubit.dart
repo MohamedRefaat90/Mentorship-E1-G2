@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
+import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_methods.dart';
 
 part 'login_state.dart';
@@ -36,7 +37,6 @@ class LoginCubit extends Cubit<LoginState> {
       if (resendOtpTimer != 0) {
         resendOtpTimer--;
         isResendOtpDisabled = true;
-        debugPrint(resendOtpTimer.toString());
       } else {
         resetResentOtp();
       }
@@ -62,5 +62,19 @@ class LoginCubit extends Cubit<LoginState> {
       showSnackBar(context, "Fields Must Not be Empty");
     }
     emit(LoginSuccess());
+  }
+
+  forgetPassword(BuildContext context, String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      if (!context.mounted) return;
+      Navigator.pop(context);
+      showSnackBar(
+          context, "Check Your Email For Reset Password", Colors.amber);
+    } on FirebaseAuthException catch (error) {
+      if (!context.mounted) return;
+      Navigator.pop(context);
+      showSnackBar(context, AuthExceptionHandler.handleException(error));
+    }
   }
 }
