@@ -33,12 +33,12 @@ final UpcomingLaunches launchItem;
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('LAUNCH',
-                      style: AppStyles.font10SemiBoldPurple(context)),
+                      style: AppStyles.font15SemiBoldPurple(context)),
                   SizedBox(
                     height: 8.h,
                   ),
                   Text('${launchItem.name}',
-                      style: AppStyles.font16SemiBoldWhite(context),
+                      style: AppStyles.font18SemiBoldWhite(context),
                       maxLines:2,
                       overflow:TextOverflow.ellipsis,
                       ),
@@ -46,7 +46,7 @@ final UpcomingLaunches launchItem;
                     height: 5.h,
                   ),
                   Text('${launchItem.id}',
-                      style: AppStyles.font12MediumWhite(context)),
+                      style: AppStyles.font15MediumWhite(context)),
                  
                 ],
               ),

@@ -52,11 +52,11 @@ class CrewCard extends StatelessWidget {
             const SizedBox(height: 8.0),
             Text(
               crewMember.name ?? 'Unknown',
-              style: AppStyles.font12MediumWhite(context),
+              style: AppStyles.font15MediumWhite(context),
             ),
             Text(
               crewMember.agency ?? 'Unknown',
-              style: AppStyles.font12MediumGrey(context),
+              style: AppStyles.font15MediumGrey(context),
             ),
           ],
         ),

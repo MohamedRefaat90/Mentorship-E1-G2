@@ -14,7 +14,7 @@ class RocketScreen extends StatelessWidget {
         backgroundColor: AppPallete.homeBG,
         title: Text(
           "Rockets",
-          style: AppStyles.font10SemiBoldPurple(context),
+          style: AppStyles.font15SemiBoldPurple(context),
         ),
         centerTitle: false,
         actions: [
