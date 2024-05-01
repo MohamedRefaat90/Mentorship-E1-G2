@@ -30,6 +30,7 @@ dependencies:
   # UI Components
   flutter_svg: ^2.0.10+1
   google_fonts: ^6.2.0
+  cached_network_image: ^3.3.1
   
   # Code Generation and Serialization
   freezed: ^2.4.7
