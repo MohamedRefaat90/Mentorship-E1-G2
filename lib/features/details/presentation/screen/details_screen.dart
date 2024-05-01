@@ -16,10 +16,10 @@ class SpaceXDetailsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppPallete.homeBG,
+        backgroundColor: AppPalette.homeBG,
         actions: const [Icon(Icons.share)],
       ),
-      backgroundColor: AppPallete.homeBG,
+      backgroundColor: AppPalette.homeBG,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

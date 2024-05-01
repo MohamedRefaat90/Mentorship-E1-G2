@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
-import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/cubit/signup_cubit.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/validator_text.dart';
-
+import '../widgets/password_validation_rules.dart';
 import '../../../../../core/widgets/btn_loader.dart';
 import '../../../../../core/widgets/custom_btn.dart';
-import '../widgets/password_validation_rules.dart';
+import 'package:mentorship_e1_g3/core/themes/styles.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
+import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
+import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
+import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/cubit/signup_cubit.dart';
+import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/validator_text.dart';
+
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -53,7 +53,7 @@ class SignupScreen extends StatelessWidget {
                               : "Invaild Email",
                           rule: cubit.isVaildEmail),
 
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 20.height),
                       CustomTextField(
                           textEditingController: cubit.passwordController,
                           placeholderText: "Password",
@@ -64,7 +64,7 @@ class SignupScreen extends StatelessWidget {
                               cubit.validatePasswordField(password)),
                       // SizedBox(height: 10.h),
                       const PasswordValidationRules(),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 20.height),
                       CustomTextField(
                         placeholderText: "Confirm Password",
                         textEditingController: cubit.confirmPasswordController,
@@ -86,7 +86,7 @@ class SignupScreen extends StatelessWidget {
                               rule: cubit.isPassMatchConfirmPass);
                         },
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 20.height),
                       BlocConsumer<SignupCubit, SignupState>(
                         listener: (context, state) {
                           if (state is SignupSuccess) {
@@ -96,7 +96,7 @@ class SignupScreen extends StatelessWidget {
                           }
                         },
                         builder: (context, state) => CustomBTN(
-                            color: AppPallete.violet,
+                            color: AppPalette.violet,
                             widget: state is SignupLoading
                                 ? const BtnLoader()
                                 : const Text("Submit"),
