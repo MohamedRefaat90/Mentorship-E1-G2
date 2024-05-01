@@ -35,6 +35,8 @@ class HomeScreen extends StatelessWidget {
                   backgroundColor: Colors.transparent, 
                   bottomNavigationBar: CrystalNavigationBar(
                     margin: EdgeInsets.zero,
+                    paddingR:EdgeInsets.zero,
+                    marginR: const EdgeInsets.symmetric(horizontal:30,vertical:25),
                     selectedItemColor: AppPallete.purple,
                     unselectedItemColor: AppPallete.greyColor,
                     backgroundColor: Colors.transparent, 

@@ -11,7 +11,7 @@ class UpcomingCountDown extends StatelessWidget {
     return   Padding(
       padding: const EdgeInsets.symmetric(horizontal:20.0),
       child: SlideCountdownSeparated(
-            duration: const Duration(days: 2),
+            duration: const Duration(days: 6),
             padding:const EdgeInsets.all(13) ,
             style:AppStyles.font18SemiBoldWhite(context),
             separatorStyle:AppStyles.font18SemiBoldWhite(context)

@@ -40,7 +40,11 @@ class _LaunchesScreenState extends State<LaunchesScreen> {
              loading: ()=>const CustomLoadingWidget(),
              error: (error)=>  const CustomErrorWidget(),
              success: (data)=> Expanded(
-              child: ListView.builder(
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1/1.48
+                  ),
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) =>  Padding(
                   padding: const EdgeInsets.all(12.0),

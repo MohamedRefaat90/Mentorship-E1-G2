@@ -11,23 +11,26 @@ final Launches launchItem;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150.h,
-      width: double.infinity,
-      child: Card(
-        elevation: 1,
-        color: AppPallete.homeBG,
+      height: 430.h,
+      width: 150.w,
+      child: Container(
+        decoration: BoxDecoration(
+           color: AppPallete.homeBG.withOpacity(0.7),
+           borderRadius: BorderRadius.circular(20)
+        ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
                CachedNetworkImage(
                 imageUrl:'${launchItem.links!.patch!.small}' ,
                 errorWidget:((context, url, error) =>const Icon(Icons.error)) ,
-                width: 100,
+                width: 150,
                 height: 100,
               ),
               SizedBox(
-                width: 20.h,
+                height: 5.h,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +38,7 @@ final Launches launchItem;
                   Text('LAUNCH',
                       style: AppStyles.font15SemiBoldPurple(context)),
                   SizedBox(
-                    height: 8.h,
+                    height: 5.h,
                   ),
                   Text('${launchItem.name}',
                       style: AppStyles.font18SemiBoldWhite(context),

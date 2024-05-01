@@ -13,11 +13,13 @@ final UpcomingLaunches launchItem;
     return SizedBox(
       height: 150.h,
       width: double.infinity,
-      child: Card(
-        elevation: 1,
-        color: AppPallete.homeBG,
+      child: Container(
+          decoration: BoxDecoration(
+           color: AppPallete.homeBG.withOpacity(0.5),
+           borderRadius: BorderRadius.circular(20)
+        ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(14.0),
           child: Row(
             children: [
                CachedNetworkImage(

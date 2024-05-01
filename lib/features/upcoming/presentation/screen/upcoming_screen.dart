@@ -49,7 +49,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
              UpcomingItem(
                launchItem:BlocProvider.of<HomeCubit>(context).allUpcomingLaunches[1],
                 ),
-                       SizedBox(height:15.h,),
+                       SizedBox(height:10.h,),
                        const UpComingLaunchDetails(),
                        const UpcomingCountDown()
              ],
