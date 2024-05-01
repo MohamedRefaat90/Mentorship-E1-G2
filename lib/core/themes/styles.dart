@@ -5,40 +5,40 @@ import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 class AppStyles {
   static TextStyle font24BoldWhite(BuildContext context) {
     return TextStyle(
-      color: AppPallete.whiteColor,
+      color: const Color.fromRGBO(255, 255, 255, 1),
       fontSize: 24.sp,
       fontWeight: FontWeight.w700,
     );
   }
 
-  static TextStyle font10SemiBoldPurple(BuildContext context) {
+  static TextStyle font15SemiBoldPurple(BuildContext context) {
     return TextStyle(
       color: AppPallete.purple,
-      fontSize: 10.sp,
+      fontSize: 15.sp,
       fontWeight: FontWeight.w600,
     );
   }
 
-  static TextStyle font16SemiBoldWhite(BuildContext context) {
+  static TextStyle font20SemiBoldWhite(BuildContext context) {
     return TextStyle(
       color: AppPallete.whiteColor,
-      fontSize: 16.sp,
+      fontSize: 20.sp,
       fontWeight: FontWeight.w600,
     );
   }
 
-  static TextStyle font12MediumWhite(BuildContext context) {
+  static TextStyle font15MediumWhite(BuildContext context) {
     return TextStyle(
       color: AppPallete.whiteColor,
-      fontSize: 12.sp,
+      fontSize: 15.sp,
       fontWeight: FontWeight.w500,
     );
   }
 
-  static TextStyle font12MediumGrey(BuildContext context) {
+  static TextStyle font15MediumGrey(BuildContext context) {
     return TextStyle(
       color: Colors.grey,
-      fontSize: 12.sp,
+      fontSize: 15.sp,
       fontWeight: FontWeight.w500,
     );
   }

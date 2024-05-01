@@ -49,6 +49,7 @@ dependencies:
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
   shimmer: ^3.0.0
+  slide_countdown: ^1.6.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
