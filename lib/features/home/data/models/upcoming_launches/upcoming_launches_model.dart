@@ -52,6 +52,7 @@ class UpcomingLaunches {
 class Links {
   String? webcast;
   String? youtubeId;
+  Patch? patch;
 
   Links(
       {
@@ -83,4 +84,18 @@ class Cores {
     _$CoresFromJson(json); 
 
   Map<String, dynamic> toJson() => _$CoresToJson(this);
+}
+@JsonSerializable()
+class Patch {
+    String? small;
+    String? large;
+
+    Patch({
+         this.small,
+         this.large,
+    });
+ factory Patch.fromJson(Map<String, dynamic> json) =>
+    _$PatchFromJson(json); 
+
+  Map<String, dynamic> toJson() => _$PatchToJson(this);
 }

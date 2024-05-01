@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/features/home/data/models/launches/launches_model.dart';
+import 'package:mentorship_e1_g3/features/home/data/models/upcoming_launches/upcoming_launches_model.dart';
 
-class LaunchItem extends StatelessWidget {
-  const LaunchItem({super.key, required this.launchItem});
-final Launches launchItem;
+class UpcomingItem extends StatelessWidget {
+const UpcomingItem({super.key, required this.launchItem});
+final UpcomingLaunches launchItem;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

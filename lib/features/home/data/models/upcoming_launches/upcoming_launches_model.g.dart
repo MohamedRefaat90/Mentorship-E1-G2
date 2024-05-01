@@ -57,11 +57,14 @@ Map<String, dynamic> _$UpcomingLaunchesToJson(UpcomingLaunches instance) =>
 Links _$LinksFromJson(Map<String, dynamic> json) => Links(
       webcast: json['webcast'] as String?,
       youtubeId: json['youtubeId'] as String?,
-    );
+    )..patch = json['patch'] == null
+        ? null
+        : Patch.fromJson(json['patch'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$LinksToJson(Links instance) => <String, dynamic>{
       'webcast': instance.webcast,
       'youtubeId': instance.youtubeId,
+      'patch': instance.patch,
     };
 
 Cores _$CoresFromJson(Map<String, dynamic> json) => Cores(
@@ -78,4 +81,14 @@ Map<String, dynamic> _$CoresToJson(Cores instance) => <String, dynamic>{
       'gridfins': instance.gridfins,
       'legs': instance.legs,
       'reused': instance.reused,
+    };
+
+Patch _$PatchFromJson(Map<String, dynamic> json) => Patch(
+      small: json['small'] as String?,
+      large: json['large'] as String?,
+    );
+
+Map<String, dynamic> _$PatchToJson(Patch instance) => <String, dynamic>{
+      'small': instance.small,
+      'large': instance.large,
     };
