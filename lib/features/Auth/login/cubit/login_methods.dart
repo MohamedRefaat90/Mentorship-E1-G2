@@ -167,8 +167,12 @@ class EmailandPasswordLogin implements LoginMethods {
   @override
   login(BuildContext context) async {
     try {
-      final c = await FirebaseAuth.instance
+      await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password);
+      Future.delayed(
+        const Duration(seconds: 2),
+        () => pushReplacement(const HomeScreen()),
+      );
     } on FirebaseAuthException catch (error) {
       if (!context.mounted) return;
       showSnackBar(context, AuthExceptionHandler.handleException(error));

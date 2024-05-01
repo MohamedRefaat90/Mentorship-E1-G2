@@ -17,6 +17,7 @@ class LoginCubit extends Cubit<LoginState> {
   int resendOtpTimer = 60;
   bool isResendOtpDisabled = false;
   Timer? otpTimer;
+
   loginByGithub(BuildContext context) {
     GithubLogin().login(context);
   }
@@ -27,8 +28,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   loginByPhone(BuildContext context, String phoneNum) async {
     PhoneLogin phoneLogin = PhoneLogin();
-    phoneLogin.setvrifiedPhone(phoneNum);
 
+    phoneLogin.setvrifiedPhone(phoneNum);
     await phoneLogin.login(context);
   }
 
@@ -58,10 +59,11 @@ class LoginCubit extends Cubit<LoginState> {
               emailAddress: emailController.text.trim(),
               password: passwordController.text)
           .login(context);
+      emit(LoginSuccess());
     } else {
       showSnackBar(context, "Fields Must Not be Empty");
+      emit(LoginFailure());
     }
-    emit(LoginSuccess());
   }
 
   forgetPassword(BuildContext context, String email) async {
