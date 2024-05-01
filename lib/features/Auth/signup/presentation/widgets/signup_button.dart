@@ -7,7 +7,7 @@ import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import '../../../../../core/widgets/btn_loader.dart';
 import '../../../../../core/widgets/custom_btn.dart';
 import '../../../login/presentation/screen/login_screen.dart';
-import '../../cubit/signup_cubit.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/cubits/signup/signup_cubit.dart';
 
 class SignupButton extends StatelessWidget {
   const SignupButton({super.key});
@@ -29,7 +29,7 @@ class SignupButton extends StatelessWidget {
               state is SignupLoading ? const BtnLoader() : const Text("Signup"),
           width: double.infinity,
           press: () {
-            cubit.signupUser();
+            // cubit.signupUser();
           }),
     );
   }
