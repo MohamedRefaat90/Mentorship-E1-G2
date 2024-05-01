@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 
-List<BottomNavigationBarItem> items = const [
-  BottomNavigationBarItem(
-    icon: Icon(Icons.home_filled),
-    label: 'Upcoming',
+List<CrystalNavigationBarItem> items =  [
+  CrystalNavigationBarItem(
+    icon: Icons.home_filled,
   ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.history),
-    label: 'Launches',
+  CrystalNavigationBarItem(
+    icon: Icons.history,
   ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.rocket_launch),
-    label: 'Rockets',
+  CrystalNavigationBarItem(
+    icon:Icons.rocket_launch,
   ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.people),
-    label: 'Crew',
+  CrystalNavigationBarItem(
+    icon:Icons.people,
   ),
    
 ];

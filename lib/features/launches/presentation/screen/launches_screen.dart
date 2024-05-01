@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/launch_item.dart';
 import 'package:mentorship_e1_g3/features/home/logic/cubit/home_cubit.dart';
 import 'package:mentorship_e1_g3/features/home/logic/cubit/home_state.dart';
-import '../widgets/custom_launch_app_bar.dart';
 
 class LaunchesScreen extends StatefulWidget {
   const LaunchesScreen({super.key});
@@ -24,8 +24,14 @@ class _LaunchesScreenState extends State<LaunchesScreen> {
   @override
   Widget build(BuildContext context) {
       return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
        children: [
-        const CustomLaunchAppBar(),
+        Padding(
+          padding:const EdgeInsets.only(left:20.0,top: 10),
+          child: Text('Launches',
+               style:AppStyles.font24BoldWhite(context)
+            ),
+        ),
          BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
               var launchesList=BlocProvider.of<HomeCubit>(context).allLaunches;

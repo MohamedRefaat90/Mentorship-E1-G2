@@ -26,35 +26,38 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
   }
   @override
   Widget build(BuildContext context) {
-     return Padding(
-       padding: const EdgeInsets.all(12.0),
-       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Upcoming',
+     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left:20.0,top: 10),
+          child: Text('Upcoming',
             style:AppStyles.font24BoldWhite(context)),
-         SizedBox(height: 23.h,), 
-         BlocBuilder<HomeCubit, HomeState>(
-         builder: (context, state) {   
-         return state.when(
-             initial: ()=>Container(),
-             loading: ()=>const CustomLoadingWidget(),
-             error: (error)=>  const CustomErrorWidget(),
-             success: (data)=> Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        ),
+       SizedBox(height: 23.h,), 
+       BlocBuilder<HomeCubit, HomeState>(
+       builder: (context, state) {   
+       return state.when(
+           initial: ()=>Container(),
+           loading: ()=>const CustomLoadingWidget(),
+           error: (error)=>  const CustomErrorWidget(),
+           success: (data)=> Padding(
+             padding: const EdgeInsets.all(15.0),
+             child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: [
              UpcomingItem(
                launchItem:BlocProvider.of<HomeCubit>(context).allUpcomingLaunches[1],
                 ),
-            SizedBox(height: 20.h,),
-            const UpComingLaunchDetails(),
-            const UpcomingCountDown()
+                       SizedBox(height:15.h,),
+                       const UpComingLaunchDetails(),
+                       const UpcomingCountDown()
+             ],
+                      ),
+           ));
+        }
+        )
       ],
-    ));
-          }
-          )
-        ],
-           ),
-     ); 
+         ); 
   }
 }

@@ -8,7 +8,7 @@ class AppStyles {
       color: AppPallete.whiteColor,
       fontSize: 24.sp,
       fontWeight: FontWeight.w700,
-      fontFamily:'Orbitron'
+      //fontFamily:'Orbitron'
     );
   }
 
@@ -17,7 +17,7 @@ class AppStyles {
       color: AppPallete.purple,
       fontSize: 15.sp,
       fontWeight: FontWeight.w600,
-       fontFamily:'Orbitron'
+     //  fontFamily:'Orbitron'
     );
   }
 
@@ -26,7 +26,7 @@ class AppStyles {
       color: AppPallete.whiteColor,
       fontSize: 18.sp,
       fontWeight: FontWeight.w600,
-      fontFamily:'Orbitron'
+    //  fontFamily:'Orbitron'
     );
   }
 
@@ -43,7 +43,7 @@ class AppStyles {
       color: Colors.grey,
       fontSize: 15.sp,
       fontWeight: FontWeight.w500,
-      fontFamily:'Orbitron'
+      //fontFamily:'Orbitron'
     );
   }
 }

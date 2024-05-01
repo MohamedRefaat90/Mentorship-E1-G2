@@ -30,6 +30,7 @@ dependencies:
   bloc: ^8.1.4
   build_runner: ^2.4.9
   cached_network_image: ^3.3.1
+  crystal_navigation_bar: ^1.0.0
   cupertino_icons: ^1.0.6
   dio: ^5.4.3+1
   firebase_auth: ^4.19.2
@@ -93,8 +94,8 @@ flutter:
     - family: Orbitron
       fonts:
         - asset: assets/fonts/Orbitron-Bold.ttf
-        - asset:  assets/fonts/Orbitron-Medium.ttf
-        - asset:  assets/fonts/Orbitron-SemiBold.ttf
+        - asset: assets/fonts/Orbitron-Medium.ttf
+        - asset: assets/fonts/Orbitron-SemiBold.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
