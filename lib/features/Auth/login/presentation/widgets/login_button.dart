@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 
-import '../../../../../core/resources/assets.dart';
 import '../../../../../core/widgets/btn_loader.dart';
 import '../../../../../core/widgets/custom_btn.dart';
 import '../../../../../core/widgets/done_animation_button.dart';
