@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
+import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/launch_item.dart';
 import 'package:mentorship_e1_g3/features/home/logic/cubit/home_cubit.dart';
 import 'package:mentorship_e1_g3/features/home/logic/cubit/home_state.dart';
@@ -26,19 +28,23 @@ class _LaunchesScreenState extends State<LaunchesScreen> {
         const CustomLaunchAppBar(),
          BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
-              var launches= BlocProvider.of<HomeCubit>(context).allLaunches;
-              return Expanded(
+              var launchesList=BlocProvider.of<HomeCubit>(context).allLaunches;
+              return state.when(
+             initial: ()=>Container(),
+             loading: ()=>const CustomLoadingWidget(),
+             error: (error)=>  const CustomErrorWidget(),
+             success: (data)=> Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) =>  Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: LaunchItem(
-                    launchItem: launches[index],
+                    launchItem:launchesList[index],
                     ),
                 ),
-                itemCount: launches.length,
+                itemCount:launchesList.length,
               ),
-           );
+           ));
             })
           ],
         );

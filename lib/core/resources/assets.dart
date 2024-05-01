@@ -12,8 +12,9 @@ class Assets {
   static const loginPhoneIcon =
       'assets/images/login_screen/social_icons/phone.svg';
 
-  static const rocket = 'assets/images/home/rocket.png';
+ static const rocket = 'assets/images/home/rocket.png';
  static const profile ="assets/images/home/profile.png";
-
+ static const errorImage='assets/animation/error.json';
+ static const loadingImage='assets/animation/loading.json';
 
 }
