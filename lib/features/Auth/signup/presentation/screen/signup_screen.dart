@@ -3,18 +3,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/cubit/signup_cubit.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/signup_button.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/validator_text.dart';
 
 import '../widgets/password_validation_rules.dart';
+import '../widgets/submit_btn.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
   @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
-    SignupCubit cubit = BlocProvider.of<SignupCubit>(context);
+    FieldsValidatorCubit fieldValidatorCubit =
+        BlocProvider.of<FieldsValidatorCubit>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -25,61 +34,54 @@ class SignupScreen extends StatelessWidget {
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 30),
-            child: BlocBuilder<SignupCubit, SignupState>(
+            child: BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
               builder: (context, state) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextField(
-                        textEditingController: cubit.emailController,
+                        textEditingController: emailController,
                         placeholderText: "Email",
                         icon: Icons.email,
                         passwordVisibiltyIcon: false,
                         isobscure: false,
-                        onChange: (email) => cubit.validateEmail(email)),
-
+                        onChange: (email) =>
+                            fieldValidatorCubit.validateEmail(email)),
                     ValidatorText(
-                        displayWhen: cubit.emailController.text.isNotEmpty,
-                        title: cubit.isVaildEmail
+                        displayWhen: emailController.text.isNotEmpty,
+                        title: fieldValidatorCubit.isVaildEmail
                             ? "Vaild Email"
                             : "Invaild Email",
-                        rule: cubit.isVaildEmail),
-
+                        rule: fieldValidatorCubit.isVaildEmail),
                     SizedBox(height: 20.h),
                     CustomTextField(
-                        textEditingController: cubit.passwordController,
+                        textEditingController: passwordController,
                         placeholderText: "Password",
                         icon: Icons.lock,
                         passwordVisibiltyIcon: true,
-                        isobscure: cubit.isObsecured,
-                        onChange: (password) =>
-                            cubit.validatePasswordField(password)),
-                    // SizedBox(height: 10.h),
-                    const PasswordValidationRules(),
+                        isobscure: fieldValidatorCubit.isObsecured,
+                        onChange: (password) => fieldValidatorCubit
+                            .validatePasswordField(password)),
+                    PasswordValidationRules(),
                     SizedBox(height: 20.h),
                     CustomTextField(
                       placeholderText: "Confirm Password",
-                      textEditingController: cubit.confirmPasswordController,
+                      textEditingController: confirmPasswordController,
                       icon: Icons.lock,
                       passwordVisibiltyIcon: true,
-                      isobscure: cubit.isObsecured,
+                      isobscure: fieldValidatorCubit.isObsecured,
                       onChange: (confirmPassword) =>
-                          cubit.validateConfirmPassword(confirmPassword),
+                          fieldValidatorCubit.validateConfirmPassword(
+                              confirmPassword, passwordController.text),
                     ),
-
-                    BlocBuilder<SignupCubit, SignupState>(
-                      builder: (context, state) {
-                        return ValidatorText(
-                            displayWhen:
-                                cubit.confirmPasswordController.text.isNotEmpty,
-                            title: cubit.isPassMatchConfirmPass
-                                ? "Password Match"
-                                : "Password Not Match",
-                            rule: cubit.isPassMatchConfirmPass);
-                      },
-                    ),
-                    SizedBox(height: 20.h),
-                    const SignupButton()
+                    ValidatorText(
+                        displayWhen: confirmPasswordController.text.isNotEmpty,
+                        title: fieldValidatorCubit.isPassMatchConfirmPass
+                            ? "Password Match"
+                            : "Password Not Match",
+                        rule: fieldValidatorCubit.isPassMatchConfirmPass),
+                    SizedBox(height: 50.h),
+                    const SubmitBtn()
                   ],
                 );
               },

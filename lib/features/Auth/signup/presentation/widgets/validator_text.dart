@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/themes/app_pallete.dart';
-import '../../cubit/signup_cubit.dart';
 
 class ValidatorText extends StatelessWidget {
   final String title;

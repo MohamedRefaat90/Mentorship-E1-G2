@@ -1,12 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 
-part 'signup_state.dart';
+part 'fields_validator_state.dart';
 
-class SignupCubit extends Cubit<SignupState> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
+class FieldsValidatorCubit extends Cubit<FieldsValidatorState> {
+  FieldsValidatorCubit() : super(FieldsValidatorInitial());
   bool isVaildEmail = false;
   bool isPassLengthLargerThan8 = false;
   bool isContainUpperChar = false;
@@ -14,9 +12,7 @@ class SignupCubit extends Cubit<SignupState> {
   bool isContainNum = false;
   bool isContainSpecailChar = false;
   bool isPassMatchConfirmPass = false;
-  bool isObsecured = false;
-
-  SignupCubit() : super(SignupInitial());
+  bool isObsecured = true;
 
   validatePasswordField(String password) {
     checkLengthOfPassword(password);
@@ -24,7 +20,7 @@ class SignupCubit extends Cubit<SignupState> {
     checkPasswordContainLowerChar(password);
     checkPasswordContainSpecialChar(password);
     checkPasswordContainNum(password);
-    emit(SignupValidFields());
+    emit(ValidateFields());
   }
 
   checkLengthOfPassword(String password) {
@@ -67,13 +63,13 @@ class SignupCubit extends Cubit<SignupState> {
     }
   }
 
-  validateConfirmPassword(String confirmPassword) {
-    if (confirmPassword == passwordController.text) {
+  validateConfirmPassword(String confirmPassword, String password) {
+    if (confirmPassword == password) {
       isPassMatchConfirmPass = true;
     } else {
       isPassMatchConfirmPass = false;
     }
-    emit(SignupValidFields());
+    emit(ValidateFields());
   }
 
   validateEmail(String email) {
@@ -84,7 +80,7 @@ class SignupCubit extends Cubit<SignupState> {
     } else {
       isVaildEmail = false;
     }
-    emit(SignupValidFields());
+    emit(ValidateFields());
   }
 
   bool validatePassword() {
@@ -96,16 +92,6 @@ class SignupCubit extends Cubit<SignupState> {
       return true;
     } else {
       return false;
-    }
-  }
-
-  signupUser() {
-    emit(SignupLoading());
-
-    if (validateAllFields()) {
-      emit(SignupSuccess());
-    } else {
-      emit(SignupFailure(errorMSG: "Enter Valid Data"));
     }
   }
 

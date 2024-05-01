@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/cubit/signup_cubit.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/cubits/signup/signup_cubit.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/presentation/screen/signup_screen.dart';
 
 class RegisterTextBtn extends StatelessWidget {
@@ -22,8 +23,12 @@ class RegisterTextBtn extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => BlocProvider<SignupCubit>(
-                          create: (context) => SignupCubit(),
+                    builder: (context) => MultiBlocProvider(
+                          providers: [
+                            BlocProvider(create: (context) => SignupCubit()),
+                            BlocProvider(
+                                create: (context) => FieldsValidatorCubit()),
+                          ],
                           child: const SignupScreen(),
                         )));
           },
