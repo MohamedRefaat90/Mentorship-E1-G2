@@ -1,43 +1,15 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/networking/api_services.dart';
+import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
 import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
-import 'package:mentorship_e1_g3/features/crew/data/repository/crew_repository.dart';
+import 'package:mentorship_e1_g3/features/crew/logic/cubit/crew_cubit.dart';
+import 'package:mentorship_e1_g3/features/crew/logic/cubit/crew_state.dart';
 import 'package:mentorship_e1_g3/features/crew/presentation/widgets/crew_screen_widgets.dart';
 
-class CrewScreen extends StatefulWidget {
+class CrewScreen extends StatelessWidget {
   const CrewScreen({Key? key}) : super(key: key);
-
-  @override
-  State<CrewScreen> createState() => _CrewScreenState();
-}
-
-class _CrewScreenState extends State<CrewScreen> {
-  late List<CrewModel> allCrew = [];
-
-  @override
-  void initState() {
-    super.initState();
-    loadCrewData();
-  }
-
-  Future<void> loadCrewData() async {
-    final repository = CrewRepository(ApiService(Dio()));
-    final crewResult = await repository.getAllCrew();
-    crewResult.when(
-      success: (crew) {
-        setState(() {
-          allCrew = crew;
-        });
-      },
-      failure: (errorHandler) {
-        // Handle failure
-        print('Failed to load crew');
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +22,32 @@ class _CrewScreenState extends State<CrewScreen> {
           style: AppStyles.font24BoldWhite(context),
         ),
       ),
-      body: CrewGrid(allCrew: allCrew),
+      body: BlocProvider(
+        create: (context) => getIt<CrewCubit>()..getAllCrew(),
+        child: CrewScreenBody(),
+      ),
+    );
+  }
+}
+
+class CrewScreenBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CrewCubit, CrewState<List<CrewModel>>>(
+      builder: (context, state) {
+        return state.when(
+          initial: () => Center(
+            child: CircularProgressIndicator(),
+          ),
+          loading: () => Center(
+            child: CircularProgressIndicator(),
+          ),
+          success: (crewList) => CrewGrid(allCrew: crewList),
+          error: (error) => Center(
+            child: Text('Error: $error'),
+          ),
+        );
+      },
     );
   }
 }
