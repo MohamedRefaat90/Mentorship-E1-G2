@@ -43,27 +43,28 @@ class CrewCard extends StatelessWidget {
             ),
           );
         },
-        
-
-child: Column(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    CircleAvatar(
-      backgroundImage: CachedNetworkImageProvider(crewMember.image ?? ''),
-      radius: 40.0,
-    ),
-    const SizedBox(height: 8.0),
-    Text(
-      crewMember.name ?? 'Unknown',
-      style: AppStyles.font12MediumWhite(context),
-    ),
-    Text(
-      crewMember.agency ?? 'Unknown',
-      style: AppStyles.font12MediumGrey(context),
-    ),
-  ],
-),
-
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Hero(
+              tag: crewMember.id!, // Unique tag for each crew member
+              child: CircleAvatar(
+                backgroundImage:
+                    CachedNetworkImageProvider(crewMember.image ?? ''),
+                radius: 40.0,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            Text(
+              crewMember.name ?? 'Unknown',
+              style: AppStyles.font12MediumWhite(context),
+            ),
+            Text(
+              crewMember.agency ?? 'Unknown',
+              style: AppStyles.font12MediumGrey(context),
+            ),
+          ],
+        ),
       ),
     );
   }
