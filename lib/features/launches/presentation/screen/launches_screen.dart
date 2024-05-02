@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/launch_item.dart';
@@ -17,14 +18,14 @@ class _LaunchesScreenState extends State<LaunchesScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<HomeCubit>(context).emitGetLaunches();
+    getIt.get<HomeCubit>().emitGetLaunches();
   }
 
   @override
   Widget build(BuildContext context) {
       return BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
-              var launchesList=BlocProvider.of<HomeCubit>(context).allLaunches;
+              var launchesList=getIt.get<HomeCubit>().allLaunches;
               return state.when(
              initial: ()=>Container(),
              loading: ()=>const CustomLoadingWidget(),

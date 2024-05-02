@@ -80,7 +80,6 @@ flutter:
     - assets/images/home/profile.png
     - assets/animation/
     - assets/animation/error404.json
-    - assets/animation/starlink.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
