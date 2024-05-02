@@ -11,10 +11,10 @@ void showSnackBar(BuildContext context, String message) {
         margin: const EdgeInsets.symmetric(horizontal: 20),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10))),
-        backgroundColor: AppPallete.errorColor,
+        backgroundColor: AppPalette.errorColor,
         content: Text(message,
             style: const TextStyle(
-                fontWeight: FontWeight.bold, color: AppPallete.whiteColor)),
+                fontWeight: FontWeight.bold, color: AppPalette.whiteColor)),
       ),
     );
 }
