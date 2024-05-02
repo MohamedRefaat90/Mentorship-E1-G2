@@ -1,6 +1,6 @@
+import '../themes/app_pallete.dart';
 import 'package:flutter/material.dart';
 
-import '../themes/app_pallete.dart';
 
 class BtnLoader extends StatelessWidget {
   const BtnLoader({
@@ -13,7 +13,7 @@ class BtnLoader extends StatelessWidget {
       width: 25,
       height: 25,
       child: CircularProgressIndicator(
-        color: AppPallete.whiteColor,
+        color: AppPalette.whiteColor,
         strokeWidth: 5,
       ),
     );
