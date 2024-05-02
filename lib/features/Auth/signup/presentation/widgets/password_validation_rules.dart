@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/cubit/signup_cubit.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
+import 'package:mentorship_e1_g3/features/Auth/signup/cubits/signup/signup_cubit.dart';
 
 import 'validator_text.dart';
 
@@ -9,7 +10,7 @@ class PasswordValidationRules extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignupCubit cubit = BlocProvider.of<SignupCubit>(context);
+    FieldsValidatorCubit cubit = BlocProvider.of<FieldsValidatorCubit>(context);
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       ValidatorText(
           title: "Must must larger then 8",
