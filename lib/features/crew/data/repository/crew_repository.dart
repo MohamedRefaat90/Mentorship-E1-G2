@@ -1,17 +1,19 @@
-import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
-import 'package:mentorship_e1_g3/features/crew/data/web_services/crew_web_services.dart';
-// Import the correct web services class
-
+import 'package:mentorship_e1_g3/core/networking/api_result.dart';
+import 'package:mentorship_e1_g3/core/networking/api_services.dart';
+import 'package:mentorship_e1_g3/core/networking/api_error_handler.dart';
+import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
 
 class CrewRepository {
-  final CrewsWebServices crewsWebServices; // Update to CrewsWebServices
+  final ApiService apiService;
 
-  CrewRepository(this.crewsWebServices); // Update constructor parameter
+  CrewRepository(this.apiService);
 
-  Future<List<dynamic>> getAllCharacters() async {
-    final crew = await crewsWebServices.getAllCrew(); // Use getAllCrew instead
-    return crew
-        .map((crewMember) => CrewModel.fromJson(crewMember))
-        .toList(); // Update variable names accordingly
+  Future<ApiResult<List<CrewModel>>> getAllCrew() async {
+    try {
+      final crew = await apiService.getAllCrew();
+      return ApiResult.success(crew);
+    } catch (error) {
+      return ApiResult<List<CrewModel>>.failure(ErrorHandler.handle(error));
+    }
   }
 }

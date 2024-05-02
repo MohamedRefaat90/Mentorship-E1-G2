@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
+import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
 
 class CrewDetailsBody extends StatelessWidget {
   final CrewModel crewMember;

@@ -1,9 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:mentorship_e1_g3/core/networking/api_services.dart';
+import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
 import 'package:mentorship_e1_g3/features/crew/data/repository/crew_repository.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
-import 'package:mentorship_e1_g3/features/crew/data/web_services/crew_web_services.dart';
 import 'package:mentorship_e1_g3/features/crew/presentation/widgets/crew_screen_widgets.dart';
 
 class CrewScreen extends StatefulWidget {
@@ -23,11 +24,19 @@ class _CrewScreenState extends State<CrewScreen> {
   }
 
   Future<void> loadCrewData() async {
-    final repository = CrewRepository(CrewsWebServices());
-    final crew = await repository.getAllCharacters();
-    setState(() {
-      allCrew = crew.cast<CrewModel>();
-    });
+    final repository = CrewRepository(ApiService(Dio()));
+    final crewResult = await repository.getAllCrew();
+    crewResult.when(
+      success: (crew) {
+        setState(() {
+          allCrew = crew;
+        });
+      },
+      failure: (errorHandler) {
+        // Handle failure
+        print('Failed to load crew');
+      },
+    );
   }
 
   @override
