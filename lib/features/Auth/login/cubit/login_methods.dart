@@ -17,27 +17,9 @@ abstract interface class LoginMethods {
 
 class GoogleLogin implements LoginMethods {
   @override
-  login(BuildContext context) async {
+  login(BuildContext context) {
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-      if (googleUser == null) throw NoSocialAccountSelected();
-
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
-
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      return await FirebaseAuth.instance
-          .signInWithCredential(credential)
-          .then((user) {
-        if (user.user != null) {
-          pushReplacement(const HomeScreen());
-        }
-      });
+      createGoogleCredential();
     } on FirebaseAuthException catch (error) {
       if (!context.mounted) return;
       showSnackBar(context, AuthExceptionHandler.handleException(error));
@@ -45,25 +27,51 @@ class GoogleLogin implements LoginMethods {
       return;
     }
   }
+
+  createGoogleCredential() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    if (googleUser == null) throw NoSocialAccountSelected();
+
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    return await FirebaseAuth.instance
+        .signInWithCredential(credential)
+        .then((user) {
+      if (user.user != null) {
+        pushReplacement(const HomeScreen());
+      }
+    });
+  }
 }
 
 class GithubLogin implements LoginMethods {
   @override
   login(BuildContext context) async {
     try {
-      final githubAuthProvider = GithubAuthProvider();
-      return await FirebaseAuth.instance
-          .signInWithProvider(githubAuthProvider)
-          .then((user) {
-        if (user.user != null) {
-          pushReplacement(const HomeScreen());
-        }
-      });
+      createGithubCredential();
     } on FirebaseAuthException catch (error) {
       showSnackBar(context, AuthExceptionHandler.handleException(error));
     } on NoSocialAccountSelected catch (_) {
       return;
     }
+  }
+
+  createGithubCredential() async {
+    final githubAuthProvider = GithubAuthProvider();
+    return await FirebaseAuth.instance
+        .signInWithProvider(githubAuthProvider)
+        .then((user) {
+      if (user.user != null) {
+        pushReplacement(const HomeScreen());
+      }
+    });
   }
 }
 
@@ -71,12 +79,13 @@ class PhoneLogin implements LoginMethods {
   static final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   static String? _vrifiedPhone;
-  static String? _verificationId;
+
   static int? _resendToken;
 
   @override
   login(BuildContext context) async {
     LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
+
     await _firebaseAuth.verifyPhoneNumber(
       timeout: const Duration(minutes: 1),
       phoneNumber: _vrifiedPhone,
@@ -84,14 +93,12 @@ class PhoneLogin implements LoginMethods {
         await _firebaseAuth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException error) {
-        Navigator.pop(context);
-        showSnackBar(context, AuthExceptionHandler.handleException(error));
+        autoVarificationFailure(context, error);
       },
       codeSent: (String verificationId, int? resendToken) {
-        _verificationId = verificationId;
         _resendToken = resendToken;
+        cubit.startOtpTimer();
         Navigator.pop(context);
-        cubit.countDownOtpTimer();
         showOTPBottomSheet(context, verificationId, resendToken);
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
@@ -103,19 +110,17 @@ class PhoneLogin implements LoginMethods {
   static otpVarificationFailure(
       BuildContext context, FirebaseAuthException error) {
     Navigator.pop(context);
-    BlocProvider.of<LoginCubit>(context).otp = "";
+    resetOTP(context);
     showSnackBar(context, AuthExceptionHandler.handleException(error));
   }
 
   static otpVarificationSuccess(BuildContext context) {
     Navigator.pop(context);
-    BlocProvider.of<LoginCubit>(context).otp = "";
+    resetOTP(context);
 
     Future.delayed(
       const Duration(seconds: 1),
-      () {
-        pushReplacement(const HomeScreen());
-      },
+      () => pushReplacement(const HomeScreen()),
     );
   }
 
@@ -123,20 +128,17 @@ class PhoneLogin implements LoginMethods {
     LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     await _firebaseAuth.verifyPhoneNumber(
       timeout: const Duration(minutes: 1),
+      forceResendingToken: _resendToken,
       phoneNumber: _vrifiedPhone,
       verificationCompleted: (PhoneAuthCredential credential) async {
         await _firebaseAuth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException error) {
-        Navigator.pop(context);
-        showSnackBar(context, AuthExceptionHandler.handleException(error));
+        autoVarificationFailure(context, error);
       },
       codeSent: (String verificationId, int? resendToken) {
-        _verificationId = verificationId;
         _resendToken = resendToken;
-        // Navigator.pop(context);
-        cubit.countDownOtpTimer();
-        // showOTPBottomSheet(context, verificationId, resendToken);
+        cubit.startOtpTimer();
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
@@ -149,13 +151,22 @@ class PhoneLogin implements LoginMethods {
           verificationId: verificationId, smsCode: otpCode);
 
       await _firebaseAuth.signInWithCredential(credential);
-
       if (!context.mounted) return;
       otpVarificationSuccess(context);
     } on FirebaseAuthException catch (error) {
       if (!context.mounted) return;
       otpVarificationFailure(context, error);
     }
+  }
+
+  static resetOTP(BuildContext context) {
+    BlocProvider.of<LoginCubit>(context).otp = "";
+  }
+
+  static autoVarificationFailure(
+      BuildContext context, FirebaseAuthException error) {
+    Navigator.pop(context);
+    showSnackBar(context, AuthExceptionHandler.handleException(error));
   }
 }
 
@@ -167,7 +178,7 @@ class EmailandPasswordLogin implements LoginMethods {
   @override
   login(BuildContext context) async {
     try {
-      final c = await FirebaseAuth.instance
+      await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password);
     } on FirebaseAuthException catch (error) {
       if (!context.mounted) return;
