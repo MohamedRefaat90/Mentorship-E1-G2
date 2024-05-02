@@ -104,18 +104,12 @@ class __$$InitialImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
+class _$InitialImpl<T> implements _Initial<T> {
   const _$InitialImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CrewState<$T>.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'CrewState<$T>.initial'));
   }
 
   @override
@@ -224,18 +218,12 @@ class __$$LoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
+class _$LoadingImpl<T> implements Loading<T> {
   const _$LoadingImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CrewState<$T>.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'CrewState<$T>.loading'));
   }
 
   @override
@@ -359,23 +347,15 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
+class _$SuccessImpl<T> implements Success<T> {
   const _$SuccessImpl(this.data);
 
   @override
   final T data;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CrewState<$T>.success(data: $data)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CrewState<$T>.success'))
-      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -513,23 +493,15 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
+class _$ErrorImpl<T> implements Error<T> {
   const _$ErrorImpl({required this.error});
 
   @override
   final String error;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CrewState<$T>.error(error: $error)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CrewState<$T>.error'))
-      ..add(DiagnosticsProperty('error', error));
   }
 
   @override

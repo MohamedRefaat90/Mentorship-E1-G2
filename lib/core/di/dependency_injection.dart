@@ -20,5 +20,5 @@ Future<void> setUpGetIt() async {
   getIt.registerFactory<RocketCubit>(() => RocketCubit(getIt()));
 //crew
   getIt.registerLazySingleton<CrewRepository>(() => CrewRepository(getIt()));
-  getIt.registerFactory<CrewCubit>(() => CrewCubit());
+  getIt.registerFactory<CrewCubit>(() => CrewCubit(getIt()));
 }
