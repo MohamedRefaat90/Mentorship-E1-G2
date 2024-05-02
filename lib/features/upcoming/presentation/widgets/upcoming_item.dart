@@ -16,7 +16,10 @@ final UpcomingLaunches launchItem;
       child: Container(
           decoration: BoxDecoration(
            color: AppPallete.homeBG.withOpacity(0.5),
-           borderRadius: BorderRadius.circular(20)
+           borderRadius: BorderRadius.circular(20),
+           border: Border.all(
+            color: AppPallete.whiteColor
+           )
         ),
         child: Padding(
           padding: const EdgeInsets.all(14.0),
