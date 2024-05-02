@@ -11,7 +11,7 @@ final UpcomingLaunches launchItem;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150.h,
+      height: 170.h,
       width: double.infinity,
       child: Container(
           decoration: BoxDecoration(
@@ -25,14 +25,15 @@ final UpcomingLaunches launchItem;
                CachedNetworkImage(
                 imageUrl:'${launchItem.links!.patch!.small}' ,
                 errorWidget:((context, url, error) =>const Icon(Icons.error)) ,
-                width: 100,
-                height: 100,
+                width: 110,
+                height: 110,
               ),
               SizedBox(
                 width: 20.h,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('LAUNCH',
                       style: AppStyles.font15SemiBoldPurple(context)),

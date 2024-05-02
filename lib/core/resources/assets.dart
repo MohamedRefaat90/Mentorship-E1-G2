@@ -14,8 +14,8 @@ class Assets {
 
  static const rocket = 'assets/images/home/rocket.png';
  static const profile ="assets/images/home/profile.png";
- static const errorImage='assets/animation/404.json';
- static const loadingImage='assets/animation/loading.json';
+ static const errorImage='assets/animation/error404.json';
  static const backgroundImage='assets/images/home/bg.png';
+ static const loadingImage='assets/animation/star.json';
 
 }

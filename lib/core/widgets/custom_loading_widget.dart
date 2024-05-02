@@ -7,23 +7,23 @@ class CustomLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: Column(
-          children: [
-            SizedBox(
-              width:200,
-              height:200,
-              child: Lottie.asset(Assets.loadingImage)
-              ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal:50.0),
+      child: Column(
+        mainAxisAlignment:MainAxisAlignment.center,
+        children:[
+           SizedBox(
+           height:200,
+           child: Lottie.asset(Assets.loadingImage)
+           ),
             const SizedBox(
-              height: 15,
-            ),
-            const LinearProgressIndicator()
-          ],
-        ),
-      ),
+            height:20,
+             ),
+            const LinearProgressIndicator(),
+           const SizedBox(
+            height:120,
+             ),
+        ]),
     );
   }
 }

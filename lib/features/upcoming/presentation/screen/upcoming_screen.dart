@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
 import 'package:mentorship_e1_g3/features/home/logic/cubit/home_cubit.dart';
@@ -26,38 +25,27 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
   }
   @override
   Widget build(BuildContext context) {
-     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left:20.0,top: 10),
-          child: Text('Upcoming',
-            style:AppStyles.font24BoldWhite(context)),
-        ),
-       SizedBox(height: 23.h,), 
-       BlocBuilder<HomeCubit, HomeState>(
+     return  BlocBuilder<HomeCubit, HomeState>(
        builder: (context, state) {   
        return state.when(
            initial: ()=>Container(),
            loading: ()=>const CustomLoadingWidget(),
            error: (error)=>  const CustomErrorWidget(),
            success: (data)=> Padding(
-             padding: const EdgeInsets.all(15.0),
+             padding: const EdgeInsets.symmetric(horizontal:15.0,vertical:75),
              child: Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
+             crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
              UpcomingItem(
-               launchItem:BlocProvider.of<HomeCubit>(context).allUpcomingLaunches[1],
-                ),
-                       SizedBox(height:10.h,),
-                       const UpComingLaunchDetails(),
-                       const UpcomingCountDown()
+               launchItem:BlocProvider.of<HomeCubit>(context).allUpcomingLaunches[1],),
+              SizedBox(height:10.h,),
+              const UpComingLaunchDetails(),
+              const UpcomingCountDown()
              ],
-                      ),
+              ),
            ));
         }
-        )
-      ],
-         ); 
+        );
+      
   }
 }

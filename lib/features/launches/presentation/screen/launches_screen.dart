@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/launch_item.dart';
@@ -23,41 +22,30 @@ class _LaunchesScreenState extends State<LaunchesScreen> {
 
   @override
   Widget build(BuildContext context) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-       children: [
-        Padding(
-          padding:const EdgeInsets.only(left:20.0,top: 10),
-          child: Text('Launches',
-               style:AppStyles.font24BoldWhite(context)
-            ),
-        ),
-         BlocBuilder<HomeCubit, HomeState>(
+      return BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
               var launchesList=BlocProvider.of<HomeCubit>(context).allLaunches;
               return state.when(
              initial: ()=>Container(),
              loading: ()=>const CustomLoadingWidget(),
              error: (error)=>  const CustomErrorWidget(),
-             success: (data)=> Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1/1.48
-                  ),
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) =>  Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: LaunchItem(
-                    launchItem:launchesList[index],
-                    ),
-                ),
-                itemCount:launchesList.length,
-              ),
-           ));
-            })
-          ],
-        );
+             success: (data)=> GridView.builder(
+               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                 crossAxisCount: 2,
+                 childAspectRatio: 1/1.48
+                 ),
+               physics: const BouncingScrollPhysics(),
+               shrinkWrap: true,
+               itemBuilder: (BuildContext context, int index) =>  Padding(
+                 padding: const EdgeInsets.all(12.0),
+                 child: LaunchItem(
+                   launchItem:launchesList[index],
+                   ),
+               ),
+               itemCount:launchesList.length,
+             ));
+            });
+        
         }
   
 }
