@@ -33,9 +33,9 @@ class _CrewScreenState extends State<CrewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppPallete.homeBG,
+      backgroundColor: AppPalette.homeBG,
       appBar: AppBar(
-        backgroundColor: AppPallete.homeBG,
+        backgroundColor: AppPalette.homeBG,
         title: Text(
           'Crew Members',
           style: AppStyles.font24BoldWhite(context),

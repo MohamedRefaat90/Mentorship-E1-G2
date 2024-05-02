@@ -8,32 +8,29 @@ import 'package:mentorship_e1_g3/features/profile/widgets/custome_text_button.da
 import 'package:mentorship_e1_g3/features/profile/widgets/profile_list_builder.dart';
 
 class ProfileScreen extends StatelessWidget {
-
-   const ProfileScreen({
+  const ProfileScreen({
     super.key,
   });
-      
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppPallete.homeBG,
+        backgroundColor: AppPalette.homeBG,
         centerTitle: false,
         title: Text(
           "Profile",
           style: AppStyles.font24BoldWhite(context),
         ),
       ),
-      backgroundColor: AppPallete.homeBG,
+      backgroundColor: AppPalette.homeBG,
       body: Column(
         children: [
           Row(
             children: [
               Container(
-                height: 60.h,
-                width: 60.w,
+                height: 60.height,
+                width: 60.width,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(width: 3),
@@ -44,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 15.w,
+                width: 15.width,
               ),
               Text(
                 "please login to see your profile",
@@ -53,14 +50,13 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 20.h,
+            height: 20.height,
           ),
           ProfileListBuilder().buildProfileListItems(),
           SizedBox(
-            height: 40.h,
+            height: 40.height,
           ),
           const CustomTextButton(),
-          
         ],
       ),
     );
