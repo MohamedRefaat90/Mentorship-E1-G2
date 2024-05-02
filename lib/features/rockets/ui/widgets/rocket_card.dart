@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:mentorship_e1_g3/features/rockets/data/models/rocket_respons_body.dart';
 import 'package:mentorship_e1_g3/features/rockets/ui/widgets/status_container.dart';
 
 import '../../../../core/themes/styles.dart';
 
 class RocketCard extends StatelessWidget {
-  const RocketCard({
-    super.key,
-  });
-
+  const RocketCard({super.key, required this.rocket});
+  final RocketModel rocket;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -35,20 +34,20 @@ class RocketCard extends StatelessWidget {
                   height: 12.h,
                 ),
                 Text(
-                  "Rockrt",
+                  rocket.name!,
                   style: AppStyles.font10SemiBoldPurple(context),
                 ),
                 SizedBox(
                   height: 12.h,
                 ),
                 Text(
-                  "Starlink 2",
+                  rocket.name!,
                   style: AppStyles.font16SemiBoldWhite(context),
                 ),
                 SizedBox(
                   height: 12.h,
                 ),
-                const StatusContainer(isActive: false),
+                StatusContainer(isActive: rocket.active!),
               ],
             )
           ],
