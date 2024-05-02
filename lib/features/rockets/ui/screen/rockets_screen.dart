@@ -11,7 +11,7 @@ class RocketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppPallete.homeBG,
+        backgroundColor: AppPalette.homeBG,
         title: Text(
           "Rockets",
           style: AppStyles.font10SemiBoldPurple(context),
@@ -20,12 +20,11 @@ class RocketScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.search_outlined),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
       ),
-      backgroundColor: AppPallete.homeBG,
+      backgroundColor: AppPalette.homeBG,
       body: const RocketListVeiw(),
     );
   }

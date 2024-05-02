@@ -27,7 +27,7 @@ class SubmitBtn extends StatelessWidget {
         }
       },
       builder: (context, state) => CustomBTN(
-          color: AppPallete.violet,
+          color: AppPalette.violet,
           widget:
               state is SignupLoading ? const BtnLoader() : const Text("Submit"),
           width: double.infinity,
