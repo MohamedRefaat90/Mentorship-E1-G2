@@ -32,7 +32,7 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Name: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.name ?? 'Unknown',
@@ -50,11 +50,11 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Agency: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.agency ?? 'Unknown',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font15MediumWhite(context),
                 ),
               ],
             ),
@@ -66,11 +66,11 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Status: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.status ?? 'Unknown',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font15MediumWhite(context),
                 ),
               ],
             ),
@@ -94,11 +94,11 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'ID: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.id ?? 'Unknown',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font15MediumWhite(context),
                 ),
               ],
             ),
@@ -110,11 +110,11 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Launches: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.launches?.join(", ") ?? 'Unknown',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font15MediumWhite(context),
                 ),
               ],
             ),
