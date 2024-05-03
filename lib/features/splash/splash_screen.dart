@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     Future.delayed(
-        const Duration(seconds: 6), () => pushReplacement(const LoginScreen()));
+        const Duration(seconds: 5), () => pushReplacement(const LoginScreen()));
   }
 
   @override
