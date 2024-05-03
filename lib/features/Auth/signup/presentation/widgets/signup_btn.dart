@@ -36,7 +36,7 @@ class SignupBtn extends StatelessWidget {
       builder: (context, state) => AnimatedContainer(
         duration: const Duration(milliseconds: 700),
         decoration: BoxDecoration(
-            color: state is SignupSuccess ? Colors.white : AppPallete.violet,
+            color: state is SignupSuccess ? Colors.white : AppPalette.violet,
             borderRadius: BorderRadius.circular(20)),
         child: CustomBTN(
             widget: state is SignupLoading

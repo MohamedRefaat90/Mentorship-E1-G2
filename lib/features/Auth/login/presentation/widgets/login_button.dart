@@ -19,7 +19,7 @@ class LoginButton extends StatelessWidget {
             context.read<LoginCubit>().loginByEmailandPass(context);
           },
           widget: state is LoginLoading
-              ? const BtnLoader(color: AppPallete.violet)
+              ? const BtnLoader(color: AppPalette.violet)
               : state is LoginSuccess
                   ? const DoneAnimationButton()
                   : const Text(
