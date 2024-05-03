@@ -480,6 +480,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
+  hero_animation:
+    dependency: "direct dev"
+    description:
+      name: hero_animation
+      sha256: e862b27e3bddea486923922bd436cf52b9a28d1a35a342f150e91367647f3215
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   http:
     dependency: transitive
     description:
@@ -865,10 +873,17 @@ packages:
     dependency: transitive
     description:
       name: sqflite
+
+      sha256: "5ce2e1a15e822c3b4bfb5400455775e421da7098eed8adc8f26298ada7c9308c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.3"
+
       sha256: a43e5a27235518c03ca238e7b4732cf35eabe863a369ceba6cbefa537a66f16d
       url: "https://pub.dev"
     source: hosted
     version: "2.3.3+1"
+
   sqflite_common:
     dependency: transitive
     description:

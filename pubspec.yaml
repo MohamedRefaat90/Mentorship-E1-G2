@@ -32,10 +32,12 @@ dependencies:
   # UI Components
   flutter_svg: ^2.0.10+1
   google_fonts: ^6.2.0
+
   lottie: ^3.1.0
   slide_countdown: ^1.6.1
   cached_network_image: ^3.3.1
   crystal_navigation_bar: ^1.0.0
+
   # Code Generation and Serialization
   freezed: ^2.4.7
   freezed_annotation: ^2.4.1
@@ -53,6 +55,9 @@ dev_dependencies:
 
   # Faster Data Model Development
   build_runner: ^2.4.9
+
+  # Animatied packges 
+  hero_animation: ^1.1.4
 
 flutter:
   uses-material-design: true

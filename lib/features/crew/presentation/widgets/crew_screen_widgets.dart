@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
 import 'package:mentorship_e1_g3/features/crew/presentation/screens/crew_detalis_screen.dart';
 
 class CrewGrid extends StatelessWidget {
@@ -45,9 +46,13 @@ class CrewCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
-              backgroundImage: NetworkImage(crewMember.image ?? ''),
-              radius: 40.0,
+            Hero(
+              tag: crewMember.id!, // Unique tag for each crew member
+              child: CircleAvatar(
+                backgroundImage:
+                    CachedNetworkImageProvider(crewMember.image ?? ''),
+                radius: 40.0,
+              ),
             ),
             const SizedBox(height: 8.0),
             Text(
