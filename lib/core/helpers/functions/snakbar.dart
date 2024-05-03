@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 
-void showSnackBar(BuildContext context, String message) {
+void showSnackBar(BuildContext context, String message, [Color? color]) {
   ScaffoldMessenger.of(context)
     ..hideCurrentSnackBar()
     ..showSnackBar(
@@ -11,7 +11,9 @@ void showSnackBar(BuildContext context, String message) {
         margin: const EdgeInsets.symmetric(horizontal: 20),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10))),
-        backgroundColor: AppPalette.errorColor,
+
+        backgroundColor: color ?? AppPallete.errorColor,
+
         content: Text(message,
             style: const TextStyle(
                 fontWeight: FontWeight.bold, color: AppPalette.whiteColor)),

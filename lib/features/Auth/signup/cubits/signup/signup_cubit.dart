@@ -7,10 +7,10 @@ part 'signup_state.dart';
 class SignupCubit extends Cubit<SignupState> {
   SignupCubit() : super(SignupInitial());
 
-  signupUser(FieldsValidatorCubit FieldsValidatorCubit) {
+  signupUser(FieldsValidatorCubit fieldsValidatorCubit) {
     emit(SignupLoading());
 
-    if (FieldsValidatorCubit.validateAllFields()) {
+    if (fieldsValidatorCubit.validateAllFields()) {
       emit(SignupSuccess());
     } else {
       emit(SignupFailure(errorMSG: "Enter Valid Data"));
