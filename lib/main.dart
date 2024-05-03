@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/app_theme.dart';
 
 import 'core/services/initServices.dart';
+import 'features/onboarding/screens/onboarding.dart';
 import 'features/splash/splash_screen.dart';
 
 void main() async {
@@ -21,6 +22,7 @@ class MentorshipE1G2 extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTthemeMode,
       navigatorKey: navigator,
+      // home: const OnboardingScreen(),
       home: const SplashScreen(),
     );
   }
