@@ -15,6 +15,7 @@ class RocketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => RocketCubit(getIt())..emitRocketState(),
+
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppPallete.homeBG,
@@ -34,10 +35,8 @@ class RocketScreen extends StatelessWidget {
         body: BlocBuilder<RocketCubit, RocketState>(
           builder: (context, state) {
             return state.when(
-                initial: () => const SizedBox(
-                      child: CircularProgressIndicator(),
-                    ),
-                loading: () => const CircularProgressIndicator(),
+                initial: () =>  Container(),
+                loading: () =>  Container(),
                 success: (rocketList) => RocketListVeiw(rocketList: rocketList),
                 error: (errorMSG) => const Icon(Icons.warning_rounded,
                     size: 150, color: Colors.amber));

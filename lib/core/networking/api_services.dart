@@ -1,5 +1,5 @@
 import 'package:mentorship_e1_g3/core/networking/api_constant.dart';
-import 'package:mentorship_e1_g3/features/rockets/data/models/rocket_respons_model.dart';
+import 'package:mentorship_e1_g3/features/rockets/data/models/rocket_respons_body.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 

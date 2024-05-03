@@ -5,7 +5,6 @@ import 'package:mentorship_e1_g3/features/rockets/ui/screen/rockets_screen.dart'
 
 import 'core/services/initServices.dart';
 
-import 'features/splash/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +24,7 @@ class MentorshipE1G2 extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTthemeMode,
       navigatorKey: navigator,
-      home: RocketScreen(),
+      home: const RocketScreen(),
     );
   }
 }
