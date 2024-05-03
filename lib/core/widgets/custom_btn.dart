@@ -18,12 +18,12 @@ class CustomBTN extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      animationDuration: const Duration(milliseconds: 300),
+      animationDuration: const Duration(milliseconds: 700),
       onPressed: isDisabled ? null : press,
       padding: EdgeInsets.all(padding ?? 20),
       minWidth: width ?? 50,
       textColor: Colors.white,
-      color: color ?? Colors.red,
+      color: color,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       enableFeedback: true,
       disabledColor: Colors.grey,
