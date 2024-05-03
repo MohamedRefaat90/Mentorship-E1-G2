@@ -5,11 +5,11 @@ import 'package:dio/dio.dart';
 
 
 part 'api_services.g.dart';
+
 @RestApi(baseUrl: ApiConstants.apiBaseURL)
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-@GET(ApiConstants.allRockets)
-Future<RocketModelRespons> getAllRocket();
-
+  @GET(ApiConstants.allRockets)
+  Future<List<RocketModel>> getAllRocket();
 }

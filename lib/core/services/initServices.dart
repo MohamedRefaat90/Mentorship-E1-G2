@@ -6,8 +6,7 @@ import '../di/dependency_injection.dart';
 class AppServices {
   static init() async {
     await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+        options: DefaultFirebaseOptions.currentPlatform);
     setUpGetIt();
   }
 }
