@@ -12,7 +12,6 @@ class RocketRepo {
 
   Future<ApiResult<List<RocketModel>>> getALlRocket() async {
     try {
-      log("is donnnnnne");
 
       final response = await apiService.getAllRocket();
 

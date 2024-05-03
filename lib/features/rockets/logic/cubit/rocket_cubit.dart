@@ -13,20 +13,14 @@ class RocketCubit extends Cubit<RocketState> {
     emit(const RocketState.loading());
 
     final response = await _rocketRepo.getALlRocket();
-    print(response);
 
     response.when(
       success: (rocketModel) {
-        // allRocket = rocketModel;
-        debugPrint('==============================');
-        debugPrint(rocketModel.length.toString());
-        debugPrint('==============================');
+    
         emit(RocketState.success(rocketModel));
       },
       failure: (error) {
-        debugPrint('==============================');
-        debugPrint(error.apiErrorModel.message.toString());
-        debugPrint('==============================');
+       
         emit(
           RocketState.error(error: error.apiErrorModel.message ?? ''),
         );

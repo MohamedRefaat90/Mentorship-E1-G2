@@ -9,7 +9,6 @@ class RocketListVeiw extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    debugPrint(rocketList.length.toString());
     return ListView.builder(
       shrinkWrap: true,
       itemCount: rocketList.length,
@@ -17,7 +16,7 @@ class RocketListVeiw extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.all(10.0),
-          child: RocketCard(rocket: rocketList[index]),
+          child: RocketCard(rocket:rocketList[index]),
         );
       },
     );
