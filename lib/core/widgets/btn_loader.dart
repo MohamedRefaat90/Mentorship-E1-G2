@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../themes/app_pallete.dart';
 
 class BtnLoader extends StatelessWidget {
-  const BtnLoader({
-    super.key,
-  });
+  final Color? color;
 
+  const BtnLoader({super.key, this.color});
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: 25,
       height: 25,
       child: CircularProgressIndicator(
-        color: AppPallete.whiteColor,
+
+        color: color ?? Colors.white,
+
         strokeWidth: 5,
       ),
     );

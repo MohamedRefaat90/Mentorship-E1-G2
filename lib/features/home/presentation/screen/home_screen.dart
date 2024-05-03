@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../logic/cubit/home_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
-import '../../logic/cubit/home_cubit.dart';
 import '../../logic/cubit/home_state.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 
@@ -36,8 +36,8 @@ class HomeScreen extends StatelessWidget {
                     margin: EdgeInsets.zero,
                     paddingR:EdgeInsets.zero,
                     marginR: const EdgeInsets.symmetric(horizontal:30,vertical:25),
-                    selectedItemColor: AppPallete.purple,
-                    unselectedItemColor: AppPallete.greyColor,
+                    selectedItemColor: AppPalette.purple,
+                    unselectedItemColor: AppPalette.greyColor,
                     backgroundColor: Colors.transparent, 
                     items: items,
                     currentIndex: context.read<HomeCubit>().currentIndex,

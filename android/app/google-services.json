@@ -12,7 +12,20 @@
           "package_name": "com.example.mentorship_e1_g3"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "94485504034-97gel9jp6sq3ns605t4n2gujl3ev5rik.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mentorship_e1_g3",
+            "certificate_hash": "ace5e6bb280df7c3a75c651ac9e4bf1862bcd6d7"
+          }
+        },
+        {
+          "client_id": "94485504034-jqtous407q3ouunb2pqqe955cmptrf4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDTecsk0NRljVat3RjQVDjkMIVVO3TAGm8"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94485504034-jqtous407q3ouunb2pqqe955cmptrf4l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "94485504034-d0eh02767il13nbb5c26qmd75r9ls2fc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mentorshipE1G3"
+              }
+            }
+          ]
         }
       }
     }

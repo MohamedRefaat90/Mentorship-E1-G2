@@ -9,7 +9,7 @@ import 'package:mentorship_e1_g3/features/upcoming/presentation/widgets/log_out_
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: AppPallete.transparentColor,
+          backgroundColor: AppPalette.transparentColor,
           contentPadding: EdgeInsets.zero,
           content:Container(
             decoration:  BoxDecoration(

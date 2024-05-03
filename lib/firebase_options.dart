@@ -63,6 +63,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '94485504034',
     projectId: 'space-app-39e2a',
     storageBucket: 'space-app-39e2a.appspot.com',
+    androidClientId: '94485504034-97gel9jp6sq3ns605t4n2gujl3ev5rik.apps.googleusercontent.com',
+    iosClientId: '94485504034-d0eh02767il13nbb5c26qmd75r9ls2fc.apps.googleusercontent.com',
     iosBundleId: 'com.example.mentorshipE1G3',
   );
+
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomTextField extends StatefulWidget {
   final TextEditingController? textEditingController;
   final String placeholderText;
-  final IconData icon;
+  final IconData? icon;
   final bool passwordVisibiltyIcon;
   final void Function(String)? onChange;
   final String? Function(String?)? validator;
@@ -12,7 +13,7 @@ class CustomTextField extends StatefulWidget {
       {this.textEditingController,
       super.key,
       required this.placeholderText,
-      required this.icon,
+      this.icon,
       required this.passwordVisibiltyIcon,
       required this.isobscure,
       this.onChange,
@@ -34,8 +35,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       onChanged: widget.onChange,
       decoration: InputDecoration(
           enabled: true,
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          contentPadding: const EdgeInsets.symmetric(vertical: 20),
           filled: true,
           hintText: widget.placeholderText,
           fillColor: const Color(0xff322E3C),

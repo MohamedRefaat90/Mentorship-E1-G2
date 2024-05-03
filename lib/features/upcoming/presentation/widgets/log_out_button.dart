@@ -16,7 +16,7 @@ class LogOutButton extends StatelessWidget {
           },
           icon: const Icon(
             Icons.logout,
-            color:AppPallete.whiteColor,
+            color:AppPalette.whiteColor,
           )
         )
       ]

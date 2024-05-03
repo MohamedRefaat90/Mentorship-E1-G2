@@ -11,10 +11,10 @@ class LogOutDialogButton extends StatelessWidget {
     return  Padding(
                 padding:const EdgeInsets.only(bottom:70),
                 child: Container(
-                  width: 120.w,
-                  height: 50.h,
+                  width: 120.width,
+                  height: 50.height,
                   decoration:BoxDecoration(
-                    color: AppPallete.whiteColor,
+                    color: AppPalette.whiteColor,
                     borderRadius: BorderRadius.circular(20)
                   ),
                   child: TextButton(
@@ -29,7 +29,7 @@ class LogOutDialogButton extends StatelessWidget {
                           const SizedBox(width: 10,),
                           const Icon(
                             Icons.logout,
-                            color: AppPallete.homeBG,
+                            color: AppPalette.homeBG,
                           ),
                         ],
                       ) ,

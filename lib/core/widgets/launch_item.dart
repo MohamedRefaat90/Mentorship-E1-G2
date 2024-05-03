@@ -11,14 +11,14 @@ final Launches launchItem;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 430.h,
-      width: 150.w,
+      height: 430.height,
+      width: 150.width,
       child: Container(
         decoration: BoxDecoration(
-           color: AppPallete.homeBG.withOpacity(0.7),
+           color: AppPalette.homeBG.withOpacity(0.7),
            borderRadius: BorderRadius.circular(20),
            border: Border.all(
-            color: AppPallete.whiteColor
+            color: AppPalette.whiteColor
            )
         ),
         child: Padding(
@@ -33,7 +33,7 @@ final Launches launchItem;
                 height: 100,
               ),
               SizedBox(
-                height: 5.h,
+                height: 5.height,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +41,7 @@ final Launches launchItem;
                   Text('LAUNCH',
                       style: AppStyles.font15SemiBoldPurple(context)),
                   SizedBox(
-                    height: 5.h,
+                    height: 5.height,
                   ),
                   Text('${launchItem.name}',
                       style: AppStyles.font18SemiBoldWhite(context),
@@ -49,7 +49,7 @@ final Launches launchItem;
                       overflow:TextOverflow.ellipsis,
                       ),
                   SizedBox(
-                    height: 5.h,
+                    height: 5.height,
                   ),
                   Text('${launchItem.id}',
                       style: AppStyles.font15MediumWhite(context)),
