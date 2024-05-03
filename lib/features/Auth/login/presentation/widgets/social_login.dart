@@ -65,7 +65,7 @@ class SocialLogin extends StatelessWidget {
                           alignLeft: false,
                         ),
                         SizedBox(
-                            width: 170.w,
+                            width: 170.width,
                             height: 40,
                             child: TextFormField(
                               controller: phoneController,
@@ -84,8 +84,8 @@ class SocialLogin extends StatelessWidget {
                                   ? const BtnLoader()
                                   : const Text("Submit"),
                               padding: 15,
-                              width: 200.w,
-                              color: AppPallete.violet,
+                              width: 200.width,
+                              color: AppPalette.violet,
                               press: () {
                                 String varifiedPhone =
                                     codeCountry + phoneController.text.trim();

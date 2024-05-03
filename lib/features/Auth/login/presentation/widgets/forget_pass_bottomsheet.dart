@@ -38,11 +38,11 @@ Future<dynamic> showForgetPasswordBottomSheet(BuildContext context) {
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5)),
                   ),
-                  SizedBox(height: 30.h),
+                  SizedBox(height: 30.height),
                   Center(
                     child: CustomBTN(
                         widget: const Text("Reset"),
-                        width: 200.w,
+                        width: 200.width,
                         press: () {
                           cubit.forgetPassword(
                               context, emailController.text.trim());

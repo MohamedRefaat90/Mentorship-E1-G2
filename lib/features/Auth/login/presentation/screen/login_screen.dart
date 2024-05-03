@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                     cubit.loginByEmailandPass(context);
                   },
                   widget: state is LoginLoading
-                      ? const BtnLoader(color: AppPallete.violet)
+                      ? const BtnLoader(color: AppPalette.violet)
                       : const Text(
                           "Login",
                           style: TextStyle(

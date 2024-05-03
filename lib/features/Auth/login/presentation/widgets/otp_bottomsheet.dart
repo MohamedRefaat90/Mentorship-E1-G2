@@ -43,7 +43,7 @@ Future<dynamic> showOTPBottomSheet(
                             Navigator.pop(context);
                           },
                           icon: const Icon(Icons.close),
-                          color: AppPallete.errorColor,
+                          color: AppPalette.errorColor,
                           iconSize: 30,
                         ),
                       ],
@@ -72,7 +72,7 @@ Future<dynamic> showOTPBottomSheet(
                     Center(
                       child: CustomBTN(
                           widget: const Text("Submit"),
-                          color: AppPallete.violet,
+                          color: AppPalette.violet,
                           isDisabled: cubit.otp.length != 6 ? true : false,
                           width: 200,
                           press: () async {
