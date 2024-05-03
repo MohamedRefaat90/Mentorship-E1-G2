@@ -1,14 +1,14 @@
-import 'package:country_code_picker/country_code_picker.dart';
+import 'social_login_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/widgets/btn_loader.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_btn.dart';
+import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 
-import 'social_login_btn.dart';
 
 class SocialLogin extends StatelessWidget {
   const SocialLogin({super.key});
@@ -65,7 +65,7 @@ class SocialLogin extends StatelessWidget {
                           alignLeft: false,
                         ),
                         SizedBox(
-                            width: 170.w,
+                            width: 170.width,
                             height: 40,
                             child: TextFormField(
                               controller: phoneController,
@@ -84,8 +84,8 @@ class SocialLogin extends StatelessWidget {
                                   ? const BtnLoader()
                                   : const Text("Submit"),
                               padding: 15,
-                              width: 200.w,
-                              color: AppPallete.violet,
+                              width: 200.width,
+                              color: AppPalette.violet,
                               press: () {
                                 String varifiedPhone =
                                     codeCountry + phoneController.text.trim();

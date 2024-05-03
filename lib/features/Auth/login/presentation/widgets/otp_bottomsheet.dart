@@ -1,11 +1,11 @@
+import '../../cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import '../../cubit/login_methods.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_btn.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/presentation/widgets/otp_fields.dart';
 
-import '../../cubit/login_cubit.dart';
-import '../../cubit/login_methods.dart';
 
 Future<dynamic> showOTPBottomSheet(
     BuildContext context, String verificationId, int? resendToken) {
@@ -43,7 +43,7 @@ Future<dynamic> showOTPBottomSheet(
                             Navigator.pop(context);
                           },
                           icon: const Icon(Icons.close),
-                          color: AppPallete.errorColor,
+                          color: AppPalette.errorColor,
                           iconSize: 30,
                         ),
                       ],
@@ -72,7 +72,7 @@ Future<dynamic> showOTPBottomSheet(
                     Center(
                       child: CustomBTN(
                           widget: const Text("Submit"),
-                          color: AppPallete.violet,
+                          color: AppPalette.violet,
                           isDisabled: cubit.otp.length != 6 ? true : false,
                           width: 200,
                           press: () async {
