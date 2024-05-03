@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mentorship_e1_g3/core/networking/api_constant.dart';
+import 'package:mentorship_e1_g3/features/home/data/models/launches/launches_model.dart';
+import 'package:mentorship_e1_g3/features/home/data/models/upcoming_launches/upcoming_launches_model.dart';
 import 'package:mentorship_e1_g3/features/rockets/data/models/rocket_respons_body.dart';
 import 'package:retrofit/http.dart';
 
@@ -10,6 +12,10 @@ abstract class ApiService {
 @GET(ApiConstants.allRockets)
 Future<RocketResponseModel>getAllRocket();
   
+ @GET(ApiConstants.launches)
+  Future<List<Launches>> getLaunches();
 
+ @GET(ApiConstants.upcomingLaunches)
+  Future<List<UpcomingLaunches>> getUpcomingLaunches();
 }
 

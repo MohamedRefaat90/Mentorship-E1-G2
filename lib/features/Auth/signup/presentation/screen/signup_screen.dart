@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../widgets/password_validation_rules.dart';
-import '../../../../../core/widgets/btn_loader.dart';
-import '../../../../../core/widgets/custom_btn.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/validator_text.dart';
 
 import '../widgets/password_validation_rules.dart';
-import '../widgets/submit_btn.dart';
+import '../widgets/signup_btn.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -28,6 +21,15 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     FieldsValidatorCubit fieldValidatorCubit =
@@ -70,7 +72,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         isobscure: fieldValidatorCubit.isObsecured,
                         onChange: (password) => fieldValidatorCubit
                             .validatePasswordField(password)),
-                    PasswordValidationRules(),
+                    const PasswordValidationRules(),
                     SizedBox(height: 20.height),
                     CustomTextField(
                       placeholderText: "Confirm Password",
@@ -89,7 +91,9 @@ class _SignupScreenState extends State<SignupScreen> {
                             : "Password Not Match",
                         rule: fieldValidatorCubit.isPassMatchConfirmPass),
                     SizedBox(height: 50.height),
-                    const SubmitBtn()
+                    SignupBtn(
+                        email: emailController.text.trim(),
+                        password: confirmPasswordController.text)
                   ],
                 );
               },

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // Import Flutter SVG package
 import 'package:mentorship_e1_g3/features/details/presentation/widgets/details_widgets.dart';
 
 class SpaceXDetailsScreen extends StatelessWidget {
+  const SpaceXDetailsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Replace with your actual image URLs
@@ -35,78 +36,78 @@ class SpaceXDetailsScreen extends StatelessWidget {
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Rocket',
-                AppStyles.font10SemiBoldPurple(context),
+                AppStyles.font15SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Falcon 1',
-                AppStyles.font16SemiBoldWhite(context), // Updated font style
+                AppStyles.font18SemiBoldWhite(context), // Updated font style
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'LAUNCH DATE',
-                AppStyles.font10SemiBoldPurple(context),
+                AppStyles.font15SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 '01-03-2019',
-                AppStyles.font12MediumWhite(context),
+                AppStyles.font15MediumWhite(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'LAUNCH SITE',
-                AppStyles.font10SemiBoldPurple(context),
+                AppStyles.font15SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'CCAFS SLC 40',
-                AppStyles.font12MediumWhite(context),
+                AppStyles.font15MediumWhite(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'LAUNCH STATUS',
-                AppStyles.font10SemiBoldPurple(context),
+                AppStyles.font15SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Success',
-                AppStyles.font12MediumWhite(context),
+                AppStyles.font15MediumWhite(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'DETAILS',
-                AppStyles.font10SemiBoldPurple(context),
+                AppStyles.font15SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Last launch of the original Falcon 9 v1.0 launch vehicle',
-                AppStyles.font12MediumWhite(context),
+                AppStyles.font15MediumWhite(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'ROCKET SUMMARY',
-                AppStyles.font10SemiBoldPurple(context),
+                AppStyles.font15SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'Falcon 9',
-                AppStyles.font16SemiBoldWhite(context), // Updated font style
+                AppStyles.font18SemiBoldWhite(context), // Updated font style
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'TYPE',
-                AppStyles.font10SemiBoldPurple(context),
+                AppStyles.font15SemiBoldPurple(context),
               ),
               SpaceXDetailsWidgets.textWithSpacing(
                 'v1.0',
-                AppStyles.font16SemiBoldWhite(context),
+                AppStyles.font18SemiBoldWhite(context),
               ),
               SpaceXDetailsWidgets.rowWithSpacing(
                 Text(
                   'FIRST STAGE',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 Text(
                   'SECOND STAGE',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
               ),
               SpaceXDetailsWidgets.rowWithSpacing(
                 Text(
                   'Cores: 4',
-                  style: AppStyles.font16SemiBoldWhite(context),
+                  style: AppStyles.font18SemiBoldWhite(context),
                 ),
                 Text(
                   'Payloads: 150kg',
-                  style: AppStyles.font16SemiBoldWhite(context),
+                  style: AppStyles.font18SemiBoldWhite(context),
                 ),
               ),
               const SizedBox(

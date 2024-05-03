@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: unused_element
-
 part of 'rocket_respons_body.dart';
 
 // **************************************************************************
@@ -26,10 +24,10 @@ Rocket _$RocketFromJson(Map<String, dynamic> json) => Rocket(
       name: json['name'] as String,
       type: json['type'] as String,
       active: json['active'] as bool,
-      stages: json['stages'] as int,
-      boosters: json['boosters'] as int,
-      costPerLaunch: json['costPerLaunch'] as int,
-      successRatePct: json['successRatePct'] as int,
+      stages: (json['stages'] as num).toInt(),
+      boosters: (json['boosters'] as num).toInt(),
+      costPerLaunch: (json['costPerLaunch'] as num).toInt(),
+      successRatePct: (json['successRatePct'] as num).toInt(),
       firstFlight: json['firstFlight'] as String,
       country: json['country'] as String,
       company: json['company'] as String,
@@ -97,8 +95,8 @@ Map<String, dynamic> _$DiameterToJson(Diameter instance) => <String, dynamic>{
     };
 
 Mass _$MassFromJson(Map<String, dynamic> json) => Mass(
-      kg: json['kg'] as int,
-      lb: json['lb'] as int,
+      kg: (json['kg'] as num).toInt(),
+      lb: (json['lb'] as num).toInt(),
     );
 
 Map<String, dynamic> _$MassToJson(Mass instance) => <String, dynamic>{
@@ -110,9 +108,9 @@ Stage _$StageFromJson(Map<String, dynamic> json) => Stage(
       thrust: Thrust.fromJson(json['thrust'] as Map<String, dynamic>),
       payloads: Payloads.fromJson(json['payloads'] as Map<String, dynamic>),
       reusable: json['reusable'] as bool,
-      engines: json['engines'] as int,
+      engines: (json['engines'] as num).toInt(),
       fuelAmountTons: (json['fuelAmountTons'] as num).toDouble(),
-      burnTimeSec: json['burnTimeSec'] as int?,
+      burnTimeSec: (json['burnTimeSec'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$StageToJson(Stage instance) => <String, dynamic>{
@@ -125,8 +123,8 @@ Map<String, dynamic> _$StageToJson(Stage instance) => <String, dynamic>{
     };
 
 Thrust _$ThrustFromJson(Map<String, dynamic> json) => Thrust(
-      kN: json['kN'] as int,
-      lbf: json['lbf'] as int,
+      kN: (json['kN'] as num).toInt(),
+      lbf: (json['lbf'] as num).toInt(),
     );
 
 Map<String, dynamic> _$ThrustToJson(Thrust instance) => <String, dynamic>{
@@ -163,11 +161,11 @@ Engines _$EnginesFromJson(Map<String, dynamic> json) => Engines(
           Thrust.fromJson(json['thrustSeaLevel'] as Map<String, dynamic>),
       thrustVacuum:
           Thrust.fromJson(json['thrustVacuum'] as Map<String, dynamic>),
-      number: json['number'] as int,
+      number: (json['number'] as num).toInt(),
       type: json['type'] as String,
       version: json['version'] as String,
       layout: json['layout'] as String,
-      engineLossMax: json['engineLossMax'] as int?,
+      engineLossMax: (json['engineLossMax'] as num?)?.toInt(),
       propellant1: json['propellant1'] as String,
       propellant2: json['propellant2'] as String,
       thrustToWeight: (json['thrustToWeight'] as num).toDouble(),
@@ -188,8 +186,8 @@ Map<String, dynamic> _$EnginesToJson(Engines instance) => <String, dynamic>{
     };
 
 Isp _$IspFromJson(Map<String, dynamic> json) => Isp(
-      seaLevel: json['seaLevel'] as int,
-      vacuum: json['vacuum'] as int,
+      seaLevel: (json['seaLevel'] as num).toInt(),
+      vacuum: (json['vacuum'] as num).toInt(),
     );
 
 Map<String, dynamic> _$IspToJson(Isp instance) => <String, dynamic>{
@@ -198,7 +196,7 @@ Map<String, dynamic> _$IspToJson(Isp instance) => <String, dynamic>{
     };
 
 LandingLegs _$LandingLegsFromJson(Map<String, dynamic> json) => LandingLegs(
-      number: json['number'] as int,
+      number: (json['number'] as num).toInt(),
       material: json['material'] as String?,
     );
 
@@ -212,8 +210,8 @@ PayloadWeight _$PayloadWeightFromJson(Map<String, dynamic> json) =>
     PayloadWeight(
       id: json['id'] as String,
       name: json['name'] as String,
-      kg: json['kg'] as int,
-      lb: json['lb'] as int,
+      kg: (json['kg'] as num).toInt(),
+      lb: (json['lb'] as num).toInt(),
     );
 
 Map<String, dynamic> _$PayloadWeightToJson(PayloadWeight instance) =>

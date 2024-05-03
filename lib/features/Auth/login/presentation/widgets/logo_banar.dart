@@ -14,7 +14,7 @@ class LogoBanar extends StatelessWidget {
         Image.asset(Assets.loginLogo),
         const SizedBox(height: 10),
         const Text(
-          "Exploper the Galaxy",
+          "Explore the Galaxy",
           style: TextStyle(fontWeight: FontWeight.bold),
           textAlign: TextAlign.end,
         ),
