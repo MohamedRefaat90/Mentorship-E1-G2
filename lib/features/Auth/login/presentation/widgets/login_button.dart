@@ -12,12 +12,11 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
         return CustomBTN(
           press: () {
-            cubit.loginByEmailandPass(context);
+            context.read<LoginCubit>().loginByEmailandPass(context);
           },
           widget: state is LoginLoading
               ? const BtnLoader(color: AppPallete.violet)
