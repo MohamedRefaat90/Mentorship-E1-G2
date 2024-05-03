@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
+import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 
 class UpComingLaunchDetails extends StatelessWidget {

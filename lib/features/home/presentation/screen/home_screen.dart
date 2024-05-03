@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../logic/cubit/home_cubit.dart';
+import '../../logic/cubit/home_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';

@@ -6,7 +6,9 @@ import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/validator_text.dart';
-import '../widgets/submit_btn.dart';
+
+import '../widgets/password_validation_rules.dart';
+import '../widgets/signup_btn.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -89,7 +91,9 @@ class _SignupScreenState extends State<SignupScreen> {
                             : "Password Not Match",
                         rule: fieldValidatorCubit.isPassMatchConfirmPass),
                     SizedBox(height: 50.height),
-                    const SubmitBtn()
+                    SignupBtn(
+                        email: emailController.text.trim(),
+                        password: confirmPasswordController.text)
                   ],
                 );
               },

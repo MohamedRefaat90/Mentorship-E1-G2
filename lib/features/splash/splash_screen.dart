@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 
 import '../../core/routing/app_routing.dart';
@@ -31,11 +32,11 @@ class _SplashScreenState extends State<SplashScreen>
         AnimationController(vsync: this, duration: const Duration(seconds: 3))
           ..forward();
 
-    _animationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        pushReplacement(const LoginScreen());
-      }
-    });
+    // _animationController.addStatusListener((status) {
+    //   if (status == AnimationStatus.completed) {
+    //     pushReplacement(const LoginScreen());
+    //   }
+    // });
   }
 
   setRotaionDegree(int degree) {
@@ -47,30 +48,42 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              AnimatedBuilder(
-                animation: _animation,
-                builder: (context, child) =>
-                    Transform.rotate(angle: _animation.value, child: child),
-                child: Center(
-                  child: Image.asset(Assets.splashGalaxy),
-                ),
-              ),
-              Center(
-                  child: Image.asset(
-                Assets.splashSpaceman,
-                width: 190,
-              )),
-            ],
-          ),
-          Image.asset(Assets.splashSpaceText)
-        ],
-      ),
-    );
+        body: Center(
+      child: Lottie.asset("assets/animations/splash/1.lottie",
+          decoder: customDecoder),
+    )
+
+        // Column(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     Stack(
+        //       alignment: Alignment.center,
+        //       children: [
+        //         AnimatedBuilder(
+        //           animation: _animation,
+        //           builder: (context, child) =>
+        //               Transform.rotate(angle: _animation.value, child: child),
+        //           child: Center(
+        //             child: Image.asset(Assets.splashGalaxy),
+        //           ),
+        //         ),
+        //         Center(
+        //             child: Image.asset(
+        //           Assets.splashSpaceman,
+        //           width: 190,
+        //         )),
+        //       ],
+        //     ),
+        //     Image.asset(Assets.splashSpaceText)
+        //   ],
+        // ),
+        );
   }
+}
+
+Future<LottieComposition?> customDecoder(List<int> bytes) {
+  return LottieComposition.decodeZip(bytes, filePicker: (files) {
+    return files.firstWhere(
+        (f) => f.name.startsWith('animations/') && f.name.endsWith('.json'));
+  });
 }

@@ -7,6 +7,8 @@ class AppStyles {
     return TextStyle(
       color: AppPalette.whiteColor,
       fontSize: 24.scaleText,
+      color: AppPalette.whiteColor,
+      fontSize: 24.scaleText,
       fontWeight: FontWeight.w700,
       fontFamily:'Schibsted Grotesk'
     );

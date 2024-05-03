@@ -1,3 +1,4 @@
+import '../themes/app_pallete.dart';
 import 'package:flutter/material.dart';
 
 

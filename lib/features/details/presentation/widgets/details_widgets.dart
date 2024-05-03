@@ -5,7 +5,7 @@ import 'package:mentorship_e1_g3/core/themes/styles.dart';
 class SpaceXDetailsWidgets {
   static Widget topImage(String imageUrl) {
     return Center(
-      child: SizedBox(
+      child: Container(
         width: double.infinity,
         height: 75.0,
         child: Image.network(imageUrl),
@@ -57,7 +57,7 @@ class SpaceXDetailsWidgets {
       children: [
         Text(
           'Youtube',
-          style: AppStyles.font15SemiBoldPurple(context),
+          style: AppStyles.font10SemiBoldPurple(context),
         ),
         IconButton(
           onPressed: () {},
@@ -76,7 +76,7 @@ class SpaceXDetailsWidgets {
       children: [
         Text(
           'Reddit',
-          style: AppStyles.font15SemiBoldPurple(context),
+          style: AppStyles.font10SemiBoldPurple(context),
         ),
         IconButton(
           onPressed: () {},

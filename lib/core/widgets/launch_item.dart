@@ -50,6 +50,7 @@ final Launches launchItem;
                       ),
                   SizedBox(
                     height: 5.height,
+                    height: 5.height,
                   ),
                   Text('${launchItem.id}',
                       style: AppStyles.font15MediumWhite(context)),
