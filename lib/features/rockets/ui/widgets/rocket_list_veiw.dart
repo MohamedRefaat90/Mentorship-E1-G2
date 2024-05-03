@@ -10,12 +10,12 @@ class RocketListVeiw extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<RocketCubit>().emitRocketState();
+
     return ListView.builder(
       itemCount: 5,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
-        context.read<RocketCubit>().emitRocketState();
-
         return const Padding(
           padding: EdgeInsets.all(10.0),
           child: RocketCard(),

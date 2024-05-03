@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names, unreachable_switch_case, non_constant_identifier_names
 
 import 'package:dio/dio.dart';
+
 import 'package:mentorship_e1_g3/core/networking/api_constant.dart';
 import 'package:mentorship_e1_g3/core/networking/api_error_model.dart';
 

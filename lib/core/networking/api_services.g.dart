@@ -21,13 +21,13 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   @override
-  Future<RocketResponseModel> getAllRocket() async {
+  Future<RocketModelRespons> getAllRocket() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<RocketResponseModel>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RocketModelRespons>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,7 +43,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = RocketResponseModel.fromJson(_result.data!);
+    final value = RocketModelRespons.fromJson(_result.data!);
     return value;
   }
 
