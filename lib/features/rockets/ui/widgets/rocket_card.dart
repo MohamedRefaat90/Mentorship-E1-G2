@@ -14,39 +14,39 @@ class RocketCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150.h,
+      height: 150.height,
       width: double.infinity,
       child: Card(
-        color: AppPallete.homeBG,
+        color: AppPalette.homeBG,
         child: Row(
           children: [
             Image(
               image: const AssetImage(Assets.rocket),
-              width: 100.w,
-              height: 100.h,
+              width: 100.width,
+              height: 100.height,
             ),
             SizedBox(
-              width: 20.w,
+              width: 20.width,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 12.h,
+                  height: 12.height,
                 ),
                 Text(
                   "Rockrt",
                   style: AppStyles.font10SemiBoldPurple(context),
                 ),
                 SizedBox(
-                  height: 12.h,
+                  height: 12.height,
                 ),
                 Text(
                   "Starlink 2",
                   style: AppStyles.font16SemiBoldWhite(context),
                 ),
                 SizedBox(
-                  height: 12.h,
+                  height: 12.height,
                 ),
                 const StatusContainer(isActive: false),
               ],
