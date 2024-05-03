@@ -13,4 +13,7 @@ class Assets {
       'assets/images/login_screen/social_icons/phone.svg';
 
   static const rocket = 'assets/images/home/rocket.png';
+ static const profile ="assets/images/home/profile.png";
+
+
 }

@@ -6,21 +6,18 @@ class CustomLaunchAppBar extends StatelessWidget {
   const CustomLaunchAppBar({super.key});
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Row(
         children: [
-          Text('Launches',
-             style:AppStyles.font24BoldWhite(context)
-          ),
+          Text('Launches', style: AppStyles.font24BoldWhite(context)),
           const Spacer(),
           IconButton(
-            onPressed: () {  }, 
+            onPressed: () {},
             icon: const Icon(
               Icons.search_outlined,
-              color: AppPallete.whiteColor,
+              color: AppPalette.whiteColor,
             ),
-      
           ),
         ],
       ),

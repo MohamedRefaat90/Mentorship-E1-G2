@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 
 class CountDownCard extends StatelessWidget {
   const CountDownCard({super.key,required this.time});
@@ -12,7 +12,7 @@ class CountDownCard extends StatelessWidget {
       height:66,
       child:Card(
         elevation: 1,
-        color: AppPallete.homeBG,
+        color: AppPalette.homeBG,
         child:Center(
           child: Text(time,
           style:AppStyles.font24BoldWhite(context)),
