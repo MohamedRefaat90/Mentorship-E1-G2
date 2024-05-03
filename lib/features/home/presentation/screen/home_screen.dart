@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
 import '../../logic/cubit/home_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
+import 'package:mentorship_e1_g3/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,12 +17,12 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) {
           return SafeArea(
             child: Scaffold(
-                backgroundColor: AppPallete.homeBG,
+                backgroundColor: AppPalette.homeBG,
                 bottomNavigationBar: BottomNavigationBar(
                   type: BottomNavigationBarType.fixed,
-                  selectedItemColor: AppPallete.purple,
-                  unselectedItemColor: AppPallete.greyColor,
-                  backgroundColor: AppPallete.homeBG,
+                  selectedItemColor: AppPalette.purple,
+                  unselectedItemColor: AppPalette.greyColor,
+                  backgroundColor: AppPalette.homeBG,
                   items: items,
                   currentIndex: cubit.currentIndex,
                   onTap: (index) {
