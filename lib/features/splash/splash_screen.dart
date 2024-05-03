@@ -32,11 +32,11 @@ class _SplashScreenState extends State<SplashScreen>
         AnimationController(vsync: this, duration: const Duration(seconds: 3))
           ..forward();
 
-    // _animationController.addStatusListener((status) {
-    //   if (status == AnimationStatus.completed) {
-    //     pushReplacement(const LoginScreen());
-    //   }
-    // });
+    _animationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        pushReplacement(const LoginScreen());
+      }
+    });
   }
 
   setRotaionDegree(int degree) {
