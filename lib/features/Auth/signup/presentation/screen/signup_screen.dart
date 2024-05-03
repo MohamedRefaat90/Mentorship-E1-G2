@@ -1,12 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/validator_text.dart';
 
+import '../../../../../core/widgets/background_image.dart';
+import '../../../../../core/widgets/background_ovarlay.dart';
 import '../widgets/password_validation_rules.dart';
+import '../widgets/signup_appbar.dart';
 import '../widgets/submit_btn.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -32,78 +35,87 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          title: Text("Sign in", style: AppStyles.font24BoldWhite(context))),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 30),
-            child: BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
-              builder: (context, state) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomTextField(
-                        textEditingController: emailController,
-                        placeholderText: "Email",
-                        icon: Icons.email,
-                        passwordVisibiltyIcon: false,
-                        isobscure: false,
-                        onChange: (email) => context
-                            .read<FieldsValidatorCubit>()
-                            .validateEmail(email)),
-                    ValidatorText(
-                        displayWhen: emailController.text.isNotEmpty,
-                        title: context.read<FieldsValidatorCubit>().isVaildEmail
-                            ? "Vaild Email"
-                            : "Invaild Email",
-                        rule:
-                            context.read<FieldsValidatorCubit>().isVaildEmail),
-                    SizedBox(height: 20.height),
-                    CustomTextField(
-                        textEditingController: passwordController,
-                        placeholderText: "Password",
+      // appBar: AppBar(
+      //     centerTitle: true,
+      //     title: Text("Sign in", style: AppStyles.font24BoldWhite(context))),
+      body: Stack(
+        children: [
+          const BackgroundImage(image: "assets/images/login_screen/5.jpg"),
+          const BackgroundOvarlay(opacity: 0.4),
+          SingleChildScrollView(
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 30),
+              child: BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
+                builder: (context, state) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SignupAppbar(),
+                      SizedBox(height: 60.height),
+                      CustomTextField(
+                          textEditingController: emailController,
+                          placeholderText: "Email",
+                          icon: Icons.email,
+                          passwordVisibiltyIcon: false,
+                          isobscure: false,
+                          onChange: (email) => context
+                              .read<FieldsValidatorCubit>()
+                              .validateEmail(email)),
+                      ValidatorText(
+                          displayWhen: emailController.text.isNotEmpty,
+                          title:
+                              context.read<FieldsValidatorCubit>().isVaildEmail
+                                  ? "Vaild Email"
+                                  : "Invaild Email",
+                          rule: context
+                              .read<FieldsValidatorCubit>()
+                              .isVaildEmail),
+                      SizedBox(height: 20.height),
+                      CustomTextField(
+                          textEditingController: passwordController,
+                          placeholderText: "Password",
+                          icon: Icons.lock,
+                          passwordVisibiltyIcon: true,
+                          isobscure:
+                              context.read<FieldsValidatorCubit>().isObsecured,
+                          onChange: (password) => context
+                              .read<FieldsValidatorCubit>()
+                              .validatePasswordField(password)),
+                      const PasswordValidationRules(),
+                      SizedBox(height: 20.height),
+                      CustomTextField(
+                        placeholderText: "Confirm Password",
+                        textEditingController: confirmPasswordController,
                         icon: Icons.lock,
                         passwordVisibiltyIcon: true,
                         isobscure:
                             context.read<FieldsValidatorCubit>().isObsecured,
-                        onChange: (password) => context
+                        onChange: (confirmPassword) => context
                             .read<FieldsValidatorCubit>()
-                            .validatePasswordField(password)),
-                    PasswordValidationRules(),
-                    SizedBox(height: 20.height),
-                    CustomTextField(
-                      placeholderText: "Confirm Password",
-                      textEditingController: confirmPasswordController,
-                      icon: Icons.lock,
-                      passwordVisibiltyIcon: true,
-                      isobscure:
-                          context.read<FieldsValidatorCubit>().isObsecured,
-                      onChange: (confirmPassword) => context
-                          .read<FieldsValidatorCubit>()
-                          .validateConfirmPassword(
-                              confirmPassword, passwordController.text),
-                    ),
-                    ValidatorText(
-                        displayWhen: confirmPasswordController.text.isNotEmpty,
-                        title: context
-                                .read<FieldsValidatorCubit>()
-                                .isPassMatchConfirmPass
-                            ? "Password Match"
-                            : "Password Not Match",
-                        rule: context
-                            .read<FieldsValidatorCubit>()
-                            .isPassMatchConfirmPass),
-                    SizedBox(height: 50.height),
-                    const SubmitBtn()
-                  ],
-                );
-              },
+                            .validateConfirmPassword(
+                                confirmPassword, passwordController.text),
+                      ),
+                      ValidatorText(
+                          displayWhen:
+                              confirmPasswordController.text.isNotEmpty,
+                          title: context
+                                  .read<FieldsValidatorCubit>()
+                                  .isPassMatchConfirmPass
+                              ? "Password Match"
+                              : "Password Not Match",
+                          rule: context
+                              .read<FieldsValidatorCubit>()
+                              .isPassMatchConfirmPass),
+                      SizedBox(height: 50.height),
+                      const SubmitBtn()
+                    ],
+                  );
+                },
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
