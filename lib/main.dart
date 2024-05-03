@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_offline/flutter_offline.dart';
+import 'package:mentorship_e1_g3/core/connectivity/no_network_screen.dart';
 import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
 import 'package:mentorship_e1_g3/core/themes/app_theme.dart';
 import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
@@ -24,7 +26,26 @@ class MentorshipE1G2 extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTthemeMode,
       navigatorKey: navigator,
-      home: const HomeScreen(),
+      home: OfflineBuilder(
+        connectivityBuilder: (
+          BuildContext context,
+          ConnectivityResult connectivity,
+          Widget child,
+        ) {
+          final bool connected = connectivity != ConnectivityResult.none;
+
+          if (connected) {
+            return const HomeScreen();
+          } else {
+            return const NoNetWorkScreen();
+          }
+        },
+        //TODO: i will change it when alyaa mirgee
+        child:Container(),
+      ),
     );
+      
+    
+    
   }
 }

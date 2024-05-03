@@ -3,7 +3,6 @@ description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 # publish_to: "none" # Remove this line if you wish to publish to pub.dev
-
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -32,10 +31,11 @@ dependencies:
   build_runner: ^2.4.9
   cupertino_icons: ^1.0.6
   dio: ^5.4.3+1
+  flutter_offline: "^3.0.1"
   firebase_auth: ^4.19.2
   firebase_core: ^2.30.0
   flutter:
-   sdk: flutter
+    sdk: flutter
   flutter_bloc: ^8.1.5
   flutter_pretty_dio_logger: ^3.0.0
   flutter_svg: ^2.0.10+1
