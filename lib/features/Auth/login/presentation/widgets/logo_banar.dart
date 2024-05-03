@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 
 class LogoBanar extends StatelessWidget {
-  const LogoBanar({
-    super.key,
-  });
+  const LogoBanar({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -9,8 +9,6 @@ import '../../cubit/login_methods.dart';
 
 Future<dynamic> showOTPBottomSheet(
     BuildContext context, String verificationId, int? resendToken) {
-  LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
-
   return showModalBottomSheet(
       context: context,
       isDismissible: false,
@@ -39,11 +37,11 @@ Future<dynamic> showOTPBottomSheet(
                         ),
                         IconButton(
                           onPressed: () {
-                            cubit.resetResentOtp();
+                            context.read<LoginCubit>().resetResentOtp();
                             Navigator.pop(context);
                           },
                           icon: const Icon(Icons.close),
-                          color: AppPallete.errorColor,
+                          color: AppPalette.errorColor,
                           iconSize: 30,
                         ),
                       ],
@@ -57,13 +55,16 @@ Future<dynamic> showOTPBottomSheet(
                       child: BlocBuilder<LoginCubit, LoginState>(
                         builder: (context, state) {
                           return CustomBTN(
-                              widget: Text("Resent OTP ${cubit.resendOtpTimer}",
+                              widget: Text(
+                                  "Resent OTP ${context.read<LoginCubit>().resendOtpTimer}",
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold)),
                               color: Colors.blueAccent,
                               padding: 10,
                               width: 70,
-                              isDisabled: cubit.isResendOtpDisabled,
+                              isDisabled: context
+                                  .read<LoginCubit>()
+                                  .isResendOtpDisabled,
                               press: () => PhoneLogin.resendOTP(context));
                         },
                       ),
@@ -72,13 +73,19 @@ Future<dynamic> showOTPBottomSheet(
                     Center(
                       child: CustomBTN(
                           widget: const Text("Submit"),
-                          color: AppPallete.violet,
-                          isDisabled: cubit.otp.length != 6 ? true : false,
+                          color: AppPalette.violet,
+                          isDisabled: context.read<LoginCubit>().otp.length != 6
+                              ? true
+                              : false,
                           width: 200,
                           press: () async {
-                            await PhoneLogin.submitOTPCode(context,
-                                verificationId, resendToken, cubit.otp);
-                            cubit.resetResentOtp();
+                            await PhoneLogin.submitOTPCode(
+                                context,
+                                verificationId,
+                                resendToken,
+                                context.read<LoginCubit>().otp);
+                            if (!context.mounted) return;
+                            context.read<LoginCubit>().resetResentOtp();
                           }),
                     )
                   ]),

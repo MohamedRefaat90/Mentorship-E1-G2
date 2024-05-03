@@ -17,7 +17,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     return Scaffold(
       body: SafeArea(
           child: Padding(
@@ -31,10 +30,10 @@ class LoginScreen extends StatelessWidget {
               builder: (context, state) {
                 return CustomBTN(
                   press: () {
-                    cubit.loginByEmailandPass(context);
+                    context.read<LoginCubit>().loginByEmailandPass(context);
                   },
                   widget: state is LoginLoading
-                      ? const BtnLoader(color: AppPallete.violet)
+                      ? const BtnLoader(color: AppPalette.violet)
                       : const Text(
                           "Login",
                           style: TextStyle(

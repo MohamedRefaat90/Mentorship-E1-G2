@@ -15,12 +15,11 @@ class SocialLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     return Row(
       children: [
         Expanded(
           child: SocialLoginBtn(
-            press: () => cubit.loginByGoogle(context),
+            press: () => context.read<LoginCubit>().loginByGoogle(context),
             lable: "Google",
             svgIcon: Assets.loginGoogleIcon,
           ),
@@ -28,7 +27,7 @@ class SocialLogin extends StatelessWidget {
         const SizedBox(width: 10),
         Expanded(
           child: SocialLoginBtn(
-            press: () => cubit.loginByGithub(context),
+            press: () => context.read<LoginCubit>().loginByGithub(context),
             lable: "Github",
             svgIcon: Assets.loginGithubIcon,
           ),
@@ -65,7 +64,7 @@ class SocialLogin extends StatelessWidget {
                           alignLeft: false,
                         ),
                         SizedBox(
-                            width: 170.w,
+                            width: 170.width,
                             height: 40,
                             child: TextFormField(
                               controller: phoneController,
@@ -77,19 +76,20 @@ class SocialLogin extends StatelessWidget {
                     ),
                     actions: [
                       BlocBuilder<LoginCubit, LoginState>(
-                        bloc: cubit,
                         builder: (context, state) {
                           return CustomBTN(
                               widget: state is LoginLoading
                                   ? const BtnLoader()
                                   : const Text("Submit"),
                               padding: 15,
-                              width: 200.w,
-                              color: AppPallete.violet,
+                              width: 200.width,
+                              color: AppPalette.violet,
                               press: () {
                                 String varifiedPhone =
                                     codeCountry + phoneController.text.trim();
-                                cubit.loginByPhone(context, varifiedPhone);
+                                context
+                                    .read<LoginCubit>()
+                                    .loginByPhone(context, varifiedPhone);
                               });
                         },
                       ),

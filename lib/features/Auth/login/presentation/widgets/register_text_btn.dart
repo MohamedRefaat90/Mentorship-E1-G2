@@ -5,9 +5,7 @@ import 'package:mentorship_e1_g3/features/Auth/signup/cubits/signup/signup_cubit
 import 'package:mentorship_e1_g3/features/Auth/signup/presentation/screen/signup_screen.dart';
 
 class RegisterTextBtn extends StatelessWidget {
-  const RegisterTextBtn({
-    super.key,
-  });
+  const RegisterTextBtn({super.key});
 
   @override
   Widget build(BuildContext context) {

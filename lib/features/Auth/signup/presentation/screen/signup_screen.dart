@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../widgets/password_validation_rules.dart';
-import '../../../../../core/widgets/btn_loader.dart';
-import '../../../../../core/widgets/custom_btn.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_text_field.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/presentation/widgets/validator_text.dart';
 
 import '../widgets/password_validation_rules.dart';
@@ -39,9 +31,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    FieldsValidatorCubit fieldValidatorCubit =
-        BlocProvider.of<FieldsValidatorCubit>(context);
-
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
@@ -62,22 +51,26 @@ class _SignupScreenState extends State<SignupScreen> {
                         icon: Icons.email,
                         passwordVisibiltyIcon: false,
                         isobscure: false,
-                        onChange: (email) =>
-                            fieldValidatorCubit.validateEmail(email)),
+                        onChange: (email) => context
+                            .read<FieldsValidatorCubit>()
+                            .validateEmail(email)),
                     ValidatorText(
                         displayWhen: emailController.text.isNotEmpty,
-                        title: fieldValidatorCubit.isVaildEmail
+                        title: context.read<FieldsValidatorCubit>().isVaildEmail
                             ? "Vaild Email"
                             : "Invaild Email",
-                        rule: fieldValidatorCubit.isVaildEmail),
+                        rule:
+                            context.read<FieldsValidatorCubit>().isVaildEmail),
                     SizedBox(height: 20.height),
                     CustomTextField(
                         textEditingController: passwordController,
                         placeholderText: "Password",
                         icon: Icons.lock,
                         passwordVisibiltyIcon: true,
-                        isobscure: fieldValidatorCubit.isObsecured,
-                        onChange: (password) => fieldValidatorCubit
+                        isobscure:
+                            context.read<FieldsValidatorCubit>().isObsecured,
+                        onChange: (password) => context
+                            .read<FieldsValidatorCubit>()
                             .validatePasswordField(password)),
                     PasswordValidationRules(),
                     SizedBox(height: 20.height),
@@ -86,17 +79,23 @@ class _SignupScreenState extends State<SignupScreen> {
                       textEditingController: confirmPasswordController,
                       icon: Icons.lock,
                       passwordVisibiltyIcon: true,
-                      isobscure: fieldValidatorCubit.isObsecured,
-                      onChange: (confirmPassword) =>
-                          fieldValidatorCubit.validateConfirmPassword(
+                      isobscure:
+                          context.read<FieldsValidatorCubit>().isObsecured,
+                      onChange: (confirmPassword) => context
+                          .read<FieldsValidatorCubit>()
+                          .validateConfirmPassword(
                               confirmPassword, passwordController.text),
                     ),
                     ValidatorText(
                         displayWhen: confirmPasswordController.text.isNotEmpty,
-                        title: fieldValidatorCubit.isPassMatchConfirmPass
+                        title: context
+                                .read<FieldsValidatorCubit>()
+                                .isPassMatchConfirmPass
                             ? "Password Match"
                             : "Password Not Match",
-                        rule: fieldValidatorCubit.isPassMatchConfirmPass),
+                        rule: context
+                            .read<FieldsValidatorCubit>()
+                            .isPassMatchConfirmPass),
                     SizedBox(height: 50.height),
                     const SubmitBtn()
                   ],

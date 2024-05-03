@@ -14,7 +14,6 @@ class SignupButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignupCubit cubit = BlocProvider.of<SignupCubit>(context);
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
         if (state is SignupSuccess) {
@@ -24,7 +23,7 @@ class SignupButton extends StatelessWidget {
         }
       },
       builder: (context, state) => CustomBTN(
-          color: AppPallete.violet,
+          color: AppPalette.violet,
           widget:
               state is SignupLoading ? const BtnLoader() : const Text("Signup"),
           width: double.infinity,
