@@ -23,7 +23,8 @@ class CrewDetailsScreen extends StatelessWidget {
         ),
       ),
       body: BlocProvider(
-        create: (context) => getIt<CrewCubit>()..getAllCrew(),
+        create: (context) =>
+            getIt<CrewCubit>()..getAllCrew(), // Utilizing DI here
         child: CrewDetailsScreenBody(crewMember: crewMember),
       ),
     );
@@ -33,8 +34,7 @@ class CrewDetailsScreen extends StatelessWidget {
 class CrewDetailsScreenBody extends StatelessWidget {
   final CrewModel crewMember;
 
-  const CrewDetailsScreenBody({Key? key, required this.crewMember})
-      : super(key: key);
+  const CrewDetailsScreenBody({super.key, required this.crewMember});
 
   @override
   Widget build(BuildContext context) {

@@ -119,7 +119,6 @@ class CrewDetailsBody extends StatelessWidget {
               ],
             ),
           ),
-          // Add more details as needed
         ],
       ),
     );
