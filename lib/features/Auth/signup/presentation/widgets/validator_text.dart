@@ -20,14 +20,14 @@ class ValidatorText extends StatelessWidget {
               Icon(
                 rule ? Icons.done_rounded : Icons.cancel,
                 size: 18,
-                color: rule ? AppPallete.greenColor : AppPallete.errorColor,
+                color: rule ? AppPalette.greenColor : AppPalette.errorColor,
               ),
               const SizedBox(width: 7),
               Text(
                 title,
                 style: TextStyle(
                     color:
-                        rule ? AppPallete.greenColor : AppPallete.errorColor),
+                        rule ? AppPalette.errorColor : AppPalette.errorColor),
               ),
             ],
           )

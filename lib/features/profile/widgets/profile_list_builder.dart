@@ -1,9 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/features/profile/widgets/profile_list_items.dart';
-
 
 class ProfileListBuilder {
   Widget buildProfileListItems() {
@@ -13,11 +10,10 @@ class ProfileListBuilder {
           ListTile(
             leading: Icon(
               item.icon,
-              color: AppPallete.purple,
+              color: AppPalette.purple,
             ),
             title: Text(
               item.title,
-             
             ),
             onTap: () {},
           ),

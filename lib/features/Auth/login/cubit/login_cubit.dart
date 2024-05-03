@@ -33,7 +33,7 @@ class LoginCubit extends Cubit<LoginState> {
     await phoneLogin.login(context);
   }
 
-  countDownOtpTimer() {
+  startOtpTimer() {
     otpTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (resendOtpTimer != 0) {
         resendOtpTimer--;

@@ -56,7 +56,7 @@ class CrewCard extends StatelessWidget {
             ),
             Text(
               crewMember.agency ?? 'Unknown',
-              style: AppStyles.font12MediumGrey(context),
+              style: AppStyles.font12MediumWhite(context),
             ),
           ],
         ),

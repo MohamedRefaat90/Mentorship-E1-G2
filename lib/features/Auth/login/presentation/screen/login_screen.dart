@@ -22,7 +22,26 @@ class LoginScreen extends StatelessWidget {
             LogoBanar(),
             LoginFields(),
             ForgetPasswordBTN(),
-            LoginButton(),
+            BlocBuilder<LoginCubit, LoginState>(
+              builder: (context, state) {
+                return CustomBTN(
+                  press: () {
+                    cubit.loginByEmailandPass(context);
+                  },
+                  widget: state is LoginLoading
+                      ? const BtnLoader(color: AppPalette.violet)
+                      : const Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17),
+                        ),
+                  width: double.infinity,
+                  color: Colors.white,
+                );
+              },
+            ),
             LoginWithText(),
             SocialLogin(),
             RegisterTextBtn()
