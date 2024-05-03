@@ -41,6 +41,8 @@ dependencies:
   
   # Logging
   pretty_dio_logger: ^1.3.1
+  lottie: ^3.1.0
+
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +55,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+  # Images :
     - assets/images/
     - assets/images/login_screen/
     - assets/images/login_screen/social_icons/
@@ -60,3 +63,8 @@ flutter:
     - assets/images/home/
     - assets/images/home/rocket.png
     - assets/images/home/profile.png
+  
+  # Animations :
+    - assets/animations/
+    - assets/animations/onboarding/
+    - assets/animations/splash/
