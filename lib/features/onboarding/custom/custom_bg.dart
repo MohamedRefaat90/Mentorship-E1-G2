@@ -30,10 +30,8 @@ class OnBoardingBackground extends CustomPainter {
     paint.strokeWidth = 4;
     paint.shader = ui.Gradient.linear(
         Offset(size.width / 2, 0), Offset(size.width / 2, size.height), [
-      firstColor ?? Colors.lightGreen.shade300,
+      firstColor ?? const ui.Color.fromARGB(255, 132, 129, 213),
       secondColor ?? Colors.greenAccent.shade200
-      // Color(0xffF52C6A),
-      // Color(0xffF72D6B),
     ]);
 
     final path = Path();

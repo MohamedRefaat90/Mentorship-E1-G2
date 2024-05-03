@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../models/item.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
+
+import '../../../core/helpers/functions/customLottieDecoder.dart';
+import '../models/item.dart';
 
 class ItemCard extends StatelessWidget {
   final Item item;
@@ -9,41 +11,32 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Column(
       children: [
-        const Spacer(),
-        const Spacer(),
-        const Spacer(),
-        const Spacer(),
+        SizedBox(height: 60.height),
         SizedBox(
-          height: h * 0.50,
-          width: w,
+          height: screenHeight * 0.50,
+          width: screenWidth,
           child: Padding(
             padding: const EdgeInsets.all(0),
-            child: Lottie.asset(
-              item.lottie,
-              fit: BoxFit.cover,
-            ),
-            // child: Placeholder(
-            //   color: Colors.black,
-            // ),
+            child: Lottie.asset(item.lottie,
+                fit: BoxFit.cover, decoder: customDecoder),
           ),
         ),
         const Spacer(),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: w * 0.08),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: h * 0.10,
-                // child: const Placeholder(),
+                height: screenHeight * 0.10,
                 child: Text(
                   item.title,
-                  textScaleFactor: 2.5,
+                  textScaler: const TextScaler.linear(2.3),
                   maxLines: 2,
                   style: const TextStyle(
                       fontWeight: FontWeight.w800,
@@ -52,18 +45,17 @@ class ItemCard extends StatelessWidget {
                       wordSpacing: 7),
                 ),
               ),
-              SizedBox(height: h * 0.03),
+              SizedBox(height: screenHeight * 0.03),
               SizedBox(
-                  height: h * 0.12,
-                  // child: const Placeholder(),
+                  height: screenHeight * 0.12,
                   child: Text(
                     item.description,
-                    textScaleFactor: 1.1,
-                    style: TextStyle(
+                    textScaler: const TextScaler.linear(1),
+                    style: const TextStyle(
                       height: 1.2,
                       wordSpacing: 5,
                       fontWeight: FontWeight.w400,
-                      color: Colors.black.withOpacity(0.8),
+                      color: Colors.white,
                     ),
                   )),
             ],
