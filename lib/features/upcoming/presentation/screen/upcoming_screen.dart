@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
 import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
@@ -23,7 +22,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
    @override
    void initState() {
     super.initState();
-    getIt.get<HomeCubit>().emitGetUpcomingLaunches();
+    context.read<HomeCubit>().emitGetUpcomingLaunches();
   }
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
             const LogOutButton(),
              SizedBox(height:35.h,),
            UpcomingItem(
-             launchItem:getIt.get<HomeCubit>().allUpcomingLaunches[1],),
+             launchItem:context.read<HomeCubit>().allUpcomingLaunches[1],),
             SizedBox(height:10.h,),
             const UpComingLaunchDetails(),
             const UpcomingCountDown()

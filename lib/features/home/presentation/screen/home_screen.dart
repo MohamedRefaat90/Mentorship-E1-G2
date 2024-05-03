@@ -13,9 +13,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeCubit cubit = getIt.get<HomeCubit>();
     return BlocProvider(
-      create: (context) => cubit,
+      create: (context) => getIt.get<HomeCubit>(),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return SafeArea(
@@ -41,12 +40,12 @@ class HomeScreen extends StatelessWidget {
                     unselectedItemColor: AppPallete.greyColor,
                     backgroundColor: Colors.transparent, 
                     items: items,
-                    currentIndex: cubit.currentIndex,
+                    currentIndex: context.read<HomeCubit>().currentIndex,
                     onTap: (index) {
-                      cubit.changeBottomNavBar(index);
+                      context.read<HomeCubit>().changeBottomNavBar(index);
                     },
                   ),
-                  body: cubit.homeScreens[cubit.currentIndex],
+                  body:context.read<HomeCubit>().homeScreens[context.read<HomeCubit>().currentIndex],
                 ),
               ],
             ),
