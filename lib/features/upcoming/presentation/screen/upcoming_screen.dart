@@ -7,6 +7,7 @@ import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
 import 'package:mentorship_e1_g3/features/home/logic/cubit/home_cubit.dart';
 import 'package:mentorship_e1_g3/features/home/logic/cubit/home_state.dart';
 import 'package:mentorship_e1_g3/features/upcoming/presentation/widgets/count_down.dart';
+import 'package:mentorship_e1_g3/features/upcoming/presentation/widgets/log_out_button.dart';
 import 'package:mentorship_e1_g3/features/upcoming/presentation/widgets/upcoming_launch_details.dart';
 import '../widgets/upcoming_item.dart';
 
@@ -26,27 +27,29 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
   }
   @override
   Widget build(BuildContext context) {
-     return  BlocBuilder<HomeCubit, HomeState>(
-       builder: (context, state) {   
-       return state.when(
-           initial: ()=>Container(),
-           loading: ()=>const CustomLoadingWidget(),
-           error: (error)=>  const CustomErrorWidget(),
-           success: (data)=> Padding(
-             padding: const EdgeInsets.symmetric(horizontal:15.0,vertical:75),
-             child: Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-             UpcomingItem(
-               launchItem:getIt.get<HomeCubit>().allUpcomingLaunches[1],),
-              SizedBox(height:10.h,),
-              const UpComingLaunchDetails(),
-              const UpcomingCountDown()
-             ],
-              ),
-           ));
-        }
-        );
+     return BlocBuilder<HomeCubit, HomeState>(
+     builder: (context, state) {   
+     return state.when(
+         initial: ()=>Container(),
+         loading: ()=>const CustomLoadingWidget(),
+         error: (error)=>  const CustomErrorWidget(),
+         success: (data)=> Padding(
+           padding: const EdgeInsets.symmetric(horizontal:15.0),
+           child: Column(
+           crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            const LogOutButton(),
+             SizedBox(height:35.h,),
+           UpcomingItem(
+             launchItem:getIt.get<HomeCubit>().allUpcomingLaunches[1],),
+            SizedBox(height:10.h,),
+            const UpComingLaunchDetails(),
+            const UpcomingCountDown()
+           ],
+            ),
+         ));
+      }
+      );
       
   }
 }
