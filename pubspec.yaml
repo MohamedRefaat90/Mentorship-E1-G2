@@ -32,6 +32,7 @@ dependencies:
   # UI Components
   flutter_svg: ^2.0.10+1
   google_fonts: ^6.2.0
+  lottie: ^3.1.0
   
   # Code Generation and Serialization
   freezed: ^2.4.7
@@ -57,6 +58,8 @@ flutter:
   assets:
   # Images :
     - assets/images/
+    - assets/animations/
+    - assets/animations/signup/
     - assets/images/login_screen/
     - assets/images/login_screen/social_icons/
     - assets/images/splash/
