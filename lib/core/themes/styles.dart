@@ -7,39 +7,47 @@ class AppStyles {
     return TextStyle(
       color: AppPalette.whiteColor,
       fontSize: 24.scaleText,
+      color: AppPalette.whiteColor,
+      fontSize: 24.scaleText,
       fontWeight: FontWeight.w700,
+      fontFamily:'Schibsted Grotesk'
     );
   }
 
-  static TextStyle font10SemiBoldPurple(BuildContext context) {
+  static TextStyle font15SemiBoldPurple(BuildContext context) {
     return TextStyle(
       color: AppPalette.purple,
-      fontSize: 10.scaleText,
+      fontSize: 15.scaleText,
       fontWeight: FontWeight.w600,
+      fontFamily:'Schibsted Grotesk'
     );
   }
 
-  static TextStyle font16SemiBoldWhite(BuildContext context) {
+  static TextStyle font18SemiBoldWhite(BuildContext context) {
     return TextStyle(
       color: AppPalette.whiteColor,
-      fontSize: 16.scaleText,
+      fontSize: 18.scaleText,
       fontWeight: FontWeight.w600,
-    );
+      fontFamily:'Schibsted Grotesk'  
+        );
   }
 
-  static TextStyle font12MediumWhite(BuildContext context) {
+  static TextStyle font15MediumWhite(BuildContext context) {
     return TextStyle(
       color: AppPalette.whiteColor,
-      fontSize: 12.scaleText,
+      fontSize: 15.scaleText,
       fontWeight: FontWeight.w500,
+      fontFamily:'Schibsted Grotesk'
     );
   }
 
-  static TextStyle fontSmallRed(BuildContext context) {
+  static TextStyle font15MediumGrey(BuildContext context) {
     return TextStyle(
-      color: AppPalette.detailsColor,
-      fontSize: 12.scaleText,
+      color: Colors.grey,
+      fontSize: 15.scaleText,
       fontWeight: FontWeight.w500,
+      fontFamily:'Schibsted Grotesk'
     );
   }
+
 }
