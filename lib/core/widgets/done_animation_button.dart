@@ -10,6 +10,6 @@ class DoneAnimationButton extends StatelessWidget {
     return SizedBox(
         width: 30,
         height: 30,
-        child: Lottie.asset(Assets.signupButtonAnimation));
+        child: Lottie.asset(Assets.authButtonDoneAnimation));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:spacex/core/resources/assets.dart';
 import 'package:spacex/core/services/sharedprefs.dart';
 import 'package:spacex/features/home/presentation/screen/home_screen.dart';
 import 'package:spacex/features/onboarding/screens/onboarding.dart';
@@ -18,6 +19,15 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.black,
+        body: Center(
+            child: Lottie.asset(Assets.splashAnimation,
+                frameRate: FrameRate.max, decoder: customDecoder)));
+  }
+
+  @override
   void initState() {
     super.initState();
 
@@ -28,14 +38,5 @@ class _SplashScreenState extends State<SplashScreen>
             : SharedPreferencesService.getUserID() == null
                 ? const LoginScreen()
                 : const HomeScreen()));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-            child: Lottie.asset("assets/animations/splash/SpacexSplash.lottie",
-                frameRate: FrameRate.max, decoder: customDecoder)));
   }
 }
