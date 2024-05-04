@@ -21,25 +21,27 @@ class MentorshipE1G2 extends StatelessWidget {
   const MentorshipE1G2({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.darkTthemeMode,
-        navigatorKey: navigator,
-        home: OfflineBuilder(
-          connectivityBuilder: (
-            BuildContext context,
-            ConnectivityResult connectivity,
-            Widget child,
-          ) {
-            final bool connected = connectivity != ConnectivityResult.none;
-            if (connected) {
-              return BlocProvider(
-                  create: (context) => LoginCubit(), child: child);
-            } else {
-              return const NoNetWorkScreen();
-            }
-          },
-          child: const SplashScreen(),
-        ));
+    return BlocProvider<LoginCubit>(
+      create: (context) => LoginCubit(),
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.darkTthemeMode,
+          navigatorKey: navigator,
+          home: OfflineBuilder(
+            connectivityBuilder: (
+              BuildContext context,
+              ConnectivityResult connectivity,
+              Widget child,
+            ) {
+              final bool connected = connectivity != ConnectivityResult.none;
+              if (connected) {
+                return child;
+              } else {
+                return const NoNetWorkScreen();
+              }
+            },
+            child: const SplashScreen(),
+          )),
+    );
   }
 }
