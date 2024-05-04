@@ -12,38 +12,23 @@ import 'package:mentorship_e1_g3/features/rockets/data/repo/rocket_repo.dart';
 import 'package:mentorship_e1_g3/features/rockets/logic/cubit/rocket_cubit.dart';
 import 'package:mentorship_e1_g3/features/crew/data/repository/crew_repository.dart';
 
-
 final getIt = GetIt.instance;
 Future<void> setUpGetIt() async {
-  getIt.registerFactory<HomeCubit>(() => HomeCubit());
-
   //dio
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
-// rocket page
-  getIt.registerLazySingleton<RocketRepo>(() => RocketRepo(getIt()));
-  getIt.registerFactory<RocketCubit>(() => RocketCubit(getIt()));
-//crew
-  getIt.registerLazySingleton<CrewRepository>(() => CrewRepository(getIt()));
-  getIt.registerFactory<CrewCubit>(() => CrewCubit(getIt()));
-
-final getIt=GetIt.instance;
-Future<void> setUpGetIt()async{
-
-   //dio
-Dio dio=DioFactory.getDio();
-getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
 // home repository
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
 
-//home cubit 
+//home cubit
   getIt.registerLazySingleton<HomeCubit>(() => HomeCubit(getIt()));
 
 // rocket page
   getIt.registerLazySingleton<RocketRepo>(() => RocketRepo(getIt()));
   getIt.registerFactory<RocketCubit>(() => RocketCubit(getIt()));
 
-
-
+  //crew
+  getIt.registerLazySingleton<CrewRepository>(() => CrewRepository(getIt()));
+  getIt.registerFactory<CrewCubit>(() => CrewCubit(getIt()));
 }

@@ -20,13 +20,9 @@ abstract class ApiService {
   @GET(ApiConstants.allCrew)
   Future<List<CrewModel>> getAllCrew();
 
-@GET(ApiConstants.allRockets)
-Future<RocketResponseModel>getAllRocket();
-  
- @GET(ApiConstants.launches)
+  @GET(ApiConstants.launches)
   Future<List<Launches>> getLaunches();
 
- @GET(ApiConstants.upcomingLaunches)
+  @GET(ApiConstants.upcomingLaunches)
   Future<List<UpcomingLaunches>> getUpcomingLaunches();
-
 }
