@@ -22,4 +22,6 @@ class Assets {
   static const backgroundImage = 'assets/images/home/bg.png';
   static const loadingImage = 'assets/animation/star.json';
   static const logOutDialogImage = 'assets/animation/log_out.json';
+
+  static const notInternetConnection = 'assets/animation/not_intrnet_connection.json';
 }
