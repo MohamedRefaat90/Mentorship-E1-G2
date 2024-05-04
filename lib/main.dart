@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'core/services/initServices.dart';
+import 'features/splash/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/themes/app_theme.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 
-import 'core/services/initServices.dart';
-import 'features/splash/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
