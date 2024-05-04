@@ -1,70 +1,56 @@
 name: mentorship_e1_g3
 description: "A new Flutter project."
 # publish_to: "none" # Uncomment this line if you don't want to publish to pub.dev
-
 version: 1.0.0+1
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
-  # Flutter SDK
+  bloc: ^8.1.4
+  cached_network_image: ^3.3.1
+  country_code_picker: ^3.0.0
+  crystal_navigation_bar: ^1.0.0
+  cupertino_icons: ^1.0.6
+  dio: ^5.4.3+1
+  firebase_auth: ^4.19.2
+  firebase_core: ^2.30.0
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.6
-  
-  # State Management and Dependency Injection
-  bloc: ^8.1.4
   flutter_bloc: ^8.1.5
-  get_it: ^7.6.7
-  
-  # Networking
-  dio: ^5.4.3+1
-  retrofit: ^4.1.0
-  retrofit_generator: ^8.1.0
-  
-  # Firebase Integration
-  firebase_core: ^2.30.0
-  firebase_auth: ^4.19.2
-  google_sign_in: ^6.2.1
-  country_code_picker: ^3.0.0
-  
-  # UI Components
   flutter_svg: ^2.0.10+1
-  google_fonts: ^6.2.0
-
-  lottie: ^3.1.0
-  slide_countdown: ^1.6.1
-  cached_network_image: ^3.3.1
-  crystal_navigation_bar: ^1.0.0
-
-  # Code Generation and Serialization
   freezed: ^2.4.7
   freezed_annotation: ^2.4.1
+  get_it: ^7.6.7
+  google_fonts: ^6.2.0
+  google_sign_in: ^6.2.1
   json_annotation: ^4.8.1
   json_serializable: ^6.7.1
-  
-  # Logging
+  lottie: ^3.1.0
   pretty_dio_logger: ^1.3.1
+  retrofit: ^4.1.0
+  retrofit_generator: ^8.1.0
+  slide_countdown: ^1.6.1
 
+  #Flutter Offline
+  flutter_offline: ^3.0.1
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^3.0.0
-
   # Faster Data Model Development
   build_runner: ^2.4.9
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
 
-  # Animatied packges 
+  # Animatied packges
   hero_animation: ^1.1.4
 
 flutter:
   uses-material-design: true
   assets:
-  # Images :
+    # Images :
     - assets/images/
-      # Animations :
+    # Animations :
     - assets/animations/
     - assets/animations/onboarding/
     - assets/animations/splash/
@@ -78,11 +64,11 @@ flutter:
     - assets/images/home/
     - assets/images/home/rocket.png
     - assets/images/home/profile.png
-  
+    - assets/animation/not_intrnet_connection.json
+
   fonts:
     - family: Schibsted Grotesk
       fonts:
         - asset: assets/fonts/SchibstedGrotesk-Bold.ttf
         - asset: assets/fonts/SchibstedGrotesk-SemiBold.ttf
         - asset: assets/fonts/SchibstedGrotesk-Medium.ttf
-  
