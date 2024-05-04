@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/features/rockets/ui/widgets/status_container.dart';
 import 'package:mentorship_e1_g3/features/rockets/data/models/rocket_respons_body.dart';
 import 'package:mentorship_e1_g3/features/rockets/ui/screen/rocket_details_screen.dart';
 
@@ -19,44 +15,44 @@ class RocketCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => RocketDetailsScreen(rocket: rocket),
+            builder: (context) =>
+                RocketDetailsScreen(rocketId: rocket.id ?? ''),
           ),
         );
       },
       child: SizedBox(
-        height: 150.height,
+        height: 150,
         width: double.infinity,
         child: Card(
-          color: AppPalette.homeBG,
           child: Row(
             children: [
               Expanded(
                 child: CachedNetworkImage(
                   imageUrl: rocket.flickrImages?[0] ?? "",
-                  width: 150.width,
-                  height: 150.height,
+                  width: 150,
+                  height: 150,
                   fit: BoxFit.cover,
                   placeholder: (context, url) => CircularProgressIndicator(),
                   errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),
               SizedBox(
-                width: 20.width,
+                width: 20,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   SizedBox(
-                    height: 12.height,
+                    height: 12,
                   ),
                   Text(
                     rocket.name ?? '',
-                    style: AppStyles.font18SemiBoldWhite(context),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    height: 40.height,
+                    height: 40,
                   ),
-                  StatusContainer(isActive: rocket.active ?? false),
+                  // StatusContainer(isActive: rocket.active ?? false),
                 ],
               )
             ],
