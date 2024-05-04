@@ -59,12 +59,12 @@ class RocketDetailsScreen extends StatelessWidget {
             SizedBox(height: 10.0),
             Text(
               rocket.description ?? 'No description available',
-              style: AppStyles.font15MediumGrey(context),
+              style: AppStyles.font15MediumPurple(context),
             ),
             SizedBox(height: 20.0),
             Text(
               'Height: ${rocket.height?.meters} meters / ${rocket.height?.feet} feet',
-              style: AppStyles.font18SemiBoldWhite(context),
+              style: AppStyles.font18SemiBoldPurple(context),
             ),
             SizedBox(height: 10.0),
             Text(
@@ -74,16 +74,6 @@ class RocketDetailsScreen extends StatelessWidget {
             SizedBox(height: 10.0),
             Text(
               'Mass: ${rocket.mass?.kg} kg / ${rocket.mass?.lb} lb',
-              style: AppStyles.font18SemiBoldWhite(context),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'First Stage Engines: ${rocket.firstStage?.engines}',
-              style: AppStyles.font18SemiBoldWhite(context),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'Second Stage Engines: ${rocket.secondStage?.engines}',
               style: AppStyles.font18SemiBoldWhite(context),
             ),
             // Add more details as needed
