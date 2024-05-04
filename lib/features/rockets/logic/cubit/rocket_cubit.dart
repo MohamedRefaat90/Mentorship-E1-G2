@@ -15,15 +15,15 @@ class RocketCubit extends Cubit<RocketState> {
 
     response.when(
       success: (rocketModel) {
-    
         emit(RocketState.success(rocketModel));
       },
       failure: (error) {
-       
         emit(
           RocketState.error(error: error.apiErrorModel.message ?? ''),
         );
       },
     );
   }
+
+  void fetchRocketDetails(String rocketId) {}
 }
