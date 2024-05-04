@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mentorship_e1_g3/features/onboarding/screens/onboarding.dart';
 
 import '../../core/helpers/functions/customLottieDecoder.dart';
 import '../../core/routing/app_routing.dart';
@@ -17,8 +18,8 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    Future.delayed(
-        const Duration(seconds: 5), () => pushReplacement(const LoginScreen()));
+    Future.delayed(const Duration(seconds: 5),
+        () => pushReplacement(const OnboardingScreen()));
   }
 
   @override

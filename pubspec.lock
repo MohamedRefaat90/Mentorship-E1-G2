@@ -398,16 +398,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
-
-  flutter_offline:
-    dependency: "direct main"
-    description:
-      name: flutter_offline
-      sha256: "3d569b2e0ae76366e66eea76cbf303b8a882ed657fdf2ac9dc2e8a58288a30d2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
-
   flutter_native_splash:
     dependency: "direct main"
     description:
@@ -416,7 +406,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.0"
-
+  flutter_offline:
+    dependency: "direct main"
+    description:
+      name: flutter_offline
+      sha256: "3d569b2e0ae76366e66eea76cbf303b8a882ed657fdf2ac9dc2e8a58288a30d2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -539,14 +536,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
-  html:
-    dependency: transitive
-    description:
-      name: html
-      sha256: "3a7812d5bcd2894edf53dfaf8cd640876cf6cef50a8f238745c8b8120ea74d3a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.15.4"
   hero_animation:
     dependency: "direct dev"
     description:
@@ -555,6 +544,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.4"
+  html:
+    dependency: transitive
+    description:
+      name: html
+      sha256: "3a7812d5bcd2894edf53dfaf8cd640876cf6cef50a8f238745c8b8120ea74d3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.15.4"
   http:
     dependency: transitive
     description:
