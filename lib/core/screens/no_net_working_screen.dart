@@ -22,7 +22,7 @@ class NoNetWorkScreen extends StatelessWidget {
                 ),
               ),
               Center(
-                child: Lottie.asset(Assets.errorImage),
+                child: Lottie.asset(Assets.notInternetConnection),
               )
             ],
           ),
