@@ -11,12 +11,11 @@ class SocialLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     return Row(
       children: [
         Expanded(
           child: SocialLoginBtn(
-            press: () => cubit.loginByGoogle(context),
+            press: () => context.read<LoginCubit>().loginByGoogle(context),
             lable: "Google",
             svgIcon: Assets.loginGoogleIcon,
           ),
@@ -24,7 +23,7 @@ class SocialLogin extends StatelessWidget {
         const SizedBox(width: 10),
         Expanded(
           child: SocialLoginBtn(
-            press: () => cubit.loginByGithub(context),
+            press: () => context.read<LoginCubit>().loginByGithub(context),
             lable: "Github",
             svgIcon: Assets.loginGithubIcon,
           ),

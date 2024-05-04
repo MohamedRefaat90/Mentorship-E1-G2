@@ -9,21 +9,22 @@ class PasswordValidationRules extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FieldsValidatorCubit cubit = BlocProvider.of<FieldsValidatorCubit>(context);
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       ValidatorText(
           title: "Must must larger then 8",
-          rule: cubit.isPassLengthLargerThan8),
+          rule: context.read<FieldsValidatorCubit>().isPassLengthLargerThan8),
       ValidatorText(
           title: "Must Contain Upper Character",
-          rule: cubit.isContainUpperChar),
+          rule: context.read<FieldsValidatorCubit>().isContainUpperChar),
       ValidatorText(
           title: "Must Contain Lower Character",
-          rule: cubit.isContainLowerChar),
-      ValidatorText(title: "Must Contain Number", rule: cubit.isContainNum),
+          rule: context.read<FieldsValidatorCubit>().isContainLowerChar),
+      ValidatorText(
+          title: "Must Contain Number",
+          rule: context.read<FieldsValidatorCubit>().isContainNum),
       ValidatorText(
           title: "Must Contain Special Character",
-          rule: cubit.isContainSpecailChar),
+          rule: context.read<FieldsValidatorCubit>().isContainSpecailChar),
     ]);
   }
 }
