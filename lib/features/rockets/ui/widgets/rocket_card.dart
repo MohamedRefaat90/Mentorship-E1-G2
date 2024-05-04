@@ -36,14 +36,14 @@ class RocketCard extends StatelessWidget {
                 ),
                 Text(
                   "Rockrt",
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 SizedBox(
                   height: 12.height,
                 ),
                 Text(
                   "Starlink 2",
-                  style: AppStyles.font16SemiBoldWhite(context),
+                  style: AppStyles.font18SemiBoldWhite(context),
                 ),
                 SizedBox(
                   height: 12.height,

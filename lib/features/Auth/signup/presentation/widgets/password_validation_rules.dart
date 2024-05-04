@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/cubits/signup/signup_cubit.dart';
 
 import 'validator_text.dart';
 

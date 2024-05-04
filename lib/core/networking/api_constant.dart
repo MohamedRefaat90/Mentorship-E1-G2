@@ -1,11 +1,13 @@
 class ApiConstants {
-
   static const String apiBaseURL = 'https://api.spacexdata.com/v4/';
-    static const String allRockets = 'rockets';
+  static const String allRockets = 'rockets';
 
- 
+  static const String allCrew = 'crew';
+
+  static const String launches = "launches";
+  static const String upcomingLaunches = "launches/upcoming";
+
 }
-
 
 class ApiErrors {
   static const String badRequestError = "badRequestError";

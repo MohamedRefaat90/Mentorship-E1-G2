@@ -57,7 +57,7 @@ class SpaceXDetailsWidgets {
       children: [
         Text(
           'Youtube',
-          style: AppStyles.font10SemiBoldPurple(context),
+          style: AppStyles.font15SemiBoldPurple(context),
         ),
         IconButton(
           onPressed: () {},
@@ -76,7 +76,7 @@ class SpaceXDetailsWidgets {
       children: [
         Text(
           'Reddit',
-          style: AppStyles.font10SemiBoldPurple(context),
+          style: AppStyles.font15SemiBoldPurple(context),
         ),
         IconButton(
           onPressed: () {},

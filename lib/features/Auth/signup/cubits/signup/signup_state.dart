@@ -10,7 +10,7 @@ final class SignupLoading extends SignupState {}
 final class SignupSuccess extends SignupState {}
 
 final class SignupFailure extends SignupState {
-  final String errorMSG;
+  final String? errorMSG;
 
-  SignupFailure({required this.errorMSG});
+  SignupFailure({this.errorMSG});
 }

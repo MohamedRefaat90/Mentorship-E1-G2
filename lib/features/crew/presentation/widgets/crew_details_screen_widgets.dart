@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
 
 class CrewDetailsBody extends StatelessWidget {
   final CrewModel crewMember;
@@ -16,9 +17,12 @@ class CrewDetailsBody extends StatelessWidget {
         children: [
           if (crewMember.image != null)
             Center(
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(crewMember.image!),
-                radius: 80.0,
+              child: Hero(
+                tag: crewMember.id!, // Same unique tag as in CrewCard
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(crewMember.image!),
+                  radius: 80.0,
+                ),
               ),
             ),
           SizedBox(height: 16.0),
@@ -28,7 +32,7 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Name: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.name ?? 'Unknown',
@@ -46,11 +50,11 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Agency: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.agency ?? 'Unknown',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font15MediumWhite(context),
                 ),
               ],
             ),
@@ -62,11 +66,11 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Status: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.status ?? 'Unknown',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font15MediumWhite(context),
                 ),
               ],
             ),
@@ -90,11 +94,11 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'ID: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.id ?? 'Unknown',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font15MediumWhite(context),
                 ),
               ],
             ),
@@ -106,16 +110,15 @@ class CrewDetailsBody extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Launches: ',
-                  style: AppStyles.font10SemiBoldPurple(context),
+                  style: AppStyles.font15SemiBoldPurple(context),
                 ),
                 TextSpan(
                   text: crewMember.launches?.join(", ") ?? 'Unknown',
-                  style: AppStyles.font12MediumWhite(context),
+                  style: AppStyles.font15MediumWhite(context),
                 ),
               ],
             ),
           ),
-          // Add more details as needed
         ],
       ),
     );

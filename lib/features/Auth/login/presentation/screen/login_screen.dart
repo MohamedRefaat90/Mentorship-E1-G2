@@ -1,14 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/core/widgets/btn_loader.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 
 import '../../../../../core/widgets/background_image.dart';
-import '../../../../../core/widgets/custom_btn.dart';
 import '../../../../../core/widgets/background_ovarlay.dart';
+import '../../../../../core/widgets/custom_btn.dart';
 import '../widgets/forget_password_btn.dart';
 import '../widgets/login_fields.dart';
 import '../widgets/login_with_text.dart';
