@@ -65,4 +65,13 @@ class AppStyles {
       fontFamily: 'Schibsted Grotesk',
     );
   }
+
+  static TextStyle font24BoldPurple(BuildContext context) {
+    return TextStyle(
+      color: AppPalette.purple,
+      fontSize: 24.scaleText,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Schibsted Grotesk',
+    );
+  }
 }
