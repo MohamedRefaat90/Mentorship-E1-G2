@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -27,7 +28,7 @@ class CrewDetailsBody extends StatelessWidget {
               if (crewMember.image != null)
                 Center(
                   child: Hero(
-                    tag: crewMember.id!, // Same unique tag as in CrewCard
+                    tag: crewMember.id!,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(crewMember.image!),
                       radius: 80.0,
@@ -88,50 +89,44 @@ class CrewDetailsBody extends StatelessWidget {
               if (crewMember.wikipedia != null)
                 TextButton(
                   onPressed: () {
-                    // Open Wikipedia link here
+                    // Open Wikipedia link in a full-screen dialog
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            WikipediaWebView(url: crewMember.wikipedia!),
+                        fullscreenDialog: true,
+                      ),
+                    );
                   },
                   child: Text(
                     'More Info',
                     style: TextStyle(color: Colors.blue),
                   ),
                 ),
-              // Additional details
-              SizedBox(height: 16.0),
-              RichText(
-                text: TextSpan(
-                  style: DefaultTextStyle.of(context).style,
-                  children: [
-                    TextSpan(
-                      text: 'ID: ',
-                      style: AppStyles.font15SemiBoldPurple(context),
-                    ),
-                    TextSpan(
-                      text: crewMember.id ?? 'Unknown',
-                      style: AppStyles.font15MediumWhite(context),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 8.0),
-              RichText(
-                text: TextSpan(
-                  style: DefaultTextStyle.of(context).style,
-                  children: [
-                    TextSpan(
-                      text: 'Launches: ',
-                      style: AppStyles.font15SemiBoldPurple(context),
-                    ),
-                    TextSpan(
-                      text: crewMember.launches?.join(", ") ?? 'Unknown',
-                      style: AppStyles.font15MediumWhite(context),
-                    ),
-                  ],
-                ),
-              ),
+              // Additional details...
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class WikipediaWebView extends StatelessWidget {
+  final String url;
+
+  const WikipediaWebView({Key? key, required this.url}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Wikipedia'),
+      ),
+      body: WebView(
+        initialUrl: url,
+        javascriptMode: JavascriptMode.unrestricted,
+      ),
     );
   }
 }

@@ -59,6 +59,9 @@ dev_dependencies:
   # Animatied packges 
   hero_animation: ^1.1.4
 
+  #web view 
+  webview_flutter: ^2.0.13
+
 flutter:
   uses-material-design: true
   assets:
