@@ -6,11 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:spacex/core/helpers/functions/snakbar.dart';
 import 'package:spacex/core/networking/auth_exception.dart';
 import 'package:spacex/core/services/sharedprefs.dart';
-import 'package:spacex/features/Auth/login/cubit/login_methods.dart';
+import 'package:spacex/features/Auth/login/firebase/login_methods.dart';
 import 'package:spacex/features/Auth/login/presentation/screen/login_screen.dart';
 
 import '../../../../core/routing/app_routing.dart';
 import '../../../home/presentation/screen/home_screen.dart';
+import '../firebase/github_login.dart';
+import '../firebase/google_login.dart';
+import '../firebase/phone_login.dart';
 
 part 'login_state.dart';
 

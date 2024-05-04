@@ -6,7 +6,7 @@ import 'package:spacex/core/widgets/custom_btn.dart';
 import 'package:spacex/features/Auth/login/presentation/widgets/otp_fields.dart';
 
 import '../../cubit/login_cubit.dart';
-import '../../cubit/login_methods.dart';
+import '../../firebase/phone_login.dart';
 
 Future<dynamic> showOTPBottomSheet(
     BuildContext context, String verificationId, int? resendToken) {
