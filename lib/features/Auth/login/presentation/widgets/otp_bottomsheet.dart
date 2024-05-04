@@ -42,7 +42,6 @@ Future<dynamic> showOTPBottomSheet(
                           },
                           icon: const Icon(Icons.close),
                           color: AppPalette.errorColor,
-                          color: AppPalette.errorColor,
                           iconSize: 30,
                         ),
                       ],

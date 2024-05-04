@@ -10,7 +10,7 @@ import '../../../../../core/widgets/background_image.dart';
 import '../../../../../core/widgets/background_ovarlay.dart';
 import '../widgets/password_validation_rules.dart';
 import '../widgets/signup_appbar.dart';
-import '../widgets/submit_btn.dart';
+import '../widgets/signup_btn.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -108,7 +108,9 @@ class _SignupScreenState extends State<SignupScreen> {
                               .read<FieldsValidatorCubit>()
                               .isPassMatchConfirmPass),
                       SizedBox(height: 50.height),
-                      const SubmitBtn()
+                      SignupBtn(
+                          email: emailController.text.trim(),
+                          password: confirmPasswordController.text)
                     ],
                   );
                 },
