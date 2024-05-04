@@ -14,8 +14,8 @@ part 'api_services.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-  @GET(ApiConstants.allRockets)
-  Future<RocketResponseModel> getAllRocket();
+ @GET(ApiConstants.allRockets)
+  Future<List<RocketModel>> getAllRocket();
 
   @GET(ApiConstants.allCrew)
   Future<List<CrewModel>> getAllCrew();

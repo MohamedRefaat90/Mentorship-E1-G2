@@ -5,7 +5,6 @@ import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
 
 import 'core/services/initServices.dart';
-import 'features/splash/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +25,7 @@ class MentorshipE1G2 extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.darkTthemeMode,
         navigatorKey: navigator,
-        home: const SplashScreen(),
+        home: const OnboardingScreen(),
       ),
     );
   }
