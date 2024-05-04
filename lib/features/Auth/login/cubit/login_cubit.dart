@@ -6,6 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
 import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_methods.dart';
+import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
+
+import '../../../../core/routing/app_routing.dart';
+import '../../../home/presentation/screen/home_screen.dart';
 
 part 'login_state.dart';
 
@@ -55,15 +59,33 @@ class LoginCubit extends Cubit<LoginState> {
   loginByEmailandPass(BuildContext context) async {
     emit(LoginLoading());
     if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
-      await EmailandPasswordLogin(
-              emailAddress: emailController.text.trim(),
-              password: passwordController.text)
-          .login(context);
-      emit(LoginSuccess());
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passwordController.text);
+        emit(LoginSuccess());
+        Future.delayed(
+          const Duration(seconds: 2),
+          () {
+            resetLoginFields();
+            return pushReplacement(const HomeScreen());
+          },
+        );
+      } on FirebaseAuthException catch (error) {
+        emit(LoginFailure());
+        if (!context.mounted) return;
+        showSnackBar(context, AuthExceptionHandler.handleException(error));
+      }
     } else {
       showSnackBar(context, "Fields Must Not be Empty");
       emit(LoginFailure());
     }
+  }
+
+  resetLoginFields() {
+    emailController.clear();
+    passwordController.clear();
+    emit(LoginInitial());
   }
 
   forgetPassword(BuildContext context, String email) async {
@@ -78,5 +100,10 @@ class LoginCubit extends Cubit<LoginState> {
       Navigator.pop(context);
       showSnackBar(context, AuthExceptionHandler.handleException(error));
     }
+  }
+
+  logout() async {
+    await FirebaseAuth.instance.signOut();
+    pushReplacement(const LoginScreen());
   }
 }
