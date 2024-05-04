@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 
@@ -19,15 +20,13 @@ class LoginButton extends StatelessWidget {
             context.read<LoginCubit>().loginByEmailandPass(context);
           },
           widget: state is LoginLoading
-              ? const BtnLoader(color: AppPalette.redColor)
+              ? const BtnLoader(color: AppPalette.rose)
               : state is LoginSuccess
                   ? const DoneAnimationButton()
-                  : const Text(
+                  : Text(
                       "Login",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17),
+                      style: GoogleFonts.kronaOne().copyWith(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
           width: double.infinity,
           color: Colors.white,

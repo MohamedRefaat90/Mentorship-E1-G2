@@ -26,7 +26,7 @@ class LaunchItem extends StatelessWidget {
               CachedNetworkImage(
                 imageUrl: '${launchItem.links!.patch!.small}',
                 errorWidget: ((context, url, error) => const Icon(Icons.error)),
-                width: 150,
+                width: 100.width,
                 height: 100,
               ),
               SizedBox(
@@ -47,8 +47,12 @@ class LaunchItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 5.height),
-                  Text('${launchItem.id}',
-                      style: AppStyles.font15MediumWhite(context)),
+                  Text(
+                    '${launchItem.id}',
+                    style: AppStyles.font15MediumWhite(context),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ],
               ),
             ],

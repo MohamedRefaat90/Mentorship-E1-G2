@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'core/services/initServices.dart';
 import 'features/splash/splash_screen.dart';
@@ -12,7 +14,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AppServices.init();
 
-  runApp(const MentorshipE1G2());
+  runApp(DevicePreview(
+      enabled: !kReleaseMode, builder: (context) => MentorshipE1G2()));
 }
 
 final GlobalKey<NavigatorState> navigator = GlobalKey<NavigatorState>();
@@ -25,6 +28,8 @@ class MentorshipE1G2 extends StatelessWidget {
       create: (context) => LoginCubit(),
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
+          locale: DevicePreview.locale(context),
+          builder: DevicePreview.appBuilder,
           theme: AppTheme.darkTthemeMode,
           navigatorKey: navigator,
           home: OfflineBuilder(

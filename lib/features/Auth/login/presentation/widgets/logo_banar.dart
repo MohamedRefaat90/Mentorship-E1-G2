@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/resources/assets.dart';
 
 class LogoBanar extends StatelessWidget {
@@ -13,10 +14,9 @@ class LogoBanar extends StatelessWidget {
         const SizedBox(height: 10),
         const Text(
           "Explore the Galaxy",
-          style: TextStyle(fontWeight: FontWeight.bold),
           textAlign: TextAlign.end,
         ),
-        const SizedBox(height: 60),
+        SizedBox(height: 20.height),
       ],
     );
   }

@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
 import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
+import 'package:mentorship_e1_g3/core/services/sharedprefs.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_methods.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
 
@@ -63,6 +64,8 @@ class LoginCubit extends Cubit<LoginState> {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: emailController.text.trim(),
             password: passwordController.text);
+        SharedPreferencesService.saveUserID(
+            FirebaseAuth.instance.currentUser!.uid);
         emit(LoginSuccess());
         Future.delayed(
           const Duration(seconds: 2),
@@ -104,6 +107,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   logout() async {
     await FirebaseAuth.instance.signOut();
+    SharedPreferencesService.deleteUserID();
     pushReplacement(const LoginScreen());
   }
 }

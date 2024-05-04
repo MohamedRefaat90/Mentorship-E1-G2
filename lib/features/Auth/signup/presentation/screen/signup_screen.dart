@@ -82,7 +82,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           onChange: (password) => context
                               .read<FieldsValidatorCubit>()
                               .validatePasswordField(password)),
-                      const PasswordValidationRules(),
+                      PasswordValidationRules(),
                       SizedBox(height: 20.height),
                       CustomTextField(
                         placeholderText: "Confirm Password",

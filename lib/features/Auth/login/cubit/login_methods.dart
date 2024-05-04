@@ -9,6 +9,7 @@ import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
 
 import '../../../../core/helpers/functions/snakbar.dart';
+import '../../../../core/services/sharedprefs.dart';
 import '../presentation/widgets/otp_bottomsheet.dart';
 
 abstract interface class LoginMethods {
@@ -45,6 +46,7 @@ class GoogleLogin implements LoginMethods {
         .signInWithCredential(credential)
         .then((user) {
       if (user.user != null) {
+        SharedPreferencesService.saveUserID(user.user!.uid);
         pushReplacement(const HomeScreen());
       }
     });
@@ -55,7 +57,15 @@ class GithubLogin implements LoginMethods {
   @override
   login(BuildContext context) async {
     try {
-      createGithubCredential();
+      final githubAuthProvider = GithubAuthProvider();
+      return await FirebaseAuth.instance
+          .signInWithProvider(githubAuthProvider)
+          .then((user) {
+        if (user.user != null) {
+          SharedPreferencesService.saveUserID(user.user!.uid);
+          pushReplacement(const HomeScreen());
+        }
+      });
     } on FirebaseAuthException catch (error) {
       showSnackBar(context, AuthExceptionHandler.handleException(error));
     } on NoSocialAccountSelected catch (_) {
@@ -63,16 +73,7 @@ class GithubLogin implements LoginMethods {
     }
   }
 
-  createGithubCredential() async {
-    final githubAuthProvider = GithubAuthProvider();
-    return await FirebaseAuth.instance
-        .signInWithProvider(githubAuthProvider)
-        .then((user) {
-      if (user.user != null) {
-        pushReplacement(const HomeScreen());
-      }
-    });
-  }
+  createGithubCredential() async {}
 }
 
 class PhoneLogin implements LoginMethods {
@@ -149,8 +150,8 @@ class PhoneLogin implements LoginMethods {
     try {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verificationId, smsCode: otpCode);
-
       await _firebaseAuth.signInWithCredential(credential);
+      SharedPreferencesService.saveUserID(_firebaseAuth.currentUser!.uid);
       if (!context.mounted) return;
       otpVarificationSuccess(context);
     } on FirebaseAuthException catch (error) {

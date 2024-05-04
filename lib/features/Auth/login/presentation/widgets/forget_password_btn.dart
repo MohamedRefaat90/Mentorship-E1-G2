@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
+import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/presentation/widgets/forget_pass_bottomsheet.dart';
 
 class ForgetPasswordBTN extends StatelessWidget {
@@ -11,7 +10,7 @@ class ForgetPasswordBTN extends StatelessWidget {
     return Align(
         alignment: Alignment.centerRight,
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 30),
+          padding: EdgeInsets.only(bottom: 20.height),
           child: TextButton(
               onPressed: () {
                 showForgetPasswordBottomSheet(context);
