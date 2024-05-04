@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spacex/core/services/sharedprefs.dart';
 
 import '../../../core/routing/app_routing.dart';
 import '../../Auth/login/presentation/screen/login_screen.dart';
@@ -21,6 +22,9 @@ class GetStartButton extends StatelessWidget {
           pageController.nextPage(
               duration: const Duration(seconds: 1), curve: Curves.ease);
         } else {
+          SharedPreferencesService.sharedPreferences!
+              .setBool("isFirstTime", false);
+          debugPrint(SharedPreferencesService.isFirstTime().toString());
           pushReplacement(const LoginScreen());
         }
       },

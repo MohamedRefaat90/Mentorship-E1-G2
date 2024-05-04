@@ -1,14 +1,13 @@
-import 'package:flutter/material.dart';
-import '../../logic/cubit/home_cubit.dart';
-import '../../logic/cubit/home_cubit.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
-import 'package:mentorship_e1_g3/core/resources/assets.dart';
-import 'package:mentorship_e1_g3/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
-import '../../logic/cubit/home_state.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spacex/core/di/dependency_injection.dart';
+import 'package:spacex/core/resources/assets.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
+
+import '../../logic/cubit/home_cubit.dart';
+import '../../logic/cubit/home_state.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,30 +23,33 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Positioned.fill(
                   child: Opacity(
-                    opacity: 0.5, 
+                    opacity: 0.5,
                     child: Image.asset(
-                      Assets.backgroundImage, 
+                      Assets.backgroundImage,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 Scaffold(
                   extendBody: true,
-                  backgroundColor: Colors.transparent, 
+                  backgroundColor: Colors.transparent,
                   bottomNavigationBar: CrystalNavigationBar(
                     margin: EdgeInsets.zero,
-                    paddingR:EdgeInsets.zero,
-                    marginR: const EdgeInsets.symmetric(horizontal:30,vertical:25),
+                    paddingR: EdgeInsets.zero,
+                    marginR: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 25),
                     selectedItemColor: AppPalette.purple,
                     unselectedItemColor: AppPalette.greyColor,
-                    backgroundColor: Colors.transparent, 
+                    backgroundColor: Colors.transparent,
                     items: items,
                     currentIndex: context.read<HomeCubit>().currentIndex,
                     onTap: (index) {
                       context.read<HomeCubit>().changeBottomNavBar(index);
                     },
                   ),
-                  body:context.read<HomeCubit>().homeScreens[context.read<HomeCubit>().currentIndex],
+                  body: context
+                      .read<HomeCubit>()
+                      .homeScreens[context.read<HomeCubit>().currentIndex],
                 ),
               ],
             ),

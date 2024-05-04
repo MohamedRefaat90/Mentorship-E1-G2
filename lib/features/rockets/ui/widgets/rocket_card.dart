@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/features/rockets/data/models/rocket_respons_body.dart';
-import 'package:mentorship_e1_g3/features/rockets/ui/widgets/status_container.dart';
+import 'package:spacex/core/extension/num_extension.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/features/rockets/data/models/rocket_respons_body.dart';
+import 'package:spacex/features/rockets/ui/widgets/status_container.dart';
 
 import '../../../../core/themes/styles.dart';
 

@@ -3,13 +3,17 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
-import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_methods.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
+import 'package:spacex/core/helpers/functions/snakbar.dart';
+import 'package:spacex/core/networking/auth_exception.dart';
+import 'package:spacex/core/services/sharedprefs.dart';
+import 'package:spacex/features/Auth/login/firebase/login_methods.dart';
+import 'package:spacex/features/Auth/login/presentation/screen/login_screen.dart';
 
 import '../../../../core/routing/app_routing.dart';
 import '../../../home/presentation/screen/home_screen.dart';
+import '../firebase/github_login.dart';
+import '../firebase/google_login.dart';
+import '../firebase/phone_login.dart';
 
 part 'login_state.dart';
 
@@ -31,10 +35,15 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   loginByPhone(BuildContext context, String phoneNum) async {
+    emit(LoginLoading());
     PhoneLogin phoneLogin = PhoneLogin();
 
     phoneLogin.setvrifiedPhone(phoneNum);
     await phoneLogin.login(context);
+    Future.delayed(
+      const Duration(seconds: 1),
+      () => emit(LoginInitial()),
+    );
   }
 
   startOtpTimer() {
@@ -63,6 +72,8 @@ class LoginCubit extends Cubit<LoginState> {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: emailController.text.trim(),
             password: passwordController.text);
+        SharedPreferencesService.saveUserID(
+            FirebaseAuth.instance.currentUser!.uid);
         emit(LoginSuccess());
         Future.delayed(
           const Duration(seconds: 2),
@@ -104,6 +115,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   logout() async {
     await FirebaseAuth.instance.signOut();
+    SharedPreferencesService.deleteUserID();
     pushReplacement(const LoginScreen());
   }
 }

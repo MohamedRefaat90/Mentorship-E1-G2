@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:spacex/core/resources/assets.dart';
 
 import '../models/item.dart';
+
+const String desc =
+    "Thee followed but to lost heart thy raven my lining. Ah in you chamber once shall distinctly, smiling came this.";
 
 List<Color> backgroundColors = const [
   Color.fromARGB(255, 208, 42, 169),
@@ -27,11 +31,8 @@ List<Item> items = [
           "We're a team of passionate engineers and dreamers dedicated to making humanity a multi-planetary species."),
 ];
 
-const String desc =
-    "Thee followed but to lost heart thy raven my lining. Ah in you chamber once shall distinctly, smiling came this.";
-
 List<String> lotties = [
-  "assets/animations/onboarding/astronaut.lottie",
-  "assets/animations/onboarding/rocketFlying.lottie",
-  "assets/animations/onboarding/happySpaceman.lottie"
+  Assets.onBoardingAstronaut,
+  Assets.onBoardingRocketFlying,
+  Assets.onBoardingHappySpaceman
 ];

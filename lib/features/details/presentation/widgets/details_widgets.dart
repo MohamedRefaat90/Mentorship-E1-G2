@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
+import 'package:spacex/core/themes/styles.dart';
 
 class SpaceXDetailsWidgets {
   static Widget topImage(String imageUrl) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/features/details/presentation/widgets/details_widgets.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/core/themes/styles.dart';
+import 'package:spacex/features/details/presentation/widgets/details_widgets.dart';
 
 class SpaceXDetailsScreen extends StatelessWidget {
   const SpaceXDetailsScreen({super.key});

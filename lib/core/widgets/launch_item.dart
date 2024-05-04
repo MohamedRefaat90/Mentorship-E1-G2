@@ -1,13 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/features/home/data/models/launches/launches_model.dart';
+import 'package:spacex/core/extension/num_extension.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/core/themes/styles.dart';
+import 'package:spacex/features/home/data/models/launches/launches_model.dart';
 
 class LaunchItem extends StatelessWidget {
-  const LaunchItem({super.key, required this.launchItem});
   final Launches launchItem;
+  const LaunchItem({super.key, required this.launchItem});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,7 +26,7 @@ class LaunchItem extends StatelessWidget {
               CachedNetworkImage(
                 imageUrl: '${launchItem.links!.patch!.small}',
                 errorWidget: ((context, url, error) => const Icon(Icons.error)),
-                width: 150,
+                width: 100.width,
                 height: 100,
               ),
               SizedBox(
@@ -47,8 +47,12 @@ class LaunchItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 5.height),
-                  Text('${launchItem.id}',
-                      style: AppStyles.font15MediumWhite(context)),
+                  Text(
+                    '${launchItem.id}',
+                    style: AppStyles.font15MediumWhite(context),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ],
               ),
             ],

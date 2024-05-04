@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
+import 'package:spacex/core/extension/num_extension.dart';
 
 import '../../../core/helpers/functions/customLottieDecoder.dart';
 import '../models/item.dart';

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mentorship_e1_g3/features/onboarding/screens/onboarding.dart';
+import 'package:spacex/core/resources/assets.dart';
+import 'package:spacex/core/services/sharedprefs.dart';
+import 'package:spacex/features/home/presentation/screen/home_screen.dart';
+import 'package:spacex/features/onboarding/screens/onboarding.dart';
 
 import '../../core/helpers/functions/customLottieDecoder.dart';
 import '../../core/routing/app_routing.dart';
@@ -16,18 +19,24 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 5),
-        () => pushReplacement(const OnboardingScreen()));
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black,
         body: Center(
-            child: Lottie.asset("assets/animations/splash/SpacexSplash.lottie",
-                decoder: customDecoder)));
+            child: Lottie.asset(Assets.splashAnimation,
+                frameRate: FrameRate.max, decoder: customDecoder)));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(
+        const Duration(seconds: 6),
+        () => pushReplacement(SharedPreferencesService.isFirstTime() == null
+            ? const OnboardingScreen()
+            : SharedPreferencesService.getUserID() == null
+                ? const LoginScreen()
+                : const HomeScreen()));
   }
 }

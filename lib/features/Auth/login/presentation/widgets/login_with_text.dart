@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spacex/core/extension/num_extension.dart';
 
 import 'shadow_divider_for_login_with_text.dart';
 
@@ -7,27 +8,27 @@ class LoginWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 30),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 23.width),
       child: Stack(children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: 90,
-              child: Divider(
+              width: 90.width,
+              child: const Divider(
                 color: Colors.white,
                 thickness: 2,
                 height: 3,
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text("or Login With"),
+              padding: EdgeInsets.symmetric(horizontal: 10.width),
+              child: const Text("or Login With"),
             ),
             SizedBox(
-              width: 90,
-              child: Divider(
+              width: 80.width,
+              child: const Divider(
                 color: Colors.white,
                 thickness: 2,
                 height: 3,
@@ -35,8 +36,8 @@ class LoginWithText extends StatelessWidget {
             ),
           ],
         ),
-        ShadowDividerForLoginWithText(horizontalOffest: 0.77),
-        ShadowDividerForLoginWithText(horizontalOffest: 0.05)
+        ShadowDividerForLoginWithText(horizontalOffest: 0.85.width),
+        ShadowDividerForLoginWithText(horizontalOffest: -0.08.width)
       ]),
     );
   }

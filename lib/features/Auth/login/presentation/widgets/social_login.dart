@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/resources/assets.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
+import 'package:spacex/core/resources/assets.dart';
+import 'package:spacex/features/Auth/login/cubit/login_cubit.dart';
 
 import 'show_loginPhone_dialog.dart';
 import 'social_login_btn.dart';

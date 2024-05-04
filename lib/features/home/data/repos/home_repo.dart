@@ -1,8 +1,8 @@
-import 'package:mentorship_e1_g3/core/networking/api_error_handler.dart';
-import 'package:mentorship_e1_g3/core/networking/api_result.dart';
-import 'package:mentorship_e1_g3/core/networking/api_services.dart';
-import 'package:mentorship_e1_g3/features/home/data/models/launches/launches_model.dart';
-import 'package:mentorship_e1_g3/features/home/data/models/upcoming_launches/upcoming_launches_model.dart';
+import 'package:spacex/core/networking/api_error_handler.dart';
+import 'package:spacex/core/networking/api_result.dart';
+import 'package:spacex/core/networking/api_services.dart';
+import 'package:spacex/features/home/data/models/launches/launches_model.dart';
+import 'package:spacex/features/home/data/models/upcoming_launches/upcoming_launches_model.dart';
 
 class HomeRepo {
   final ApiService _apiService;
@@ -17,7 +17,7 @@ class HomeRepo {
       return ApiResult.failure(ErrorHandler.handle(errro));
     }
   }
-  
+
   Future<ApiResult<List<UpcomingLaunches>>> getUpcomingLaunches() async {
     try {
       final response = await _apiService.getUpcomingLaunches();
