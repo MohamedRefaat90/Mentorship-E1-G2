@@ -3,240 +3,192 @@ import 'package:json_annotation/json_annotation.dart';
 part 'rocket_respons_body.g.dart';
 
 @JsonSerializable()
-class RocketResponseModel {
+class RocketModel {
+  Diameter? height;
+  Diameter? diameter;
+  Mass? mass;
+  FirstStage? firstStage;
+  SecondStage? secondStage;
+  Engines? engines;
+  LandingLegs? landingLegs;
+  List<PayloadWeights>? payloadWeights;
+  // ignore: non_constant_identifier_names
+  @JsonKey(name: "flickr_images")
+  List<String>? flickrImages;
+  String? name;
+  String? type;
+  bool? active;
+  int? stages;
+  int? boosters;
+  int? costPerLaunch;
+  int? successRatePct;
+  String? firstFlight;
+  String? country;
+  String? company;
+  String? wikipedia;
+  String? description;
+  String? id;
 
-  List<Rocket> rockets;
+  RocketModel(
+      {this.height,
+      this.diameter,
+      this.mass,
+      this.firstStage,
+      this.secondStage,
+      this.engines,
+      this.landingLegs,
+      this.payloadWeights,
 
-  RocketResponseModel({
-    required this.rockets,
-  });
-factory RocketResponseModel.fromJson(Map<String, dynamic> json) =>
-    _$RocketResponseModelFromJson(json); 
-}
+      // ignore: non_constant_identifier_names
+      this.flickrImages,
+      this.name,
+      this.type,
+      this.active,
+      this.stages,
+      this.boosters,
+      this.costPerLaunch,
+      this.successRatePct,
+      this.firstFlight,
+      this.country,
+      this.company,
+      this.wikipedia,
+      this.description,
+      this.id});
 
-@JsonSerializable()
-class Rocket {
-  String id;
-  String name;
-  String type;
-  bool active;
-  int stages;
-  int boosters;
-  int costPerLaunch;
-  int successRatePct;
-  String firstFlight;
-  String country;
-  String company;
-  String wikipedia;
-  String description;
-  Height height;
-  Diameter diameter;
-  Mass mass;
-  Stage firstStage;
-  Stage secondStage;
-  Engines engines;
-  LandingLegs landingLegs;
-  List<PayloadWeight> payloadWeights;
-  List<String> flickrImages;
+  factory RocketModel.fromJson(Map<String, dynamic> json) =>
+      _$RocketModelFromJson(json);
 
-  Rocket({
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.active,
-    required this.stages,
-    required this.boosters,
-    required this.costPerLaunch,
-    required this.successRatePct,
-    required this.firstFlight,
-    required this.country,
-    required this.company,
-    required this.wikipedia,
-    required this.description,
-    required this.height,
-    required this.diameter,
-    required this.mass,
-    required this.firstStage,
-    required this.secondStage,
-    required this.engines,
-    required this.landingLegs,
-    required this.payloadWeights,
-    required this.flickrImages,
-  });
-
-  factory Rocket.fromJson(Map<String, dynamic> json) => _$RocketFromJson(json);
-}
-
-@JsonSerializable()
-class Height {
-  double meters;
-  double feet;
-
-  Height({
-    required this.meters,
-    required this.feet,
-  });
-
-  factory Height.fromJson(Map<String, dynamic> json) => _$HeightFromJson(json);
-}
-
-@JsonSerializable()
-class Diameter {
-  double meters;
-  double feet;
-
-  Diameter({
-    required this.meters,
-    required this.feet,
-  });
-
-  factory Diameter.fromJson(Map<String, dynamic> json) => _$DiameterFromJson(json);
-}
-
-@JsonSerializable()
-class Mass {
-  int kg;
-  int lb;
-
-  Mass({
-    required this.kg,
-    required this.lb,
-  });
-
-  factory Mass.fromJson(Map<String, dynamic> json) => _$MassFromJson(json);
-}
-
-@JsonSerializable()
-class Stage {
-  Thrust thrust;
-  Payloads payloads;
-  bool reusable;
-  int engines;
-  double fuelAmountTons;
-  int? burnTimeSec; // Nullable
-
-  Stage({
-    required this.thrust,
-    required this.payloads,
-    required this.reusable,
-    required this.engines,
-    required this.fuelAmountTons,
-    required this.burnTimeSec,
-  });
-
-  factory Stage.fromJson(Map<String, dynamic> json) => _$StageFromJson(json);
-}
-
-@JsonSerializable()
-class Thrust {
-  int kN;
-  int lbf;
-
-  Thrust({
-    required this.kN,
-    required this.lbf,
-  });
-
-  factory Thrust.fromJson(Map<String, dynamic> json) => _$ThrustFromJson(json);
-}
-
-@JsonSerializable()
-class Payloads {
-  CompositeFairing compositeFairing;
-  String option1;
-
-  Payloads({
-    required this.compositeFairing,
-    required this.option1,
-  });
-
-  factory Payloads.fromJson(Map<String, dynamic> json) => _$PayloadsFromJson(json);
-}
-
-@JsonSerializable()
-class CompositeFairing {
-  Height height;
-  Diameter diameter;
-
-  CompositeFairing({
-    required this.height,
-    required this.diameter,
-  });
-
-  factory CompositeFairing.fromJson(Map<String, dynamic> json) =>
-      _$CompositeFairingFromJson(json);
-}
-
-@JsonSerializable()
-class Engines {
-  Isp isp;
-  Thrust thrustSeaLevel;
-  Thrust thrustVacuum;
-  int number;
-  String type;
-  String version;
-  String layout;
-  int? engineLossMax; // Nullable
-  String propellant1;
-  String propellant2;
-  double thrustToWeight;
-
-  Engines({
-    required this.isp,
-    required this.thrustSeaLevel,
-    required this.thrustVacuum,
-    required this.number,
-    required this.type,
-    required this.version,
-    required this.layout,
-    required this.engineLossMax,
-    required this.propellant1,
-    required this.propellant2,
-    required this.thrustToWeight,
-  });
-
-  factory Engines.fromJson(Map<String, dynamic> json) => _$EnginesFromJson(json);
-}
-
-@JsonSerializable()
-class Isp {
-  int seaLevel;
-  int vacuum;
-
-  Isp({
-    required this.seaLevel,
-    required this.vacuum,
-  });
-
-  factory Isp.fromJson(Map<String, dynamic> json) => _$IspFromJson(json);
+  Map<String, dynamic> toJson() => _$RocketModelToJson(this);
 }
 
 @JsonSerializable()
 class LandingLegs {
-  int number;
-  String? material; // Nullable
+  int? number;
+  String? material;
 
-  LandingLegs({
-    required this.number,
-    required this.material,
-  });
+  LandingLegs({this.number, this.material});
 
-  factory LandingLegs.fromJson(Map<String, dynamic> json) => _$LandingLegsFromJson(json);
+  factory LandingLegs.fromJson(Map<String, dynamic> json) =>
+      _$LandingLegsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LandingLegsToJson(this);
 }
 
 @JsonSerializable()
-class PayloadWeight {
-  String id;
-  String name;
-  int kg;
-  int lb;
+class PayloadWeights {
+  String? id;
+  String? name;
+  int? kg;
+  int? lb;
 
-  PayloadWeight({
-    required this.id,
-    required this.name,
-    required this.kg,
-    required this.lb,
-  });
+  PayloadWeights({this.id, this.name, this.kg, this.lb});
 
-  factory PayloadWeight.fromJson(Map<String, dynamic> json) => _$PayloadWeightFromJson(json);
+  factory PayloadWeights.fromJson(Map<String, dynamic> json) =>
+      _$PayloadWeightsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PayloadWeightsToJson(this);
+}
+
+@JsonSerializable()
+class Diameter {
+  double? meters;
+  double? feet;
+
+  Diameter({this.meters, this.feet});
+
+  factory Diameter.fromJson(Map<String, dynamic> json) =>
+      _$DiameterFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DiameterToJson(this);
+}
+
+@JsonSerializable()
+class Mass {
+  int? kg;
+  int? lb;
+
+  Mass({this.kg, this.lb});
+
+  factory Mass.fromJson(Map<String, dynamic> json) => _$MassFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MassToJson(this);
+}
+
+@JsonSerializable()
+class FirstStage {
+  Map? thrustSeaLevel;
+  Map? thrustVacuum;
+  bool? reusable;
+  int? engines;
+  double? fuelAmountTons;
+  int? burnTimeSec;
+
+  FirstStage(
+      {this.thrustSeaLevel,
+      this.thrustVacuum,
+      this.reusable,
+      this.engines,
+      this.fuelAmountTons,
+      this.burnTimeSec});
+
+  factory FirstStage.fromJson(Map<String, dynamic> json) =>
+      _$FirstStageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FirstStageToJson(this);
+}
+
+@JsonSerializable()
+class SecondStage {
+  Map? thrust;
+  Map? payloads;
+  bool? reusable;
+  int? engines;
+  double? fuelAmountTons;
+  int? burnTimeSec;
+
+  SecondStage(
+      {this.thrust,
+      this.payloads,
+      this.reusable,
+      this.engines,
+      this.fuelAmountTons,
+      this.burnTimeSec});
+
+  factory SecondStage.fromJson(Map<String, dynamic> json) =>
+      _$SecondStageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SecondStageToJson(this);
+}
+
+@JsonSerializable()
+class Engines {
+  Map? isp;
+  Map? thrustSeaLevel;
+  Map? thrustVacuum;
+  int? number;
+  String? type;
+  String? version;
+  String? layout;
+  int? engineLossMax;
+  String? propellant1;
+  String? propellant2;
+  int? thrustToWeight;
+
+  Engines(
+      {this.isp,
+      this.thrustSeaLevel,
+      this.thrustVacuum,
+      this.number,
+      this.type,
+      this.version,
+      this.layout,
+      this.engineLossMax,
+      this.propellant1,
+      this.propellant2,
+      this.thrustToWeight});
+
+  factory Engines.fromJson(Map<String, dynamic> json) =>
+      _$EnginesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EnginesToJson(this);
 }
