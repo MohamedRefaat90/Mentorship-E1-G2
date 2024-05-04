@@ -14,11 +14,7 @@ class RocketListVeiw extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
         return Padding(
-
           padding: const EdgeInsets.all(15.0),
-
-          padding: const EdgeInsets.all(10.0),
-
           child: RocketCard(rocket: rocketList[index]),
         );
       },

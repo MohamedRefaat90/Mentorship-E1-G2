@@ -51,4 +51,36 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeState.error(error: error.apiErrorModel.message ?? ''));
     });
   }
+
+  void emitRocketState() async {
+    emit(const HomeState.loading());
+
+    final response = await _homeRepo.getALlRocket();
+
+    response.when(
+      success: (rocketModel) {
+        emit(HomeState.success(rocketModel));
+      },
+      failure: (error) {
+        emit(
+          HomeState.error(error: error.apiErrorModel.message ?? ''),
+        );
+      },
+    );
+  }
+
+  void getAllCrew() async {
+    emit(const HomeState.loading());
+
+    final result = await _homeRepo.getAllCrew();
+
+    result.when(
+      success: (crewList) {
+        emit(HomeState.success(crewList));
+      },
+      failure: (error) {
+        emit(HomeState.error(error: error.apiErrorModel.message ?? ''));
+      },
+    );
+  }
 }

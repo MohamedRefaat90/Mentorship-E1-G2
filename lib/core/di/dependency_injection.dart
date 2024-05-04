@@ -5,8 +5,8 @@ import 'package:spacex/core/networking/dio_factory.dart';
 import 'package:spacex/features/crew/data/repository/crew_repository.dart';
 import 'package:spacex/features/crew/logic/cubit/crew_cubit.dart';
 import 'package:spacex/features/home/data/repos/home_repo.dart';
+import 'package:spacex/features/home/data/repos/rocket_repo.dart';
 import 'package:spacex/features/home/logic/cubit/home_cubit.dart';
-import 'package:spacex/features/rockets/data/repo/rocket_repo.dart';
 import 'package:spacex/features/rockets/logic/cubit/rocket_cubit.dart';
 
 final getIt = GetIt.instance;

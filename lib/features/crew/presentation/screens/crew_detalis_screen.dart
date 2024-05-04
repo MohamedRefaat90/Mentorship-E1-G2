@@ -12,8 +12,7 @@ import 'package:spacex/features/crew/presentation/widgets/crew_details_screen_wi
 class CrewDetailsScreen extends StatelessWidget {
   final CrewModel crewMember;
 
-  const CrewDetailsScreen({Key? key, required this.crewMember})
-      : super(key: key);
+  const CrewDetailsScreen({super.key, required this.crewMember});
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +42,10 @@ class CrewDetailsScreenBody extends StatelessWidget {
     return BlocBuilder<CrewCubit, CrewState<List<CrewModel>>>(
       builder: (context, state) {
         return state.when(
-          initial: () => Center(
+          initial: () => const Center(
             child: CircularProgressIndicator(),
           ),
-          loading: () => Center(
+          loading: () => const Center(
             child: CustomLoadingWidget(),
           ),
           success: (crewList) {
