@@ -78,6 +78,7 @@ flutter:
     # Images :
     - assets/images/
     - assets/images/login/
+    - assets/images/signup/
     - assets/images/login/social_icons/
     - assets/images/splash/
     - assets/images/home/

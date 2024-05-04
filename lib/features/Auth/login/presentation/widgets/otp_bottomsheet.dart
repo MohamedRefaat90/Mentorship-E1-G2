@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/core/widgets/btn_loader.dart';
 import 'package:spacex/core/widgets/custom_btn.dart';
 import 'package:spacex/features/Auth/login/presentation/widgets/otp_fields.dart';
 
@@ -71,22 +72,29 @@ Future<dynamic> showOTPBottomSheet(
                     ),
                     const SizedBox(height: 20),
                     Center(
-                      child: CustomBTN(
-                          widget: const Text("Submit"),
-                          color: AppPalette.violet,
-                          isDisabled: context.read<LoginCubit>().otp.length != 6
-                              ? true
-                              : false,
-                          width: 200,
-                          press: () async {
-                            await PhoneLogin.submitOTPCode(
-                                context,
-                                verificationId,
-                                resendToken,
-                                context.read<LoginCubit>().otp);
-                            if (!context.mounted) return;
-                            context.read<LoginCubit>().resetResentOtp();
-                          }),
+                      child: BlocBuilder<LoginCubit, LoginState>(
+                        builder: (context, state) {
+                          return CustomBTN(
+                              widget: state is LoginLoading
+                                  ? const BtnLoader()
+                                  : const Text("Submit"),
+                              color: AppPalette.rose,
+                              isDisabled:
+                                  context.read<LoginCubit>().otp.length != 6
+                                      ? true
+                                      : false,
+                              width: 200,
+                              press: () async {
+                                await PhoneLogin.submitOTPCode(
+                                    context,
+                                    verificationId,
+                                    resendToken,
+                                    context.read<LoginCubit>().otp);
+                                if (!context.mounted) return;
+                                context.read<LoginCubit>().resetResentOtp();
+                              });
+                        },
+                      ),
                     )
                   ]),
             ),

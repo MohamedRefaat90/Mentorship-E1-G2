@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
 
     Future.delayed(
-        const Duration(milliseconds: 6500),
+        const Duration(seconds: 6),
         () => pushReplacement(SharedPreferencesService.isFirstTime() == null
             ? const OnboardingScreen()
             : SharedPreferencesService.getUserID() == null

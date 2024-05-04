@@ -15,7 +15,7 @@ void main() async {
   AppServices.init();
 
   runApp(DevicePreview(
-      enabled: !kReleaseMode, builder: (context) => MentorshipE1G2()));
+      enabled: !kReleaseMode, builder: (context) => const MentorshipE1G2()));
 }
 
 final GlobalKey<NavigatorState> navigator = GlobalKey<NavigatorState>();

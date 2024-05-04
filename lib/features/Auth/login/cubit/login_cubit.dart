@@ -32,10 +32,15 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   loginByPhone(BuildContext context, String phoneNum) async {
+    emit(LoginLoading());
     PhoneLogin phoneLogin = PhoneLogin();
 
     phoneLogin.setvrifiedPhone(phoneNum);
     await phoneLogin.login(context);
+    Future.delayed(
+      const Duration(seconds: 1),
+      () => emit(LoginInitial()),
+    );
   }
 
   startOtpTimer() {

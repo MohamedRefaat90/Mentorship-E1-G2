@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex/core/extension/num_extension.dart';
+import 'package:spacex/core/resources/assets.dart';
 import 'package:spacex/core/widgets/custom_text_field.dart';
 import 'package:spacex/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
 import 'package:spacex/features/Auth/signup/presentation/widgets/validator_text.dart';
@@ -34,12 +35,9 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //     centerTitle: true,
-      //     title: Text("Sign in", style: AppStyles.font24BoldWhite(context))),
       body: Stack(
         children: [
-          const BackgroundImage(image: "assets/images/login_screen/5.jpg"),
+          const BackgroundImage(image: Assets.signupBackground),
           const BackgroundOvarlay(opacity: 0.4),
           SingleChildScrollView(
             child: Padding(

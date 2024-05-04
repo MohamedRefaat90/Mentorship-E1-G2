@@ -53,7 +53,7 @@ Future<dynamic> showLoginPhoneDialog(BuildContext context) {
                       : const Text("Submit"),
                   padding: 15,
                   width: 200.width,
-                  color: AppPalette.violet,
+                  color: AppPalette.rose,
                   press: () {
                     String varifiedPhone =
                         codeCountry + phoneController.text.trim();

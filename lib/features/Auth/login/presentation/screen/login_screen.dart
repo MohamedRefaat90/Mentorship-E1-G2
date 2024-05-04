@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:spacex/core/extension/num_extension.dart';
 import 'package:spacex/features/Auth/login/presentation/widgets/login_button.dart';
 
+import '../../../../../core/resources/assets.dart';
 import '../../../../../core/widgets/background_image.dart';
 import '../../../../../core/widgets/background_ovarlay.dart';
 import '../widgets/forget_password_btn.dart';
@@ -21,7 +22,7 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            const BackgroundImage(image: "assets/images/login_screen/1.jpg"),
+            const BackgroundImage(image: Assets.loginBackground),
             const BackgroundOvarlay(opacity: 0.3),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20)

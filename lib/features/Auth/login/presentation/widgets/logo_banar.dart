@@ -10,7 +10,7 @@ class LogoBanar extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(Assets.loginLogo),
+        Image.asset(Assets.loginBanar),
         const SizedBox(height: 10),
         const Text(
           "Explore the Galaxy",

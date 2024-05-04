@@ -148,10 +148,12 @@ class PhoneLogin implements LoginMethods {
   static submitOTPCode(BuildContext context, String verificationId,
       int? resendToken, String otpCode) async {
     try {
+      context.read<LoginCubit>().emit(LoginLoading());
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verificationId, smsCode: otpCode);
       await _firebaseAuth.signInWithCredential(credential);
       SharedPreferencesService.saveUserID(_firebaseAuth.currentUser!.uid);
+      context.read<LoginCubit>().emit(LoginFailure());
       if (!context.mounted) return;
       otpVarificationSuccess(context);
     } on FirebaseAuthException catch (error) {
@@ -168,27 +170,5 @@ class PhoneLogin implements LoginMethods {
       BuildContext context, FirebaseAuthException error) {
     Navigator.pop(context);
     showSnackBar(context, AuthExceptionHandler.handleException(error));
-  }
-}
-
-class EmailandPasswordLogin implements LoginMethods {
-  String emailAddress;
-  String password;
-  EmailandPasswordLogin({required this.emailAddress, required this.password});
-
-  @override
-  login(BuildContext context) async {
-    try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: emailAddress, password: password);
-
-      Future.delayed(
-        const Duration(seconds: 2),
-        () => pushReplacement(const HomeScreen()),
-      );
-    } on FirebaseAuthException catch (error) {
-      if (!context.mounted) return;
-      showSnackBar(context, AuthExceptionHandler.handleException(error));
-    }
   }
 }
