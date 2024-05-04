@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/temp_model_to_test_ui.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
 
 class CrewDetailsBody extends StatelessWidget {
   final CrewModel crewMember;
@@ -16,9 +17,12 @@ class CrewDetailsBody extends StatelessWidget {
         children: [
           if (crewMember.image != null)
             Center(
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(crewMember.image!),
-                radius: 80.0,
+              child: Hero(
+                tag: crewMember.id!, // Same unique tag as in CrewCard
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(crewMember.image!),
+                  radius: 80.0,
+                ),
               ),
             ),
           SizedBox(height: 16.0),
@@ -115,7 +119,6 @@ class CrewDetailsBody extends StatelessWidget {
               ],
             ),
           ),
-          // Add more details as needed
         ],
       ),
     );
