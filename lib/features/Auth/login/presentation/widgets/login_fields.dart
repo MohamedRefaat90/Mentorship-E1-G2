@@ -9,18 +9,17 @@ class LoginFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
     return Column(
       children: [
         CustomTextField(
-            textEditingController: cubit.emailController,
+            textEditingController: context.read<LoginCubit>().emailController,
             passwordVisibiltyIcon: false,
             isobscure: false,
             placeholderText: "Email",
             icon: Icons.person_3_outlined),
         const SizedBox(height: 20),
         CustomTextField(
-          textEditingController: cubit.passwordController,
+          textEditingController: context.read<LoginCubit>().passwordController,
           placeholderText: "Password",
           passwordVisibiltyIcon: true,
           isobscure: true,

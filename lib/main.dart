@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'core/services/initServices.dart';
+import 'features/splash/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_offline/flutter_offline.dart';
 import 'package:mentorship_e1_g3/core/screens/no_net_working_screen.dart';
 import 'package:mentorship_e1_g3/core/themes/app_theme.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
-import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
-
 import 'core/services/initServices.dart';
-import 'features/splash/splash_screen.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +27,7 @@ class MentorshipE1G2 extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.darkTthemeMode,
         navigatorKey: navigator,
+
         home: OfflineBuilder(
           connectivityBuilder: (
             BuildContext context,
@@ -45,5 +46,6 @@ class MentorshipE1G2 extends StatelessWidget {
           },
           child: Container(),
         ));
+
   }
 }

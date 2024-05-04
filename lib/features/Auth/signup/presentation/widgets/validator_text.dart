@@ -27,7 +27,7 @@ class ValidatorText extends StatelessWidget {
                 title,
                 style: TextStyle(
                     color:
-                        rule ? AppPalette.errorColor : AppPalette.errorColor),
+                        rule ? AppPalette.greenColor : AppPalette.errorColor),
               ),
             ],
           )

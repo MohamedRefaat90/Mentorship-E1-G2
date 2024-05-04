@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorship_e1_g3/core/themes/styles.dart';
 import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
+import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
+import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
 import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
 import 'package:mentorship_e1_g3/features/crew/logic/cubit/crew_cubit.dart';
 import 'package:mentorship_e1_g3/features/crew/logic/cubit/crew_state.dart';
@@ -45,7 +47,7 @@ class CrewDetailsScreenBody extends StatelessWidget {
             child: CircularProgressIndicator(),
           ),
           loading: () => Center(
-            child: CircularProgressIndicator(),
+            child: CustomLoadingWidget(),
           ),
           success: (crewList) {
             // Find the crew member from the list using crewMember.id
@@ -57,9 +59,7 @@ class CrewDetailsScreenBody extends StatelessWidget {
             // Return the CrewDetailsBody widget with the found crew member
             return CrewDetailsBody(crewMember: foundCrewMember);
           },
-          error: (error) => Center(
-            child: Text('Error: $error'),
-          ),
+          error: (error) => const CustomErrorWidget(),
         );
       },
     );

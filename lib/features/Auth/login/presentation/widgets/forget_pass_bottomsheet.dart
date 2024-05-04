@@ -1,3 +1,4 @@
+import '../../../../../core/themes/app_pallete.dart';
 import '../../cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,9 +7,7 @@ import 'package:mentorship_e1_g3/core/widgets/custom_btn.dart';
 import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
 import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
 
-
 Future<dynamic> showForgetPasswordBottomSheet(BuildContext context) {
-  LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
   TextEditingController emailController = TextEditingController();
   return showModalBottomSheet(
       context: context,
@@ -44,8 +43,9 @@ Future<dynamic> showForgetPasswordBottomSheet(BuildContext context) {
                     child: CustomBTN(
                         widget: const Text("Reset"),
                         width: 200.width,
+                        color: AppPalette.rose,
                         press: () {
-                          cubit.forgetPassword(
+                          context.read<LoginCubit>().forgetPassword(
                               context, emailController.text.trim());
                         }),
                   )

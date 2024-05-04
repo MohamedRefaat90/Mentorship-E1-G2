@@ -17,4 +17,5 @@ class AppPalette {
   static const Color lightGreyColor = Color(0xffBDBDBD);
   static const Color detailsColor = Color.fromRGBO(255, 0, 61, 1);
   static const Color detailsBackgroundColor = Color.fromRGBO(0, 0, 0, 1);
+  static const Color rose = Color.fromARGB(255, 220, 21, 108);
 }
