@@ -6,7 +6,6 @@ import 'package:flutter_offline/flutter_offline.dart';
 import 'package:mentorship_e1_g3/core/screens/no_net_working_screen.dart';
 import 'package:mentorship_e1_g3/core/themes/app_theme.dart';
 import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/presentation/screen/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

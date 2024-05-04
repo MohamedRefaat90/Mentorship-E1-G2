@@ -13,40 +13,47 @@ class RocketCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150.height,
-      width: double.infinity,
-      child: Card(
-        color: AppPalette.homeBG,
+      height: 180.height,
+      width: 200.width,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.width),
+        decoration: BoxDecoration(
+          color: AppPalette.homeBG.withOpacity(0.7),
+          borderRadius: BorderRadius.circular(20),
+        ),
         child: Row(
           children: [
-            Expanded(
-              child: Image(
-                image: CachedNetworkImageProvider(
-                  rocket.flickrImages?[0] ?? "",
-                ),
-                width: 150.width,
-                height: 150.height,
-              ),
-            ),
-            SizedBox(
-              width: 20.width,
-            ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 12.height,
+                  height: 30.height,
                 ),
                 Text(
                   rocket.name!,
                   style: AppStyles.font18SemiBoldWhite(context),
                 ),
                 SizedBox(
-                  height: 40.height,
+                  height: 30.height,
                 ),
                 StatusContainer(isActive: rocket.active!),
               ],
-            )
+            ),
+            SizedBox(
+              width: 20.width,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image(
+                  image: CachedNetworkImageProvider(
+                    rocket.flickrImages?[0] ?? "",
+                  ),
+                  width: 100.width,
+                  height: 150.height,
+                ),
+              ),
+            ),
           ],
         ),
       ),
