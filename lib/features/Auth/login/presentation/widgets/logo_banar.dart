@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/resources/assets.dart';
+import 'package:spacex/core/extension/num_extension.dart';
+import 'package:spacex/core/resources/assets.dart';
 
 class LogoBanar extends StatelessWidget {
   const LogoBanar({super.key});

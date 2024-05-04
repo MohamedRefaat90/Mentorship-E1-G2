@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/services/sharedprefs.dart';
+import 'package:spacex/core/services/sharedprefs.dart';
 
 import '../../../core/routing/app_routing.dart';
 import '../../Auth/login/presentation/screen/login_screen.dart';

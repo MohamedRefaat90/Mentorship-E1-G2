@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
 
 void showSnackBar(BuildContext context, String message, [Color? color]) {
   ScaffoldMessenger.of(context)

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
+import 'package:spacex/core/extension/num_extension.dart';
 
 import 'shadow_divider_for_login_with_text.dart';
 

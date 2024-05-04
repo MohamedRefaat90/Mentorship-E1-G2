@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mentorship_e1_g3/core/networking/api_error_handler.dart';
+import 'package:spacex/core/networking/api_error_handler.dart';
 
 part 'api_result.freezed.dart';
 

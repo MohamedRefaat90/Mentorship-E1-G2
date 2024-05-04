@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/helpers/functions/snakbar.dart';
-import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
-import 'package:mentorship_e1_g3/features/Auth/signup/data/models/user_model.dart';
+import 'package:spacex/core/helpers/functions/snakbar.dart';
+import 'package:spacex/core/networking/auth_exception.dart';
+import 'package:spacex/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
+import 'package:spacex/features/Auth/signup/data/models/user_model.dart';
 
 part 'signup_state.dart';
 

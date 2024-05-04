@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/widgets/done_animation_button.dart';
-
-import 'package:mentorship_e1_g3/features/Auth/signup/data/models/user_model.dart';
+import 'package:spacex/core/widgets/done_animation_button.dart';
+import 'package:spacex/features/Auth/signup/data/models/user_model.dart';
 
 import '../../../../../core/helpers/functions/snakbar.dart';
 import '../../../../../core/routing/app_routing.dart';

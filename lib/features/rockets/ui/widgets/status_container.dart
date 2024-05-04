@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:spacex/core/extension/num_extension.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
 
 class StatusContainer extends StatelessWidget {
   final bool isActive;

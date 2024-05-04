@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mentorship_e1_g3/core/services/sharedprefs.dart';
-import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
-import 'package:mentorship_e1_g3/features/onboarding/screens/onboarding.dart';
+import 'package:spacex/core/services/sharedprefs.dart';
+import 'package:spacex/features/home/presentation/screen/home_screen.dart';
+import 'package:spacex/features/onboarding/screens/onboarding.dart';
 
 import '../../core/helpers/functions/customLottieDecoder.dart';
 import '../../core/routing/app_routing.dart';

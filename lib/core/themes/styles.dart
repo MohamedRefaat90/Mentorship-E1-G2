@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
+import 'package:spacex/core/extension/num_extension.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
 
 class AppStyles {
-  static TextStyle font24BoldWhite(BuildContext context) {
+  static TextStyle font15MediumGrey(BuildContext context) {
+    return TextStyle(
+        color: Colors.grey,
+        fontSize: 15.scaleText,
+        fontWeight: FontWeight.w500,
+        fontFamily: 'Schibsted Grotesk');
+  }
+
+  static TextStyle font15MediumWhite(BuildContext context) {
     return TextStyle(
         color: AppPalette.whiteColor,
-        fontSize: 24.scaleText,
-        fontWeight: FontWeight.w700,
+        fontSize: 15.scaleText,
+        fontWeight: FontWeight.w500,
         fontFamily: 'Schibsted Grotesk');
   }
 
@@ -27,19 +35,11 @@ class AppStyles {
         fontFamily: 'Schibsted Grotesk');
   }
 
-  static TextStyle font15MediumWhite(BuildContext context) {
+  static TextStyle font24BoldWhite(BuildContext context) {
     return TextStyle(
         color: AppPalette.whiteColor,
-        fontSize: 15.scaleText,
-        fontWeight: FontWeight.w500,
-        fontFamily: 'Schibsted Grotesk');
-  }
-
-  static TextStyle font15MediumGrey(BuildContext context) {
-    return TextStyle(
-        color: Colors.grey,
-        fontSize: 15.scaleText,
-        fontWeight: FontWeight.w500,
+        fontSize: 24.scaleText,
+        fontWeight: FontWeight.w700,
         fontFamily: 'Schibsted Grotesk');
   }
 }

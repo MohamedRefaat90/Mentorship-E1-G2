@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mentorship_e1_g3/core/resources/assets.dart';
+import 'package:spacex/core/resources/assets.dart';
 
 class DoneAnimationButton extends StatelessWidget {
   const DoneAnimationButton({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/widgets/custom_btn.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/presentation/widgets/otp_fields.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/core/widgets/custom_btn.dart';
+import 'package:spacex/features/Auth/login/presentation/widgets/otp_fields.dart';
 
 import '../../cubit/login_cubit.dart';
 import '../../cubit/login_methods.dart';

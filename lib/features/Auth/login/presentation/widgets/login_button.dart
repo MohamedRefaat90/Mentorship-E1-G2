@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/features/Auth/login/cubit/login_cubit.dart';
 
 import '../../../../../core/widgets/btn_loader.dart';
 import '../../../../../core/widgets/custom_btn.dart';

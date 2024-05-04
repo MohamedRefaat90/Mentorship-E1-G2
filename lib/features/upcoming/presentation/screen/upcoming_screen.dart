@@ -1,13 +1,14 @@
-import '../widgets/count_down.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
-import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
-import 'package:mentorship_e1_g3/features/home/logic/cubit/home_cubit.dart';
-import 'package:mentorship_e1_g3/features/home/logic/cubit/home_state.dart';
-import 'package:mentorship_e1_g3/features/upcoming/presentation/widgets/log_out_button.dart';
-import 'package:mentorship_e1_g3/features/upcoming/presentation/widgets/upcoming_launch_details.dart';
+import 'package:spacex/core/extension/num_extension.dart';
+import 'package:spacex/core/widgets/custom_error_widget.dart';
+import 'package:spacex/core/widgets/custom_loading_widget.dart';
+import 'package:spacex/features/home/logic/cubit/home_cubit.dart';
+import 'package:spacex/features/home/logic/cubit/home_state.dart';
+import 'package:spacex/features/upcoming/presentation/widgets/log_out_button.dart';
+import 'package:spacex/features/upcoming/presentation/widgets/upcoming_launch_details.dart';
+
+import '../widgets/count_down.dart';
 import '../widgets/upcoming_item.dart';
 
 class UpcomingScreen extends StatefulWidget {

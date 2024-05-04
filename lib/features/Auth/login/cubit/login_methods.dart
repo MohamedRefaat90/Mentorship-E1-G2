@@ -3,10 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
-import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
-import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
+import 'package:spacex/core/networking/auth_exception.dart';
+import 'package:spacex/core/routing/app_routing.dart';
+import 'package:spacex/features/Auth/login/cubit/login_cubit.dart';
+import 'package:spacex/features/home/presentation/screen/home_screen.dart';
 
 import '../../../../core/helpers/functions/snakbar.dart';
 import '../../../../core/services/sharedprefs.dart';

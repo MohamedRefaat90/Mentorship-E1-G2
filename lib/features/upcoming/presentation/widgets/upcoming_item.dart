@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/features/home/data/models/upcoming_launches/upcoming_launches_model.dart';
+import 'package:spacex/core/extension/num_extension.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/core/themes/styles.dart';
+import 'package:spacex/features/home/data/models/upcoming_launches/upcoming_launches_model.dart';
 
 class UpcomingItem extends StatelessWidget {
   const UpcomingItem({super.key, required this.launchItem});
