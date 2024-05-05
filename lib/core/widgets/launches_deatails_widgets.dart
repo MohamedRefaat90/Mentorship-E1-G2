@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:spacex/core/themes/styles.dart';
 import 'package:spacex/core/resources/assets.dart';
+import 'package:spacex/core/extension/num_extension.dart';
 import 'package:spacex/features/home/data/models/launches/launches_model.dart';
 import 'package:spacex/features/launches/presentation/screen/video_player_screen.dart';
-// launch_details_widgets.dart
-
-
 
 class LaunchDetailsBody extends StatelessWidget {
   final Launches launchItem;
@@ -29,58 +28,43 @@ class LaunchDetailsBody extends StatelessWidget {
             children: [
               Text(
                 launchItem.name ?? 'Unknown Launch',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.font24BoldPurple(context),
               ),
               SizedBox(height: 16.0),
               Text(
                 'Launch Date:',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.font18SemiBoldPurple(context),
               ),
               Text(
                 launchItem.dateLocal ?? 'Unknown',
-                style: TextStyle(fontSize: 16.0),
+                style: AppStyles.font15MediumWhite(context),
               ),
               SizedBox(height: 16.0),
               Text(
                 'Details:',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.font18SemiBoldPurple(context),
               ),
               Text(
                 launchItem.details ?? 'No details available.',
-                style: TextStyle(fontSize: 16.0),
+                style: AppStyles.font15MediumWhite(context),
               ),
               SizedBox(height: 16.0),
               Text(
                 'Rocket:',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.font18SemiBoldPurple(context),
               ),
               Text(
                 launchItem.rocket ?? 'Unknown',
-                style: TextStyle(fontSize: 16.0),
+                style: AppStyles.font15MediumWhite(context),
               ),
               SizedBox(height: 16.0),
               Text(
                 'Launchpad:',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.font18SemiBoldPurple(context),
               ),
               Text(
                 launchItem.launchpad ?? 'Unknown',
-                style: TextStyle(fontSize: 16.0),
+                style: AppStyles.font15MediumWhite(context),
               ),
               SizedBox(height: 16.0),
               if (launchItem.links?.webcast != null)
