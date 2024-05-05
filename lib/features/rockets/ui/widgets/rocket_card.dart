@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/themes/styles.dart';
 import '../../../../core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/core/extension/num_extension.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:mentorship_e1_g3/core/extension/num_extension.dart';
-import 'package:mentorship_e1_g3/features/rockets/ui/widgets/status_container.dart';
-import 'package:mentorship_e1_g3/features/rockets/data/models/rocket_respons_body.dart';
+import 'package:spacex/features/rockets/ui/widgets/status_container.dart';
+import 'package:spacex/features/rockets/data/models/rocket_respons_body.dart';
+
 
 class RocketCard extends StatelessWidget {
   const RocketCard({Key? key, required this.rocket}) : super(key: key);

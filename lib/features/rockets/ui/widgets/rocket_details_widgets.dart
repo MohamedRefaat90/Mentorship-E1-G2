@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:spacex/core/themes/styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/features/rockets/data/models/rocket_respons_body.dart';
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:spacex/features/rockets/data/models/rocket_respons_body.dart';
 
 class RocketDetailsWidgets extends StatelessWidget {
   final RocketModel rocket;
