@@ -1,79 +1,72 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/resources/assets.dart';
-import 'package:mentorship_e1_g3/core/themes/app_pallete.dart';
-import 'package:mentorship_e1_g3/core/di/dependency_injection.dart';
-import 'package:mentorship_e1_g3/core/widgets/custom_error_widget.dart';
-import 'package:mentorship_e1_g3/core/widgets/custom_loading_widget.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
-import 'package:mentorship_e1_g3/features/crew/logic/cubit/crew_cubit.dart';
-import 'package:mentorship_e1_g3/features/crew/logic/cubit/crew_state.dart';
-import 'package:mentorship_e1_g3/features/crew/presentation/widgets/crew_screen_widgets.dart';
+import 'package:spacex/core/resources/assets.dart';
+import 'package:spacex/core/widgets/custom_error_widget.dart';
+import 'package:spacex/core/widgets/custom_loading_widget.dart';
+import 'package:spacex/features/crew/presentation/widgets/crew_screen_widgets.dart';
+import 'package:spacex/features/home/logic/cubit/home_cubit.dart';
+import 'package:spacex/features/home/logic/cubit/home_state.dart';
 
-class CrewScreen extends StatelessWidget {
-  const CrewScreen({Key? key}) : super(key: key);
+class CrewScreen extends StatefulWidget {
+  const CrewScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Opacity(
-              opacity: 0.5,
-              child: Image.asset(
-                Assets.backgroundImage,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          CrewScreenContent(),
-        ],
-      ),
-    );
-  }
+  State<CrewScreen> createState() => _CrewScreenState();
 }
 
-class CrewScreenContent extends StatelessWidget {
+class _CrewScreenState extends State<CrewScreen> {
+  @override
+  void initState() {
+    context.read<HomeCubit>().getAllCrew();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text(
-          'Crew Members',
-          style: AppStyles.font24BoldWhite(context),
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(
+              Assets.backgroundImage,
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
-      ),
-      body: BlocProvider(
-        create: (context) => getIt<CrewCubit>()..getAllCrew(),
-        child: CrewScreenBody(),
-      ),
+        const CrewScreenContent(),
+      ],
     );
   }
 }
 
 class CrewScreenBody extends StatelessWidget {
+  const CrewScreenBody({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CrewCubit, CrewState<List<CrewModel>>>(
+    return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        return Scaffold(
-          backgroundColor: Colors.transparent,
-          body: state.when(
-            initial: () => Center(
-              child: CircularProgressIndicator(),
-            ),
-            loading: () => Center(
-              child: CustomLoadingWidget(),
-            ),
-            success: (crewList) => CrewGrid(allCrew: crewList),
-            error: (error) => const CustomErrorWidget(),
+        return state.when(
+          initial: () => const Center(
+            child: CircularProgressIndicator(),
           ),
+          loading: () => const Center(
+            child: CustomLoadingWidget(),
+          ),
+          success: (crewList) => CrewGrid(allCrew: crewList),
+          error: (error) => const CustomErrorWidget(),
         );
       },
     );
+  }
+}
+
+class CrewScreenContent extends StatelessWidget {
+  const CrewScreenContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const CrewScreenBody();
   }
 }

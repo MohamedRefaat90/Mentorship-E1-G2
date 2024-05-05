@@ -1,8 +1,8 @@
-import 'crew_state.dart';
 import 'package:bloc/bloc.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
-import 'package:mentorship_e1_g3/features/crew/logic/cubit/crew_state.dart';
-import 'package:mentorship_e1_g3/features/crew/data/repository/crew_repository.dart';
+import 'package:spacex/features/crew/data/model/crew_model.dart';
+import 'package:spacex/features/crew/data/repository/crew_repository.dart';
+
+import 'crew_state.dart';
 
 class CrewCubit extends Cubit<CrewState<List<CrewModel>>> {
   final CrewRepository _crewRepository;

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:spacex/core/resources/assets.dart';
+import 'package:spacex/core/themes/styles.dart';
+import 'package:spacex/features/crew/data/model/crew_model.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:mentorship_e1_g3/core/themes/styles.dart';
-import 'package:mentorship_e1_g3/core/resources/assets.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
 
 class CrewDetailsBody extends StatelessWidget {
   final CrewModel crewMember;

@@ -1,7 +1,7 @@
-import 'package:mentorship_e1_g3/core/networking/api_result.dart';
-import 'package:mentorship_e1_g3/core/networking/api_services.dart';
-import 'package:mentorship_e1_g3/core/networking/api_error_handler.dart';
-import 'package:mentorship_e1_g3/features/crew/data/model/crew_model.dart';
+import 'package:spacex/core/networking/api_error_handler.dart';
+import 'package:spacex/core/networking/api_result.dart';
+import 'package:spacex/core/networking/api_services.dart';
+import 'package:spacex/features/crew/data/model/crew_model.dart';
 
 class CrewRepository {
   final ApiService apiService;

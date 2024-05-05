@@ -1,79 +1,15 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mentorship_e1_g3/core/networking/auth_exception.dart';
-import 'package:mentorship_e1_g3/core/routing/app_routing.dart';
-import 'package:mentorship_e1_g3/features/Auth/login/cubit/login_cubit.dart';
-import 'package:mentorship_e1_g3/features/home/presentation/screen/home_screen.dart';
+import 'package:spacex/features/Auth/login/cubit/login_cubit.dart';
 
 import '../../../../core/helpers/functions/snakbar.dart';
+import '../../../../core/networking/auth_exception.dart';
+import '../../../../core/routing/app_routing.dart';
+import '../../../../core/services/sharedprefs.dart';
+import '../../../home/presentation/screen/home_screen.dart';
+import 'login_methods.dart';
 import '../presentation/widgets/otp_bottomsheet.dart';
-
-abstract interface class LoginMethods {
-  login(BuildContext context);
-}
-
-class GoogleLogin implements LoginMethods {
-  @override
-  login(BuildContext context) {
-    try {
-      createGoogleCredential();
-    } on FirebaseAuthException catch (error) {
-      if (!context.mounted) return;
-      showSnackBar(context, AuthExceptionHandler.handleException(error));
-    } on NoSocialAccountSelected catch (_) {
-      return;
-    }
-  }
-
-  createGoogleCredential() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    if (googleUser == null) throw NoSocialAccountSelected();
-
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
-
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    return await FirebaseAuth.instance
-        .signInWithCredential(credential)
-        .then((user) {
-      if (user.user != null) {
-        pushReplacement(const HomeScreen());
-      }
-    });
-  }
-}
-
-class GithubLogin implements LoginMethods {
-  @override
-  login(BuildContext context) async {
-    try {
-      createGithubCredential();
-    } on FirebaseAuthException catch (error) {
-      showSnackBar(context, AuthExceptionHandler.handleException(error));
-    } on NoSocialAccountSelected catch (_) {
-      return;
-    }
-  }
-
-  createGithubCredential() async {
-    final githubAuthProvider = GithubAuthProvider();
-    return await FirebaseAuth.instance
-        .signInWithProvider(githubAuthProvider)
-        .then((user) {
-      if (user.user != null) {
-        pushReplacement(const HomeScreen());
-      }
-    });
-  }
-}
 
 class PhoneLogin implements LoginMethods {
   static final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -147,11 +83,13 @@ class PhoneLogin implements LoginMethods {
   static submitOTPCode(BuildContext context, String verificationId,
       int? resendToken, String otpCode) async {
     try {
+      context.read<LoginCubit>().emit(LoginLoading());
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verificationId, smsCode: otpCode);
-
       await _firebaseAuth.signInWithCredential(credential);
+      SharedPreferencesService.saveUserID(_firebaseAuth.currentUser!.uid);
       if (!context.mounted) return;
+      context.read<LoginCubit>().emit(LoginFailure());
       otpVarificationSuccess(context);
     } on FirebaseAuthException catch (error) {
       if (!context.mounted) return;
@@ -167,27 +105,5 @@ class PhoneLogin implements LoginMethods {
       BuildContext context, FirebaseAuthException error) {
     Navigator.pop(context);
     showSnackBar(context, AuthExceptionHandler.handleException(error));
-  }
-}
-
-class EmailandPasswordLogin implements LoginMethods {
-  String emailAddress;
-  String password;
-  EmailandPasswordLogin({required this.emailAddress, required this.password});
-
-  @override
-  login(BuildContext context) async {
-    try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: emailAddress, password: password);
-
-      Future.delayed(
-        const Duration(seconds: 2),
-        () => pushReplacement(const HomeScreen()),
-      );
-    } on FirebaseAuthException catch (error) {
-      if (!context.mounted) return;
-      showSnackBar(context, AuthExceptionHandler.handleException(error));
-    }
   }
 }
