@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex/features/home/data/repos/rocket_repo.dart';
-import 'package:spacex/features/rockets/data/models/rocket_respons_body.dart';
 import 'package:spacex/features/rockets/logic/cubit/rocket_state.dart';
+import 'package:spacex/features/rockets/data/models/rocket_respons_body.dart';
+
 
 class RocketCubit extends Cubit<RocketState> {
   final RocketRepo _rocketRepo;
@@ -24,4 +25,6 @@ class RocketCubit extends Cubit<RocketState> {
       },
     );
   }
+
+  void fetchRocketDetails(String rocketId) {}
 }
