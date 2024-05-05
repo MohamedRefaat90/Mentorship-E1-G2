@@ -1,13 +1,12 @@
-import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spacex/core/di/dependency_injection.dart';
-import 'package:spacex/core/resources/assets.dart';
-import 'package:spacex/core/themes/app_pallete.dart';
-import 'package:spacex/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
-
 import '../../logic/cubit/home_cubit.dart';
 import '../../logic/cubit/home_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spacex/core/resources/assets.dart';
+import 'package:spacex/core/themes/app_pallete.dart';
+import 'package:spacex/core/di/dependency_injection.dart';
+import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
+import 'package:spacex/features/home/presentation/widgets/bottom_nav_bar_items_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
