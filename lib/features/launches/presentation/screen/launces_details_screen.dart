@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spacex/core/resources/assets.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:spacex/features/home/data/models/launches/launches_model.dart';
+import 'package:spacex/features/launches/presentation/video_player_screen.dart';
 
 class LaunchDetailsScreen extends StatelessWidget {
   final Launches launchItem;
@@ -83,7 +85,20 @@ class LaunchDetailsScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16.0),
                 ),
                 SizedBox(height: 16.0),
-                // Add more details as needed
+                if (launchItem.links?.webcast != null)
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VideoPlayerScreen(
+                            videoUrl: launchItem.links?.webcast ?? '',
+                          ),
+                        ),
+                      );
+                    },
+                    child: Text('Watch Webcast'),
+                  ),
               ],
             ),
           ),
