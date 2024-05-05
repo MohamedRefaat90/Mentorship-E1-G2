@@ -21,7 +21,9 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   TextEditingController confirmPasswordController = TextEditingController();
 
   @override
@@ -43,23 +45,23 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 30),
-              child: BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
-                builder: (context, state) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SignupAppbar(),
-                      SizedBox(height: 60.height),
-                      CustomTextField(
-                          textEditingController: emailController,
-                          placeholderText: "Email",
-                          icon: Icons.email,
-                          passwordVisibiltyIcon: false,
-                          isobscure: false,
-                          onChange: (email) => context
-                              .read<FieldsValidatorCubit>()
-                              .validateEmail(email)),
-                      ValidatorText(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SignupAppbar(),
+                  SizedBox(height: 60.height),
+                  CustomTextField(
+                      textEditingController: emailController,
+                      placeholderText: "Email",
+                      icon: Icons.email,
+                      passwordVisibiltyIcon: false,
+                      isobscure: false,
+                      onChange: (email) => context
+                          .read<FieldsValidatorCubit>()
+                          .validateEmail(email)),
+                  BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
+                    builder: (context, state) {
+                      return ValidatorText(
                           displayWhen: emailController.text.isNotEmpty,
                           title:
                               context.read<FieldsValidatorCubit>().isVaildEmail
@@ -67,33 +69,35 @@ class _SignupScreenState extends State<SignupScreen> {
                                   : "Invaild Email",
                           rule: context
                               .read<FieldsValidatorCubit>()
-                              .isVaildEmail),
-                      SizedBox(height: 20.height),
-                      CustomTextField(
-                          textEditingController: passwordController,
-                          placeholderText: "Password",
-                          icon: Icons.lock,
-                          passwordVisibiltyIcon: true,
-                          isobscure:
-                              context.read<FieldsValidatorCubit>().isObsecured,
-                          onChange: (password) => context
-                              .read<FieldsValidatorCubit>()
-                              .validatePasswordField(password)),
-                      PasswordValidationRules(),
-                      SizedBox(height: 20.height),
-                      CustomTextField(
-                        placeholderText: "Confirm Password",
-                        textEditingController: confirmPasswordController,
-                        icon: Icons.lock,
-                        passwordVisibiltyIcon: true,
-                        isobscure:
-                            context.read<FieldsValidatorCubit>().isObsecured,
-                        onChange: (confirmPassword) => context
-                            .read<FieldsValidatorCubit>()
-                            .validateConfirmPassword(
-                                confirmPassword, passwordController.text),
-                      ),
-                      ValidatorText(
+                              .isVaildEmail);
+                    },
+                  ),
+                  SizedBox(height: 20.height),
+                  CustomTextField(
+                      textEditingController: passwordController,
+                      placeholderText: "Password",
+                      icon: Icons.lock,
+                      passwordVisibiltyIcon: true,
+                      isobscure: true,
+                      onChange: (password) => context
+                          .read<FieldsValidatorCubit>()
+                          .validatePasswordField(password)),
+                  const PasswordValidationRules(),
+                  SizedBox(height: 20.height),
+                  CustomTextField(
+                    placeholderText: "Confirm Password",
+                    textEditingController: confirmPasswordController,
+                    icon: Icons.lock,
+                    passwordVisibiltyIcon: true,
+                    isobscure: context.read<FieldsValidatorCubit>().isObsecured,
+                    onChange: (confirmPassword) => context
+                        .read<FieldsValidatorCubit>()
+                        .validateConfirmPassword(
+                            confirmPassword, passwordController.text),
+                  ),
+                  BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
+                    builder: (context, state) {
+                      return ValidatorText(
                           displayWhen:
                               confirmPasswordController.text.isNotEmpty,
                           title: context
@@ -103,14 +107,14 @@ class _SignupScreenState extends State<SignupScreen> {
                               : "Password Not Match",
                           rule: context
                               .read<FieldsValidatorCubit>()
-                              .isPassMatchConfirmPass),
-                      SizedBox(height: 50.height),
-                      SignupBtn(
-                          email: emailController.text.trim(),
-                          password: confirmPasswordController.text)
-                    ],
-                  );
-                },
+                              .isPassMatchConfirmPass);
+                    },
+                  ),
+                  SizedBox(height: 50.height),
+                  SignupBtn(
+                      email: emailController.text.trim(),
+                      password: confirmPasswordController.text)
+                ],
               ),
             ),
           ),

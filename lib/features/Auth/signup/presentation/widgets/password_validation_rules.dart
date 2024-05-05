@@ -9,22 +9,27 @@ class PasswordValidationRules extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      ValidatorText(
-          title: "Must must larger then 8",
-          rule: context.read<FieldsValidatorCubit>().isPassLengthLargerThan8),
-      ValidatorText(
-          title: "Must Contain Upper Character",
-          rule: context.read<FieldsValidatorCubit>().isContainUpperChar),
-      ValidatorText(
-          title: "Must Contain Lower Character",
-          rule: context.read<FieldsValidatorCubit>().isContainLowerChar),
-      ValidatorText(
-          title: "Must Contain Number",
-          rule: context.read<FieldsValidatorCubit>().isContainNum),
-      ValidatorText(
-          title: "Must Contain Special Character",
-          rule: context.read<FieldsValidatorCubit>().isContainSpecailChar),
-    ]);
+    return BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
+      builder: (context, state) {
+        return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          ValidatorText(
+              title: "Must must larger then 8",
+              rule:
+                  context.read<FieldsValidatorCubit>().isPassLengthLargerThan8),
+          ValidatorText(
+              title: "Must Contain Upper Character",
+              rule: context.read<FieldsValidatorCubit>().isContainUpperChar),
+          ValidatorText(
+              title: "Must Contain Lower Character",
+              rule: context.read<FieldsValidatorCubit>().isContainLowerChar),
+          ValidatorText(
+              title: "Must Contain Number",
+              rule: context.read<FieldsValidatorCubit>().isContainNum),
+          ValidatorText(
+              title: "Must Contain Special Character",
+              rule: context.read<FieldsValidatorCubit>().isContainSpecailChar),
+        ]);
+      },
+    );
   }
 }

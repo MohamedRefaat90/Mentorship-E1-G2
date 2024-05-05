@@ -3,11 +3,10 @@ import 'package:spacex/core/resources/assets.dart';
 import 'package:spacex/features/rockets/data/models/rocket_respons_body.dart';
 import 'package:spacex/features/rockets/ui/widgets/rocket_details_widgets.dart';
 
-
 class RocketDetailsScreen extends StatelessWidget {
   final RocketModel rocket;
 
-  const RocketDetailsScreen({Key? key, required this.rocket}) : super(key: key);
+  const RocketDetailsScreen({super.key, required this.rocket});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class RocketDetailsScreen extends StatelessWidget {
         children: [
           // Background Image
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(Assets.backgroundImage),
                 fit: BoxFit.cover,
@@ -32,7 +31,7 @@ class RocketDetailsScreen extends StatelessWidget {
           ),
           // Rocket Details Widgets
           SingleChildScrollView(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: RocketDetailsWidgets(rocket: rocket),
           ),
         ],

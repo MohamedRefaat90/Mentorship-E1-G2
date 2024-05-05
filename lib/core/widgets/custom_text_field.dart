@@ -23,9 +23,9 @@ class CustomTextField extends StatefulWidget {
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
-  bool passwordVisiabilty = true;
+bool passwordVisiabilty = true;
 
+class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -61,7 +61,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           suffixIcon: widget.passwordVisibiltyIcon
               ? IconButton(
                   onPressed: () {
-                    passwordVisiabilty = !passwordVisiabilty;
+                    // passwordVisiabilty = !passwordVisiabilty;
                     setState(() => widget.isobscure = !widget.isobscure);
                   },
                   icon: Icon(togglePasswordVisiabiltyIcon(widget.isobscure)))
