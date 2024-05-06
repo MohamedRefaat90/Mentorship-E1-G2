@@ -15,8 +15,11 @@ Welcome to the SpaceX Flutter App repository! This app provides a captivating ex
 ### Splash Screen
 <img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/bbff58e4-f850-494f-9d2a-eabd0b571415" width="200">
 
-### Onboarding
-<img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/1691486b-c9c0-4840-942f-a5c2dc609275" width="200">
+### Onboarding Video
+<video width="400" controls>
+  <source src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/1691486b-c9c0-4840-942f-a5c2dc609275" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### Register Screen 
 <img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/69fe5634-27fe-456d-92dd-ff8eec6a34fa" width="200">
