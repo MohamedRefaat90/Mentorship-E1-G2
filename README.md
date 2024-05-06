@@ -1,5 +1,7 @@
+### 🚀 Welcome to the SpaceX App repository! 🌌
 
-Welcome to the SpaceX Flutter App repository! This app provides a captivating experience for space enthusiasts to stay updated on upcoming SpaceX rocket launches, explore details about rockets and crew members, and immerse themselves in the excitement of space exploration.
+Embark on a cosmic journey with our captivating app designed for space enthusiasts like you! Stay updated on upcoming SpaceX rocket launches, explore intricate details about rockets and crew members, and immerse yourself in the boundless excitement of space exploration.
+
 
 ## Overview:
 
@@ -10,16 +12,34 @@ Welcome to the SpaceX Flutter App repository! This app provides a captivating ex
 ✨ Leveraging packages like fancy shimmer effect, image, and provider for enhanced functionality.
 
 🧼 Emphasizing clean, readable code for easy maintenance and scalability.
-## UI:
+
+## How It Works:
+
+🔧 Dive into the codebase and start contributing to the future of space exploration! Here's how you can get involved:
+
+1. **Clone the Repository**: Begin your journey by cloning this repository to your local machine. Feel the thrill of anticipation as you embark on your cosmic coding adventure.
+
+2. **Explore the Code**: Delve deep into the heart of the codebase, exploring each file and line with the curiosity of a true space explorer. Marvel at the intricacies of Dart and Flutter as you navigate through the galaxy of code.
+
+3. **Contribute Your Expertise**: Launch into action by contributing your expertise to enhance the app's functionality and user experience. Whether it's fixing bugs, optimizing performance, or adding new features, your contributions will propel this app to new heights.
+
+4. **Submit Pull Requests**: Once you've made your mark on the codebase, submit pull requests with confidence, knowing that your contributions will help shape the future of space exploration for generations to come.
+
+ ## 🎨 UI
 
 ### Splash Screen
-<img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/bbff58e4-f850-494f-9d2a-eabd0b571415" width="200">
+
+
+https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/1dd4e5f2-2295-4c75-956e-5bb9ccb9aab9
+
+
 
 ### Onboarding Video
-<video width="400" controls>
-  <source src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/1691486b-c9c0-4840-942f-a5c2dc609275" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+
+https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/ee0cec43-7964-4ff9-8bf7-da59029f0885
+
+
 
 ### Register Screen 
 <img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/69fe5634-27fe-456d-92dd-ff8eec6a34fa" width="200">
@@ -33,16 +53,12 @@ Welcome to the SpaceX Flutter App repository! This app provides a captivating ex
 
 ### Rocket Screen
 <img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/d8a303be-98aa-4320-8e42-a9ff084c098f" width="200">
-
-### Details Rocket Screen 
 <img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/68377597-3992-46dc-a6b9-cd83eac2bc61" width="200">
+
 
 ### Crew Screen 
 <img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/e932c97a-6e76-4619-bd86-ea1392b94969" width="200">
-
-### Details Crew Screen 
 <img src="https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/33191b6d-734f-420a-8660-a7e07dccca91" width="200">
-
 
 
 
