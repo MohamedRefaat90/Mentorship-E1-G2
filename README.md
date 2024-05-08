@@ -21,9 +21,6 @@ Embark on a cosmic journey with our captivating app designed for space enthusias
 
 2. **Explore the Code**: Delve deep into the heart of the codebase, exploring each file and line with the curiosity of a true space explorer. Marvel at the intricacies of Dart and Flutter as you navigate through the galaxy of code.
 
-3. **Contribute Your Expertise**: Launch into action by contributing your expertise to enhance the app's functionality and user experience. Whether it's fixing bugs, optimizing performance, or adding new features, your contributions will propel this app to new heights.
-
-4. **Submit Pull Requests**: Once you've made your mark on the codebase, submit pull requests with confidence, knowing that your contributions will help shape the future of space exploration for generations to come.
 
  ## 🎨 UI
 
@@ -69,7 +66,7 @@ https://github.com/MohamedRefaat90/Mentorship-E1-G2/assets/150619641/ee0cec43-79
 - Seamlessly transition into the space exploration experience with captivating onboarding sequences that fuel your anticipation.
 
 ### 2. 🚀 Effortless User Authentication
-- Launch into the app effortlessly by registering and logging in using your email, Facebook, or Gmail accounts.
+- Launch into the app effortlessly by registering and logging in using your Email, Phone , Github , or Gmail accounts.
 
 ### 3. 🌠 Intuitive Navigation Experience
 - Navigate through the app like a seasoned astronaut with an intuitive navigation bar that guides you through the vast expanse of features and functionalities.
