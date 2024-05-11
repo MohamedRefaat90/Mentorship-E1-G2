@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 
-List<CrystalNavigationBarItem> items =  [
+List<CrystalNavigationBarItem> items = [
   CrystalNavigationBarItem(
     icon: Icons.rocket_rounded,
   ),
@@ -9,10 +9,12 @@ List<CrystalNavigationBarItem> items =  [
     icon: Icons.history,
   ),
   CrystalNavigationBarItem(
-    icon:Icons.rocket_launch,
+    icon: Icons.rocket_launch,
   ),
   CrystalNavigationBarItem(
-    icon:Icons.people,
+    icon: Icons.people,
   ),
-   
+  CrystalNavigationBarItem(
+    icon: Icons.rocket_rounded,
+  ),
 ];

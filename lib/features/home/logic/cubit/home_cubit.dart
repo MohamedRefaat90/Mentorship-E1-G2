@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacexx/features/crew/presentation/screens/crew_screen.dart';
+import 'package:spacexx/features/dragones/presentation/screen/dragones_screen.dart';
 import 'package:spacexx/features/home/data/models/launches/launches_model.dart';
 import 'package:spacexx/features/home/logic/cubit/home_state.dart';
 import 'package:spacexx/features/launches/presentation/screen/launches_screen.dart';
@@ -21,6 +22,7 @@ class HomeCubit extends Cubit<HomeState> {
     LaunchesScreen(),
     RocketScreen(),
     CrewScreen(),
+    DragonesScreen()
   ];
 
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
