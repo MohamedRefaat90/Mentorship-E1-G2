@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spacexx/core/di/dependency_injection.dart';
 import 'package:spacexx/features/crew/presentation/screens/crew_screen.dart';
-import 'package:spacexx/features/dragones/presentation/screen/dragones_screen.dart';
+import 'package:spacexx/features/launchpads/cubit/launchpad_cubit.dart';
+import 'package:spacexx/features/launchpads/presentation/screen/launchpad_screen.dart';
 import 'package:spacexx/features/home/data/models/launches/launches_model.dart';
 import 'package:spacexx/features/home/logic/cubit/home_state.dart';
 import 'package:spacexx/features/launches/presentation/screen/launches_screen.dart';
@@ -17,12 +19,15 @@ class HomeCubit extends Cubit<HomeState> {
   List<UpcomingLaunches> allUpcomingLaunches = [];
   int currentIndex = 0;
 
-  List<Widget> homeScreens = const [
-    UpcomingScreen(),
-    LaunchesScreen(),
-    RocketScreen(),
-    CrewScreen(),
-    DragonesScreen()
+  List<Widget> homeScreens = [
+    const UpcomingScreen(),
+    const LaunchesScreen(),
+    const RocketScreen(),
+    const CrewScreen(),
+    BlocProvider<LaunchpadCubit>(
+      create: (context) => getIt<LaunchpadCubit>(),
+      child: const LaunchpadsScreen(),
+    )
   ];
 
   HomeCubit(this._homeRepo) : super(const HomeState.initial());

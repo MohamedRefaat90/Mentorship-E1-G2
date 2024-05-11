@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:spacexx/core/networking/api_constant.dart';
 import 'package:spacexx/features/crew/data/model/crew_model.dart';
+import 'package:spacexx/features/launchpads/data/models/lanuchpad_model.dart';
 import 'package:spacexx/features/home/data/models/launches/launches_model.dart';
 import 'package:spacexx/features/home/data/models/upcoming_launches/upcoming_launches_model.dart';
 import 'package:spacexx/features/rockets/data/models/rocket_respons_body.dart';
@@ -23,4 +24,7 @@ abstract class ApiService {
 
   @GET(ApiConstants.upcomingLaunches)
   Future<List<UpcomingLaunches>> getUpcomingLaunches();
+
+  @GET(ApiConstants.launchpads)
+  Future<List<LaunchpadModel>> getAllLaunchpads();
 }
