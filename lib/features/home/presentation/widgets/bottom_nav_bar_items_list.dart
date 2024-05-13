@@ -3,7 +3,7 @@ import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 
 List<CrystalNavigationBarItem> items =  [
   CrystalNavigationBarItem(
-    icon: Icons.rocket_rounded,
+    icon: Icons.home_outlined,
   ),
   CrystalNavigationBarItem(
     icon: Icons.history,
