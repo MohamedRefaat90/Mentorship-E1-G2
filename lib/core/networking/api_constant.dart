@@ -6,6 +6,7 @@ class ApiConstants {
 
   static const String launches = "launches";
   static const String upcomingLaunches = "launches/upcoming";
+  static const String launchpads = "launchpads";
 }
 
 class ApiErrors {
