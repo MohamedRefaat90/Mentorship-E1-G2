@@ -18,11 +18,7 @@ class RocketScreen extends StatefulWidget {
 class _RocketScreenState extends State<RocketScreen> {
   @override
   Widget build(BuildContext context) {
-    return AppConnectivity(
-      fetchData: (context) {
-        context.read<HomeCubit>().emitRocketState();
-      },
-  child: BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.when(
             initial: () => Container(),
@@ -31,7 +27,7 @@ class _RocketScreenState extends State<RocketScreen> {
             success: (rocketList) => RocketListVeiw(rocketList: rocketList),
             error: (errorMSG) => const CustomErrorWidget());
       },
-    ));
+    );
   }
 
   @override

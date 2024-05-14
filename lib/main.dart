@@ -33,9 +33,7 @@ class SpaceX extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         theme: AppTheme.darkTthemeMode,
         navigatorKey: navigator,
-        home: const AppConnectivity(
-          child:SplashScreen(),
-        ),
+        home: const SplashScreen(),
         routes: {'/Login': (context) => const LoginScreen()},
       ),
     );

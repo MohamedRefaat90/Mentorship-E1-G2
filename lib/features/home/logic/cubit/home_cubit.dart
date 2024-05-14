@@ -33,13 +33,9 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
 
   void changeBottomNavBar(int index) {
-    // currentIndex = index;
-    // emit(const HomeState.refreshBottomNavbar());
-
     if (index != currentIndex) {
       currentIndex = index;
-      emit(HomeState.success(
-          currentIndex)); // Assuming you have a success state with currentIndex
+      emit(HomeState.success(currentIndex));
     }
   }
 

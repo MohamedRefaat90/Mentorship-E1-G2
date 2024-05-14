@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacexx/core/extension/num_extension.dart';
 import 'package:spacexx/core/resources/assets.dart';
+import 'package:spacexx/core/widgets/app_connectivity.dart';
 import 'package:spacexx/core/widgets/custom_text_field.dart';
 import 'package:spacexx/features/Auth/signup/cubits/fields_validator/fields_validator_cubit.dart';
 import 'package:spacexx/features/Auth/signup/cubits/signup/signup_cubit.dart';
@@ -38,85 +39,88 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          const BackgroundImage(image: Assets.signupBackground),
-          const BackgroundOvarlay(opacity: 0.6),
-          SingleChildScrollView(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 30),
-              child: BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
-                builder: (context, state) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SignupAppbar(),
-                      SizedBox(height: 80.height),
-                      CustomTextField(
-                          textEditingController: emailController,
-                          placeholderText: "Email",
-                          icon: Icons.email,
-                          passwordVisibiltyIcon: false,
-                          isobscure: false,
-                          onChange: (email) => context
-                              .read<FieldsValidatorCubit>()
-                              .validateEmail(email)),
-                      ValidatorText(
-                          displayWhen: emailController.text.isNotEmpty,
-                          title:
-                              context.read<FieldsValidatorCubit>().isVaildEmail
-                                  ? "Vaild Email"
-                                  : "Invaild Email",
-                          rule: context
-                              .read<FieldsValidatorCubit>()
-                              .isVaildEmail),
-                      SizedBox(height: 20.height),
-                      CustomTextField(
-                          textEditingController: passwordController,
-                          placeholderText: "Password",
+      body: AppConnectivity(
+        child: Stack(
+          children: [
+            const BackgroundImage(image: Assets.signupBackground),
+            const BackgroundOvarlay(opacity: 0.6),
+            SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20)
+                    .copyWith(top: 30),
+                child: BlocBuilder<FieldsValidatorCubit, FieldsValidatorState>(
+                  builder: (context, state) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SignupAppbar(),
+                        SizedBox(height: 80.height),
+                        CustomTextField(
+                            textEditingController: emailController,
+                            placeholderText: "Email",
+                            icon: Icons.email,
+                            passwordVisibiltyIcon: false,
+                            isobscure: false,
+                            onChange: (email) => context
+                                .read<FieldsValidatorCubit>()
+                                .validateEmail(email)),
+                        ValidatorText(
+                            displayWhen: emailController.text.isNotEmpty,
+                            title: context
+                                    .read<FieldsValidatorCubit>()
+                                    .isVaildEmail
+                                ? "Vaild Email"
+                                : "Invaild Email",
+                            rule: context
+                                .read<FieldsValidatorCubit>()
+                                .isVaildEmail),
+                        SizedBox(height: 20.height),
+                        CustomTextField(
+                            textEditingController: passwordController,
+                            placeholderText: "Password",
+                            icon: Icons.lock,
+                            passwordVisibiltyIcon: true,
+                            isobscure: true,
+                            onChange: (password) => context
+                                .read<FieldsValidatorCubit>()
+                                .validatePasswordField(password)),
+                        const PasswordValidationRules(),
+                        SizedBox(height: 20.height),
+                        CustomTextField(
+                          placeholderText: "Confirm Password",
+                          textEditingController: confirmPasswordController,
                           icon: Icons.lock,
                           passwordVisibiltyIcon: true,
-                          isobscure: true,
-                          onChange: (password) => context
+                          isobscure:
+                              context.read<FieldsValidatorCubit>().isObsecured,
+                          onChange: (confirmPassword) => context
                               .read<FieldsValidatorCubit>()
-                              .validatePasswordField(password)),
-                      const PasswordValidationRules(),
-                      SizedBox(height: 20.height),
-                      CustomTextField(
-                        placeholderText: "Confirm Password",
-                        textEditingController: confirmPasswordController,
-                        icon: Icons.lock,
-                        passwordVisibiltyIcon: true,
-                        isobscure:
-                            context.read<FieldsValidatorCubit>().isObsecured,
-                        onChange: (confirmPassword) => context
-                            .read<FieldsValidatorCubit>()
-                            .validateConfirmPassword(
-                                confirmPassword, passwordController.text),
-                      ),
-                      ValidatorText(
-                          displayWhen:
-                              confirmPasswordController.text.isNotEmpty,
-                          title: context
-                                  .read<FieldsValidatorCubit>()
-                                  .isPassMatchConfirmPass
-                              ? "Password Match"
-                              : "Password Not Match",
-                          rule: context
-                              .read<FieldsValidatorCubit>()
-                              .isPassMatchConfirmPass),
-                      SizedBox(height: 50.height),
-                      SignupBtn(
-                          email: emailController.text.trim(),
-                          password: confirmPasswordController.text)
-                    ],
-                  );
-                },
+                              .validateConfirmPassword(
+                                  confirmPassword, passwordController.text),
+                        ),
+                        ValidatorText(
+                            displayWhen:
+                                confirmPasswordController.text.isNotEmpty,
+                            title: context
+                                    .read<FieldsValidatorCubit>()
+                                    .isPassMatchConfirmPass
+                                ? "Password Match"
+                                : "Password Not Match",
+                            rule: context
+                                .read<FieldsValidatorCubit>()
+                                .isPassMatchConfirmPass),
+                        SizedBox(height: 50.height),
+                        SignupBtn(
+                            email: emailController.text.trim(),
+                            password: confirmPasswordController.text)
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

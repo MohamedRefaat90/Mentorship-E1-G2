@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spacexx/core/widgets/app_connectivity.dart';
 import '../../logic/cubit/home_cubit.dart';
 import '../../logic/cubit/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,26 +30,28 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Scaffold(
-                  extendBody: true,
-                  backgroundColor: Colors.transparent,
-                  bottomNavigationBar: CrystalNavigationBar(
-                    margin: EdgeInsets.zero,
-                    paddingR: EdgeInsets.zero,
-                    marginR: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 25),
-                    selectedItemColor: AppPalette.purple,
-                    unselectedItemColor: AppPalette.greyColor,
+                AppConnectivity(
+                  child: Scaffold(
+                    extendBody: true,
                     backgroundColor: Colors.transparent,
-                    items: items,
-                    currentIndex: context.read<HomeCubit>().currentIndex,
-                    onTap: (index) {
-                      context.read<HomeCubit>().changeBottomNavBar(index);
-                    },
+                    bottomNavigationBar: CrystalNavigationBar(
+                      margin: EdgeInsets.zero,
+                      paddingR: EdgeInsets.zero,
+                      marginR: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 25),
+                      selectedItemColor: AppPalette.purple,
+                      unselectedItemColor: AppPalette.greyColor,
+                      backgroundColor: Colors.transparent,
+                      items: items,
+                      currentIndex: context.read<HomeCubit>().currentIndex,
+                      onTap: (index) {
+                        context.read<HomeCubit>().changeBottomNavBar(index);
+                      },
+                    ),
+                    body: context
+                        .read<HomeCubit>()
+                        .homeScreens[context.read<HomeCubit>().currentIndex],
                   ),
-                  body: context
-                      .read<HomeCubit>()
-                      .homeScreens[context.read<HomeCubit>().currentIndex],
                 ),
               ],
             ),

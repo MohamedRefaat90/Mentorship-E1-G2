@@ -46,11 +46,7 @@ class CrewScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  AppConnectivity(
-      fetchData: (context) {
-        context.read<HomeCubit>().getAllCrew();
-      },
-  child: BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.when(
           initial: () => const Center(
@@ -64,7 +60,7 @@ class CrewScreenBody extends StatelessWidget {
           error: (error) => const CustomErrorWidget(),
         );
       },
-    ));
+    );
   }
 }
 

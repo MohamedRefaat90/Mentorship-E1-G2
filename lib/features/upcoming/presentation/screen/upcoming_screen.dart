@@ -20,18 +20,15 @@ class UpcomingScreen extends StatefulWidget {
 }
 
 class _UpcomingScreenState extends State<UpcomingScreen> {
-   @override
+  @override
   void initState() {
     super.initState();
     context.read<HomeCubit>().emitGetUpcomingLaunches();
   }
+
   @override
   Widget build(BuildContext context) {
-    return  AppConnectivity(
-      fetchData: (context) {
-        context.read<HomeCubit>().emitGetUpcomingLaunches();
-      },
-  child:BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
+    return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
       return state.when(
           initial: () => Container(),
           refreshBottomNavbar: () => Container(),
@@ -58,8 +55,6 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                   ],
                 ),
               ));
-    }));
+    });
   }
-
- 
 }
