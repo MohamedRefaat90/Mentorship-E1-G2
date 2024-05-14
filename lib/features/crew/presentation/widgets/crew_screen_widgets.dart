@@ -12,7 +12,7 @@ import 'package:spacexx/features/crew/logic/cubit/crew_state.dart';
 import 'package:spacexx/features/crew/presentation/screens/crew_detalis_screen.dart';
 
 class CrewScreen extends StatelessWidget {
-  const CrewScreen({Key? key}) : super(key: key);
+  const CrewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

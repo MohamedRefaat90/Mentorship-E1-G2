@@ -5,7 +5,9 @@ import 'package:spacexx/core/widgets/custom_error_widget.dart';
 import 'package:spacexx/core/widgets/custom_loading_widget.dart';
 import 'package:spacexx/features/home/logic/cubit/home_cubit.dart';
 import 'package:spacexx/features/home/logic/cubit/home_state.dart';
+import 'package:spacexx/features/rockets/logic/cubit/rocket_cubit.dart';
 
+import '../../logic/cubit/rocket_state.dart';
 import '../widgets/rocket_list_veiw.dart';
 
 class RocketScreen extends StatefulWidget {
@@ -18,11 +20,10 @@ class RocketScreen extends StatefulWidget {
 class _RocketScreenState extends State<RocketScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<RocketCubit, RocketState>(
       builder: (context, state) {
         return state.when(
             initial: () => Container(),
-            refreshBottomNavbar: () => Container(),
             loading: () => const CustomLoadingWidget(),
             success: (rocketList) => RocketListVeiw(rocketList: rocketList),
             error: (errorMSG) => const CustomErrorWidget());
@@ -32,7 +33,7 @@ class _RocketScreenState extends State<RocketScreen> {
 
   @override
   void initState() {
-    context.read<HomeCubit>().emitRocketState();
+    context.read<RocketCubit>().emitRocketState();
     super.initState();
   }
 }
