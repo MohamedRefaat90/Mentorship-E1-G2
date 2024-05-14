@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacexx/core/resources/assets.dart';
+import 'package:spacexx/core/widgets/app_connectivity.dart';
 import 'package:spacexx/core/widgets/custom_error_widget.dart';
 import 'package:spacexx/core/widgets/custom_loading_widget.dart';
 import 'package:spacexx/features/crew/presentation/widgets/crew_screen_widgets.dart';
@@ -45,7 +46,11 @@ class CrewScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return  AppConnectivity(
+      fetchData: (context) {
+        context.read<HomeCubit>().getAllCrew();
+      },
+  child: BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.when(
           initial: () => const Center(
@@ -59,7 +64,7 @@ class CrewScreenBody extends StatelessWidget {
           error: (error) => const CustomErrorWidget(),
         );
       },
-    );
+    ));
   }
 }
 

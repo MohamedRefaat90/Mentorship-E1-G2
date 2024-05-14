@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spacexx/core/widgets/app_connectivity.dart';
 import 'package:spacexx/core/widgets/custom_error_widget.dart';
 import 'package:spacexx/core/widgets/custom_loading_widget.dart';
 import 'package:spacexx/features/home/logic/cubit/home_cubit.dart';
@@ -17,7 +18,11 @@ class RocketScreen extends StatefulWidget {
 class _RocketScreenState extends State<RocketScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return AppConnectivity(
+      fetchData: (context) {
+        context.read<HomeCubit>().emitRocketState();
+      },
+  child: BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.when(
             initial: () => Container(),
@@ -26,7 +31,7 @@ class _RocketScreenState extends State<RocketScreen> {
             success: (rocketList) => RocketListVeiw(rocketList: rocketList),
             error: (errorMSG) => const CustomErrorWidget());
       },
-    );
+    ));
   }
 
   @override
