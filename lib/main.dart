@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:spacexx/features/Auth/login/presentation/screen/login_screen.dart';
+import 'package:spacexx/features/splash/splash_screen.dart';
 import 'core/services/initServices.dart';
 import 'core/widgets/app_connectivity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,9 @@ class SpaceX extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         theme: AppTheme.darkTthemeMode,
         navigatorKey: navigator,
-        home: const AppConnectivity(),
+        home: const AppConnectivity(
+          child:SplashScreen(),
+        ),
         routes: {'/Login': (context) => const LoginScreen()},
       ),
     );

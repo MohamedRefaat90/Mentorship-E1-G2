@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacexx/core/extension/num_extension.dart';
+import 'package:spacexx/core/widgets/app_connectivity.dart';
 import 'package:spacexx/core/widgets/custom_error_widget.dart';
 import 'package:spacexx/core/widgets/custom_loading_widget.dart';
 import 'package:spacexx/features/home/logic/cubit/home_cubit.dart';
@@ -19,9 +20,18 @@ class UpcomingScreen extends StatefulWidget {
 }
 
 class _UpcomingScreenState extends State<UpcomingScreen> {
+   @override
+  void initState() {
+    super.initState();
+    context.read<HomeCubit>().emitGetUpcomingLaunches();
+  }
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
+    return  AppConnectivity(
+      fetchData: (context) {
+        context.read<HomeCubit>().emitGetUpcomingLaunches();
+      },
+  child:BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
       return state.when(
           initial: () => Container(),
           refreshBottomNavbar: () => Container(),
@@ -48,12 +58,8 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                   ],
                 ),
               ));
-    });
+    }));
   }
 
-  @override
-  void initState() {
-    super.initState();
-    context.read<HomeCubit>().emitGetUpcomingLaunches();
-  }
+ 
 }

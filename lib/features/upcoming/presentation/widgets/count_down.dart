@@ -7,13 +7,17 @@ class UpcomingCountDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime targetDate = DateTime(2024, 5, 29); 
+    Duration duration = targetDate.difference(DateTime.now());
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: SlideCountdownSeparated(
-          duration: const Duration(days: 6),
-          padding: const EdgeInsets.all(13),
-          style: AppStyles.font18SemiBoldWhite(context),
-          separatorStyle: AppStyles.font18SemiBoldWhite(context)),
+        duration: duration,
+        padding: const EdgeInsets.all(13),
+        style: AppStyles.font18SemiBoldWhite(context),
+        separatorStyle: AppStyles.font18SemiBoldWhite(context),
+      ),
     );
   }
 }
