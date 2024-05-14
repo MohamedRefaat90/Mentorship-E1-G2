@@ -5,8 +5,6 @@ import '../../data/models/lanuchpad_model.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:spacexx/features/launchpads/presentation/screen/lunchpad_details_screen.dart';
 
-
-
 class GridAnimation extends StatelessWidget {
   const GridAnimation({
     super.key,
@@ -26,7 +24,8 @@ class GridAnimation extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => LaunchpadDetailsScreen(launchpad: launchpadDetails),
+            builder: (context) =>
+                LaunchpadDetailsScreen(launchpad: launchpadDetails),
           ),
         );
       },
@@ -41,7 +40,9 @@ class GridAnimation extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [
                 LaunchpadImage(
-                    itemHeight: itemHeight, image: launchpadDetails.images!),
+                    itemHeight: itemHeight,
+                    image: launchpadDetails.images!,
+                    launchpadId: launchpadDetails.id!),
                 OverlayWithRegionText(
                     region: launchpadDetails.region!, itemHeight: itemHeight)
               ],
